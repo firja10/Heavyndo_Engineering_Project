@@ -29,6 +29,22 @@ Route::get('/home', [\App\Http\Controllers\LandingController::class,'home'])->na
 
 // Route::get('/data_projek', [\App\Http\Controllers\LandingController::class,'home'])->name('home')->middleware('auth');
 
+
+
+
+
+
+//WARNING ! HALAMAN ADMIN 
+
+// Route::resource('/admin', \App\Http\Controllers\JenisProjekController::class )->middleware('auth');
+
+
+Route::get('/admin/home', [\App\Http\Controllers\LandingController::class,'adminHome'])->name('adminHome')->middleware('auth');
+
+Route::get('/admin/data_proyek', [\App\Http\Controllers\LandingController::class,'adminDataproyek'])->name('adminDataproyek')->middleware('auth');
+
+
+
 Route::resource('/data_proyek', \App\Http\Controllers\JenisProjekController::class )->middleware('auth');
 
 

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title> @yield('title')  </title>
+    <title>PT. HEAVYNDO ENGINEERING</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{asset('src/bootstrap/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -43,7 +43,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="{{url('/')}}">
+                <a class="nav-link" href="index.html">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Beranda</span></a>
             </li>
@@ -51,9 +51,9 @@
 
 
             <li class="nav-item">
-                <a class="nav-link" href="{{url('/admin/data_proyek')}}">
+                <a class="nav-link" href="index.html">
                     <i class="fas fa-fw fa-list-alt"></i>
-                    <span>Data Proyek</span></a>
+                    <span>Daftar Proyek</span></a>
             </li>
 
 
