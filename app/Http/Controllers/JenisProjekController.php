@@ -41,6 +41,25 @@ class JenisProjekController extends Controller
     public function store(Request $request)
     {
         //
+
+
+        $jenis_Projek = new Jenis_Projek() ; 
+
+        $jenis_Projek['nama_projek'] = $request->nama_projek;
+
+        $jenis_Projek['durasi_projek'] = $request->durasi_projek;
+
+        $jenis_Projek['status_projek'] = $request->status_projek;
+
+        $jenis_Projek['anggaran_projek'] = $request->anggaran_projek;
+
+        $jenis_Projek['gambar_projek'] = $request->gambar_projek;
+
+        $jenis_Projek->save();
+
+
+        return redirect('/admin/data_proyek')->with('success_tambah_proyek', 'Data Projek sukses ditambahkan');
+
     }
 
     /**
@@ -83,8 +102,12 @@ class JenisProjekController extends Controller
      * @param  \App\Models\Jenis_Projek  $jenis_Projek
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Jenis_Projek $jenis_Projek)
+    public function destroy(Jenis_Projek $jenis_Projek, $id)
     {
         //
+
+        $jenis_Projek = Jenis_Projek::findOrFail($id);
+        $jenis_Projek->delete();
+        return redirect('/admin/data_proyek')->with('success_hapus_proyek', 'Data Projek sukses dihapuskan');
     }
 }

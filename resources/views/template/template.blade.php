@@ -58,19 +58,12 @@
 
 
             <li class="nav-item">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{url('/admin/kelola_user')}}">
                     <i class="fas fa-fw fa-user-circle"></i>
                     <span>Kelola User</span></a>
             </li>
 
 
-
-
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-list-alt"></i>
-                    <span>Daftar Proyek</span></a>
-            </li>
 
 
             <li class="nav-item">
