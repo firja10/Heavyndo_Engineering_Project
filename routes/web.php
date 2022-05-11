@@ -41,18 +41,18 @@ Route::get('/home', [\App\Http\Controllers\LandingController::class,'home'])->na
 
 // Route::get('/admin/home', [\App\Http\Controllers\LandingController::class,'adminHome'])->name('adminHome')->middleware('auth');
 
-Route::get('/admin/data_proyek', [\App\Http\Controllers\LandingController::class,'adminDataproyek'])->name('adminDataproyek')->middleware('auth');
+Route::get('/admin/data_proyek', [\App\Http\Controllers\LandingController::class,'adminDataproyek'])->name('adminDataproyek')->middleware('is_admin');
 
-Route::post('/admin/data_proyek', [\App\Http\Controllers\LandingController::class,'adminTambahDataProyek'])->name('adminTambahDataProyek')->middleware('auth');
-
-
+Route::post('/admin/data_proyek', [\App\Http\Controllers\LandingController::class,'adminTambahDataProyek'])->name('adminTambahDataProyek')->middleware('is_admin');
 
 
-Route::get('/admin/kelola_user', [\App\Http\Controllers\LandingController::class,'adminKelolaUser'])->name('adminKelolaUser')->middleware('auth');
 
-Route::get('/admin/laporan', [\App\Http\Controllers\LandingController::class,'adminLaporan'])->name('adminLaporan')->middleware('auth');
 
-Route::get('/admin/pengaturan', [\App\Http\Controllers\LandingController::class,'adminPengaturan'])->name('adminPengaturan')->middleware('auth');
+Route::get('/admin/kelola_user', [\App\Http\Controllers\LandingController::class,'adminKelolaUser'])->name('adminKelolaUser')->middleware('is_admin');
+
+Route::get('/admin/laporan', [\App\Http\Controllers\LandingController::class,'adminLaporan'])->name('adminLaporan')->middleware('is_admin');
+
+Route::get('/admin/pengaturan', [\App\Http\Controllers\LandingController::class,'adminPengaturan'])->name('adminPengaturan')->middleware('is_admin');
 
 
 

@@ -23,7 +23,27 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Selamat Datang Administrator</h1>
+
+                        @if (Auth::user()->is_admin == 1)
+
+                        <h1 class="h3 mb-0 text-gray-800">Selamat Datang Bapak / Ibu Administrator</h1>
+
+                        @elseif(Auth::user()->is_supervisor == 1)
+
+                        <h1 class="h3 mb-0 text-gray-800">Selamat Datang Bapak / Ibu Supervisor</h1>
+
+
+                        @elseif(Auth::user()->is_manager == 1)
+
+                        <h1 class="h3 mb-0 text-gray-800">Selamat Datang Bapak / Ibu Manager</h1>
+                        
+
+
+                        @else
+                            
+                        @endif
+
+                      
 
                         
 

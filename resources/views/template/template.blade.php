@@ -41,7 +41,19 @@
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Dashboard -->
+
+
+
+
+
+
+
+            <!-- Nav Item - Dashboard  - Admin -->
+
+            @if(Auth::user()->is_admin == 1)
+                
+          
+
             <li class="nav-item active">
                 <a class="nav-link" href="{{url('/')}}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
@@ -79,6 +91,156 @@
                     <span>Pengaturan</span></a>
             </li>
 
+
+
+
+
+             <!-- Nav Item - Dashboard  - SuperVisor -->
+
+
+
+             @elseif(Auth::user()->is_supervisor == 1)
+                
+         
+
+             <li class="nav-item active">
+                <a class="nav-link" href="{{url('/')}}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Beranda</span></a>
+            </li>
+
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('/admin/data_proyek')}}">
+                    <i class="fas fa-fw fa-file-image"></i>
+                    <span>Gambar Proyek</span></a>
+            </li>
+
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('/admin/data_proyek')}}">
+                    <i class="fas fa-fw fa-tasks"></i>
+                    <span>Data Kemajuan</span></a>
+            </li>
+
+
+
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('/admin/kelola_user')}}">
+                    <i class="fas fa-fw fa-signal"></i>
+                    <span>Grafik</span></a>
+            </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('/admin/kelola_user')}}">
+                    <i class="fas fa-fw fa-credit-card"></i>
+                    <span>RAB</span></a>
+            </li>
+
+
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-bell"></i>
+                    <span>Laporan</span></a>
+            </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-cogs"></i>
+                    <span>Pengaturan</span></a>
+            </li>
+
+
+
+
+             <!-- Nav Item - Dashboard  - Manager -->
+
+             @elseif(Auth::user()->is_manager == 1)
+
+
+             <!-- Nav Item - Dashboard  - Manager -->
+
+
+
+
+
+             <li class="nav-item active">
+                <a class="nav-link" href="{{url('/')}}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Beranda</span></a>
+            </li>
+
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('/admin/kelola_user')}}">
+                    <i class="fas fa-fw fa-signal"></i>
+                    <span>Grafik</span></a>
+            </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-bell"></i>
+                    <span>Laporan</span></a>
+            </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-cogs"></i>
+                    <span>Pengaturan</span></a>
+            </li>
+
+
+
+             @else
+
+
+
+
+
+             <li class="nav-item active">
+                <a class="nav-link" href="{{url('/')}}">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Beranda</span></a>
+            </li>
+
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{url('/admin/kelola_user')}}">
+                    <i class="fas fa-fw fa-signal"></i>
+                    <span>Grafik</span></a>
+            </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-bell"></i>
+                    <span>Laporan</span></a>
+            </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-cogs"></i>
+                    <span>Pengaturan</span></a>
+            </li>
+
+
+
+
+
+             @endif
 
 
 
@@ -316,7 +478,26 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"> {{Auth::user()->name}} <br> 
+                                   @if (Auth::user()->is_admin == 1)
+
+                                   <strong>Admin</strong>
+
+                                   @elseif(Auth::user()->is_supervisor == 1)
+
+                                   <strong>SuperVisor</strong>
+                                       
+                                   @elseif(Auth::user()->is_manager == 1)
+                                   
+                                   <strong>Manager</strong>
+
+                                   @else
+
+                                   <strong>User</strong>
+
+                                   @endif
+                            
+                                 </span>
                                 <img class="img-profile rounded-circle"
                                     src="{{asset('src/bootstrap/img/undraw_profile.svg')}}">
                             </a>
@@ -336,7 +517,13 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" 
+                                
+                                href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                              document.getElementById('logout-form').submit();"
+                                
+                                >
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -406,6 +593,39 @@
             </div>
         </div>
     </div>
+
+
+
+
+
+    <!-- MODAL TAMBAH PROJEK -->
+
+
+  {{-- <div class="modal fade" id="modaltambahProjek" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+              </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+              <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+              <a class="btn btn-primary" href="login.html">Logout</a>
+          </div>
+      </div>
+  </div>
+</div> --}}
+
+
+
+     <!-- MODAL TAMBAH USER -->
+
+
+
 
     <!-- Bootstrap core JavaScript-->
     <script src="{{asset('src/bootstrap/vendor/jquery/jquery.min.js')}}"></script>
