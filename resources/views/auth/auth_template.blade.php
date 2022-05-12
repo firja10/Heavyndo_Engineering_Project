@@ -9,6 +9,15 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <style>
+        .bg-login-image
+        {
+            background:url("{{asset('src/images/logo_sementara.png')}}");
+            background-position:center;
+            background-size:cover
+        }
+    </style>
+
     <title> @yield('title')</title>
 {{-- 
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> --}}
