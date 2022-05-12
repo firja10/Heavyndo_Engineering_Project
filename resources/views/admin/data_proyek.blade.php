@@ -31,8 +31,8 @@ Data Proyek PT. HEAVYNDO
                                 class="fas fa-plus fa-sm text-white-50"></i> Tambah Data Projek</a> --}}
 
 
-                                <a href = "#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                    class="fas fa-plus fa-sm text-white-50" data-toggle = "modal" data-target = "#logoutModal"></i> Tambah Data Projek</a>
+                                <a href = "#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle = "modal" data-target = "#modaltambahProjek"><i
+                                    class="fas fa-plus fa-sm text-white-50" ></i> Tambah Data Projek</a>
 
 
 
@@ -67,7 +67,7 @@ Data Proyek PT. HEAVYNDO
                                         <th>Durasi Projek</th>
                                         <th>Status Projek</th>
                                         <th>Anggaran Projek</th>
-                                        <th>Ilustrasi Projek</th>
+                                        <th>Gambar Projek</th>
                                         {{-- <th>Salary</th> --}}
                                     </tr>
                                 </thead>
@@ -77,7 +77,7 @@ Data Proyek PT. HEAVYNDO
                                         <th>Durasi Projek</th>
                                         <th>Status Projek</th>
                                         <th>Anggaran Projek</th>
-                                        <th>Ilustrasi Projek</th>
+                                        <th>Gambar Projek</th>
                                         {{-- <th>Salary</th> --}}
                                     </tr>
                                 </tfoot>

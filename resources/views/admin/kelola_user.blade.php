@@ -70,8 +70,11 @@ Data Proyek PT. HEAVYNDO
                                     <td>
                                         @if ($user->is_admin == 1)
                                         Admin
-                                        @else
-                                          Ordinary User
+                                        @elseif($user->is_supervisor == 1)
+                                          SuperVisor
+                                        
+                                        @elseif($user->is_manager == 1)
+                                          Manager
                                         @endif
                                         
                                     </td>
