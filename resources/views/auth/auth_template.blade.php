@@ -16,7 +16,21 @@
             background-position:center;
             background-size:cover
         }
+
+
+            #logo_sementara{
+                width:30%;
+                margin-bottom:2%;
+            }
+  
+            @media only screen and (min-width : 900px){
+                #logo_sementara {
+                    display:none;
+                }
+            }
     </style>
+
+
 
     <title> @yield('title')</title>
 {{-- 
