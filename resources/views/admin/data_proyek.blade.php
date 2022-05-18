@@ -68,6 +68,7 @@ Data Proyek PT. HEAVYNDO
                                         <th>Status Projek</th>
                                         <th>Anggaran Projek</th>
                                         <th>Gambar Projek</th>
+                                        <th>Aksi</th>
                                         {{-- <th>Salary</th> --}}
                                     </tr>
                                 </thead>
@@ -78,6 +79,7 @@ Data Proyek PT. HEAVYNDO
                                         <th>Status Projek</th>
                                         <th>Anggaran Projek</th>
                                         <th>Gambar Projek</th>
+                                        <th>Aksi</th>
                                         {{-- <th>Salary</th> --}}
                                     </tr>
                                 </tfoot>
@@ -89,9 +91,44 @@ Data Proyek PT. HEAVYNDO
                                 <tr>
                                     <td>{{$projeks->nama_projek}}</td>
                                     <td>{{$projeks->durasi_projek}}</td>
-                                    <td>{{$projeks->status_projek}}</td>
+                                    <td>
+                                    @if ($projeks->status_projek == "on_going")
+
+                                    <div class="alert alert-warning alert-block">
+                                        <strong>On Going</strong>
+                                    </div>
+
+                                    @elseif($projeks->status_projek == "finished")
+
+                                    <div class="alert alert-success alert-block">
+                                        <strong>Finished</strong>
+                                    </div>
+
+
+
+                                    @elseif($projeks->status_projek == "cancelled")
+
+                                    
+                                    <div class="alert alert-danger alert-block">
+                                        <strong>Cancelled</strong>
+                                    </div>
+
+                                    
+                                    @else
+                                    Tidak Ada                                        
+                                    @endif
+                                    
+                                    </td>
                                     <td>{{$projeks->anggaran_projek}}</td>
                                     <td>{{$projeks->gambar_projek}}</td>
+                                    <td> 
+                                        <button class = "btn btn-primary">Lihat Projek</button> 
+                                        <br>
+                                        <button class = "btn btn-warning" style = "margin-top:10px;">Edit Projek</button>
+                                        <br>
+                                        <button class = "btn btn-danger" style = "margin-top:10px;">Hapus Projek</button>
+                                    
+                                    </td>
                                     {{-- <td>$320,800</td> --}}
                                 </tr>
 

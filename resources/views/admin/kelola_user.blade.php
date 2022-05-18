@@ -1,7 +1,7 @@
 @extends('template.template')
 @section('title')
 
-Data Proyek PT. HEAVYNDO
+Kelola Data User PT. HEAVYNDO
     
 @endsection
 @section('content')
@@ -21,12 +21,10 @@ Data Proyek PT. HEAVYNDO
 
 
 
-                                            <!-- Page Heading -->
+                <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Kelola Data User</h1>
-
                         
-
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-plus fa-sm text-white-50"></i> Tambah Data user</a>
                     </div>
@@ -38,13 +36,14 @@ Data Proyek PT. HEAVYNDO
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <table class="table table-bordered table-paginate" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
                                         <th>Nama User</th>
                                         <th>Email User</th>
                                         <th>Status User</th>
                                         <th>Tanggal Daftar Akun</th>
+                                        <th>Lihat User</th>
                                         {{-- <th>Ilustrasi Projek</th> --}}
                                         {{-- <th>Salary</th> --}}
                                     </tr>
@@ -55,6 +54,7 @@ Data Proyek PT. HEAVYNDO
                                         <th>Email User</th>
                                         <th>Status User</th>
                                         <th>Tanggal Daftar Akun</th>
+                                        <th>Lihat User</th>
                                         {{-- <th>Ilustrasi Projek</th> --}}
                                         {{-- <th>Salary</th> --}}
                                     </tr>
@@ -79,6 +79,16 @@ Data Proyek PT. HEAVYNDO
                                         
                                     </td>
                                     <td>{{$user->created_at}}</td>
+
+                                    <td>
+
+                                        <button class = "btn btn-primary">Lihat User</button> 
+                                        <br>
+                                        <button class = "btn btn-warning" style = "margin-top:10px;">Edit User</button>
+                                        <br>
+                                        <button class = "btn btn-danger" style = "margin-top:10px;">Hapus User</button>
+
+                                    </td>
                                     {{-- <td>{{$user->gambar_projek}}</td> --}}
                                     {{-- <td>$320,800</td> --}}
                                 </tr>
@@ -90,6 +100,13 @@ Data Proyek PT. HEAVYNDO
                             </table>
                         </div>
                     </div>
+                </div>
+
+
+                <br>
+
+                <div class="d-flex justify-content-center">
+                    {{-- {!! $users->links() !!} --}}
                 </div>
 
             </div>

@@ -26,9 +26,13 @@ Login HEAVYNDO
                                 <form class="user" method="POST" action="{{ route('login') }}">
                                     @csrf
                                     <div class="form-group">
-                                        <input type="email" class="form-control form-control-user"
+                                        {{-- <input type="email" class="form-control form-control-user"
                                             id="exampleInputEmail" aria-describedby="emailHelp"
-                                            placeholder="Enter Email Address..." name = "email">
+                                            placeholder="Enter Email Address..." name = "email"> --}}
+
+                                            <input type="text" class="form-control form-control-user"
+                                            id="inputUsername" aria-describedby="usernameHelp"
+                                            placeholder="Enter Username" name = "name">
                                     </div>
                                     <div class="form-group">
                                         <input type="password" class="form-control form-control-user"

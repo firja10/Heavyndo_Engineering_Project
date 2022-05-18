@@ -50,6 +50,20 @@ Route::post('/admin/data_proyek', [\App\Http\Controllers\LandingController::clas
 
 Route::get('/admin/kelola_user', [\App\Http\Controllers\LandingController::class,'adminKelolaUser'])->name('adminKelolaUser')->middleware('is_admin');
 
+
+
+
+
+
+
+Route::get('/admin/kelola_user/{id}', [\App\Http\Controllers\LandingController::class,'adminEditUser'])->name('adminEditUser')->middleware('is_admin');
+
+Route::post('/admin/kelola_user/{id}', [\App\Http\Controllers\LandingController::class,'adminUpdateUser'])->name('adminUpdateUser')->middleware('is_admin');
+
+
+
+
+
 Route::get('/admin/laporan', [\App\Http\Controllers\LandingController::class,'adminLaporan'])->name('adminLaporan')->middleware('is_admin');
 
 Route::get('/admin/pengaturan', [\App\Http\Controllers\LandingController::class,'adminPengaturan'])->name('adminPengaturan')->middleware('is_admin');

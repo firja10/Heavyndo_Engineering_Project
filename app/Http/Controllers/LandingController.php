@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Jenis_Projek;
 use App\Models\User;
+use Illuminate\Support\Facades\Storage;
 
 class LandingController extends Controller
 {
@@ -23,7 +24,8 @@ class LandingController extends Controller
     {
         # code...
 
-        $jenis_Projek = Jenis_Projek::all();
+        // $jenis_Projek = Jenis_Projek::all();
+        $jenis_Projek = Jenis_Projek::paginate(3);
 
         return view('admin.home', compact('jenis_Projek'));
 
@@ -58,7 +60,8 @@ class LandingController extends Controller
     {
         # code...
 
-        $jenis_Projek = Jenis_Projek::all();
+        // $jenis_Projek = Jenis_Projek::all();
+        $jenis_Projek = Jenis_Projek::paginate(3);
 
         return view('admin.data_proyek', compact('jenis_Projek'));
 
@@ -111,7 +114,8 @@ class LandingController extends Controller
     public function adminKelolaUser()
     {
         # code...
-        $users = User::all();
+        // $users = User::all();
+        $users = User::paginate(2);
         return view('admin.kelola_user', compact('users'));
     
     }
@@ -134,6 +138,80 @@ class LandingController extends Controller
         # code...
     }
 
+
+
+
+
+    public function adminEditUser($id)
+    {
+        # code...
+
+        $users = User::findOrFail($id);
+
+        return view('kelola_user_id', compact('users'));
+
+    }
+
+
+
+    public function adminUpdateUser( Request $request, $id)
+    {
+        # code...
+
+
+        
+        if($request->hasFile('gambar_profil'))
+        {
+
+            $filename = $request['gambar_profil']->getClientOriginalName();
+
+            if(User::find($id)->gambar_profil)
+            {
+
+                Storage::delete('/public/storage/User/'.User::find($id)->gambar_profil);
+
+            }
+
+            $request["gambar_profil"]->storeAs('User', $filename, 'public'); }
+
+            else {
+                $filename=User::find($id)->gambar_profil;
+            }
+
+        
+            $orders = User::where('id', $id)->update([
+                'name' => $request['name'],
+                'gambar_profil' =>$filename,
+            ]);
+
+
+            return redirect('/admin/kelola_user/'. $id)->with('update_bukti','Bukti Bayar Berhasil Diupdate');
+
+
+
+    }
+
+
+
+
+
+        public function TambahUser(Request $request)
+        {
+            # code...
+
+
+            $users = new User();
+
+            $users['name'] = $request->name;
+            $users['email'] = $request->email;
+            $users['password'] = bcrypt($request->password); 
+            $users['is_admin'] = $request->is_admin;
+            $users['is_supervisor'] = $request->is_supervisor;
+            $users['is_manager'] = $request->is_manager;
+
+
+            
+        }
 
 
 

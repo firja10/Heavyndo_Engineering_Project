@@ -20,6 +20,10 @@
     <!-- Custom styles for this template-->
     <link href="{{asset('src/bootstrap/css/sb-admin-2.min.css')}}" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.0/css/jquery.dataTables.min.css">
+
+
+
 </head>
 
 <body id="page-top">
@@ -315,7 +319,7 @@
                     </button>
 
                     <!-- Topbar Search -->
-                    <form
+                    {{-- <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
                             <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
@@ -326,7 +330,7 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </form> --}}
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -604,6 +608,8 @@
 
     <!-- MODAL TAMBAH PROJEK -->
 
+    <form action="{{route('adminTambahDataProyek')}}" method="post">
+        @csrf
 
   <div class="modal fade" id="modaltambahProjek" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
   aria-hidden="true">
@@ -618,7 +624,7 @@
           <div class="modal-body">
             {{-- <h6> <strong> Silakan Tambahkan Data Projek  </strong> </h6> --}}
 
-            <form action="" method="post">
+     
                 <div class="form-group">
                     <label for="nama_projek"> Nama Projek</label>
                     <input type="text" name="nama_projek" id="nama_projek" class = "form-control" placeholder="Masukkan Nama Projek">
@@ -632,15 +638,19 @@
 
 
 
-                
-
                 <div class="form-group">
                     <label for="nama_projek"> Status Projek</label>
 
                     
+{{--                 
+                    <input type="text" name="status_projek" id="status_projek" class = "form-control" placeholder="Masukkan Status Projek Saat Ini "> --}}
                 
-                    <input type="text" name="status_projek" id="status_projek" class = "form-control" placeholder="Masukkan Status Projek Saat Ini ">
-                
+                    <select name="status_projek" id="status_projek" class = "form-control">
+                        <option value="" selected disabled> -- Silakan Pilih --</option>
+                        <option value="on_going"> On-Going</option>
+                        <option value="finished">Finished</option>
+                        <option value="cancelled">Cancelled</option>
+                    </select>
                 
                 </div>
                 
@@ -649,11 +659,13 @@
                     <input type="number" name="anggaran_projek" id="anggaran_projek" class = "form-control" placeholder="Masukkan Anggaran Projek Saat Ini ">
                 </div>
 
+                <div class="form-group">
+                    <label for="nama_projek"> Gambar Projek</label>
+                    <input type="file" name="gambar_projek" id="gambar_projek" class = "form-control">
+                </div>
 
 
 
-
-            </form>
 
           </div>
           <div class="modal-footer">
@@ -665,6 +677,9 @@
 </div>
 
 
+</form>
+
+
 
      <!-- MODAL TAMBAH USER -->
 
@@ -672,6 +687,15 @@
 
 
     <!-- Bootstrap core JavaScript-->
+
+    <script>
+        $(document).ready(function () {
+        $('#dataTable').DataTable();
+        });
+    </script>
+
+<script src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"></script>
+
     <script src="{{asset('src/bootstrap/vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('src/bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
