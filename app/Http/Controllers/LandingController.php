@@ -148,7 +148,7 @@ class LandingController extends Controller
 
         $users = User::findOrFail($id);
 
-        return view('kelola_user_id', compact('users'));
+        return view('admin.kelola_user_id', compact('users'));
 
     }
 
@@ -195,7 +195,7 @@ class LandingController extends Controller
 
 
 
-        public function TambahUser(Request $request)
+        public function adminTambahUser(Request $request)
         {
             # code...
 
@@ -208,7 +208,9 @@ class LandingController extends Controller
             $users['is_admin'] = $request->is_admin;
             $users['is_supervisor'] = $request->is_supervisor;
             $users['is_manager'] = $request->is_manager;
+            $users->save();
 
+            return redirect('/admin/kelola_user')->with('admintambahuser','User Telah Ditambahkan');
 
             
         }

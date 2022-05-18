@@ -686,6 +686,128 @@
 
 
 
+
+
+
+      <!-- MODAL TAMBAH PROJEK -->
+
+    <form action="{{route('adminTambahUser')}}" method="post">
+        @csrf
+
+  <div class="modal fade" id="modaltambahUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Tambah Data User</h5>
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+              </button>
+          </div>
+          <div class="modal-body">
+            {{-- <h6> <strong> Silakan Tambahkan Data Projek  </strong> </h6> --}}
+
+
+            <div class="form-group">
+                <label for="name"> Nama User</label>
+                <input type="text" name="name" id="name" class = "form-control" placeholder="Masukkan Nama User">
+            </div>
+
+                <div class="form-group">
+                    <label for="email"> Email User</label>
+                    <input type="email" name="email" id="email" class = "form-control" placeholder="Masukkan Email User">
+                </div>
+
+
+                
+                <div class="form-group">
+                    <label for="password"> Password User</label>
+                    <input type="password" name="password" id="password" class = "form-control" placeholder="Masukkan Password User">
+                </div>
+
+
+
+                <div class="form-group">
+                    <label for="is_admin"> Status Admin</label>  
+{{--                 
+                    <input type="text" name="status_projek" id="status_projek" class = "form-control" placeholder="Masukkan Status Projek Saat Ini "> --}}
+                
+                    <select name="is_admin" id="is_admin" class = "form-control">
+                        <option value="" selected disabled> -- Silakan Pilih --</option>
+                        <option value=1> Iya</option>
+                        <option value=0>Tidak</option>
+                    </select>
+                
+                </div>
+
+
+
+                <div class="form-group">
+                    <label for="is_supervisor"> Status SuperVisor</label>  
+{{--                 
+                    <input type="text" name="status_projek" id="status_projek" class = "form-control" placeholder="Masukkan Status Projek Saat Ini "> --}}
+                
+                    <select name="is_supervisor" id="is_supervisor" class = "form-control">
+                        <option value="" selected disabled> -- Silakan Pilih --</option>
+                        <option value=1> Iya</option>
+                        <option value=0>Tidak</option>
+                    </select>
+                
+                </div>
+
+
+
+                
+                <div class="form-group">
+                    <label for="is_manager"> Status Manager</label>  
+{{--                 
+                    <input type="text" name="status_projek" id="status_projek" class = "form-control" placeholder="Masukkan Status Projek Saat Ini "> --}}
+                
+                    <select name="is_manager" id="is_manager" class = "form-control">
+                        <option value="" selected disabled> -- Silakan Pilih --</option>
+                        <option value=1> Iya</option>
+                        <option value=0>Tidak</option>
+                    </select>
+                
+                </div>
+
+
+                <div class="form-group">
+                    <label for="gambar_profil"> Foto Profil User</label>
+                    <input type="file" name="gambar_profil" id="gambar_profil" class = "form-control">
+                </div>
+
+
+
+
+          </div>
+          <div class="modal-footer">
+              <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+              <button class="btn btn-primary" type = "submit">Tambah Data</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- Bootstrap core JavaScript-->
 
     <script>
