@@ -82,28 +82,18 @@ class LandingController extends Controller
 
 
 
-        // if($request->hasFile('gambar_projek'))
-        // {
+        if($request->hasFile('gambar_projek'))
+        {
 
-        //     $filename = $request['gambar_projek']->getClientOriginalName();
+            $filename = $request['gambar_projek']->getClientOriginalName();
 
-        //     // if(Jenis_Projek::find($id)->gambar_profil)
-        //     // {
 
-        //     //     Storage::delete('/public/storage/Projek/'.User::find($id)->gambar_profil);
-
-        //     // }
-
-        //     $request["gambar_projek"]->storeAs('Projek', $filename, 'public');
+            $request["gambar_projek"]->storeAs('Projek', $filename, 'public');
         
         
         
         
-        // }
-
-            // else {
-            //     $filename=Jenis_Projek::find($id)->gambar_projek;
-            // }
+        }
 
     
 
@@ -122,7 +112,7 @@ class LandingController extends Controller
 
         $jenis_Projek['anggaran_projek'] = $request->anggaran_projek;
 
-        $jenis_Projek['gambar_projek'] = $request->gambar_projek;
+        $jenis_Projek['gambar_projek'] = $filename;
 
         $jenis_Projek->save();
 
@@ -240,12 +230,27 @@ class LandingController extends Controller
 
             $users = new User();
 
+
+            if($request->hasFile('gambar_profil'))
+            {
+    
+                $filename = $request['gambar_profil']->getClientOriginalName();
+    
+    
+                $request["gambar_profil"]->storeAs('User', $filename, 'public');
+            
+            
+            
+            
+            }
+
             $users['name'] = $request->name;
             $users['email'] = $request->email;
             $users['password'] = bcrypt($request->password); 
             $users['is_admin'] = $request->is_admin;
             $users['is_supervisor'] = $request->is_supervisor;
             $users['is_manager'] = $request->is_manager;
+            $users['gambar_profil'] = $filename;
             $users->save();
 
             return redirect('/admin/kelola_user')->with('admintambahuser','User Telah Ditambahkan');
@@ -299,7 +304,7 @@ class LandingController extends Controller
 
             $jenis_Projek = Jenis_Projek::findOrFail($id);
 
-            return view('admin.data_proyek_id', compact(''));
+            return view('admin.data_proyek_edit_id', compact('jenis_Projek'));
 
             
         }

@@ -58,7 +58,7 @@ Data {{$jenis_Projek->nama_projek}}
                             <div class="row">
                                 <div class="col-md-4">
 
-                                    <img src="{{asset('src/images/logo_sementara.png')}}" alt="" style = "width:70%">
+                                    <img src="{{asset('storage/Projek/'.$jenis_Projek->gambar_projek)}}" alt="" style = "width:70%">
 
                                 </div>
 
@@ -81,8 +81,9 @@ Data {{$jenis_Projek->nama_projek}}
                                     </ul>
                                         
                                     <br>
-                                    
-                                    <button class = "btn btn-primary"> Edit Projek</button>
+
+                                    {{-- <button class = "btn btn-primary"> Edit Projek</button> --}}
+                                    <a href = "{{route('adminEditProjek', $jenis_Projek->id)}}" class = "btn btn-primary"> Edit Projek</a>
 
                                 </div>
 

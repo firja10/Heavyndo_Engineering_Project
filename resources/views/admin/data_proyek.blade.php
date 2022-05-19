@@ -119,14 +119,37 @@ Data Proyek PT. HEAVYNDO
                                     @endif
                                     
                                     </td>
-                                    <td>{{$projeks->anggaran_projek}}</td>
-                                    <td>{{$projeks->gambar_projek}}</td>
+                                    <td>
+                                    <?php 
+                                        
+                                        $hasil_rupiah = "Rp " . number_format($projeks->anggaran_projek,2,',','.');
+                                        echo $hasil_rupiah;
+                                        
+                                        ?>
+                                    </td>
+                                    <td>
+                                    <center>
+                                        <img src="{{asset('storage/Projek/' . $projeks->gambar_projek )}}" alt="" style = "width:50%">
+                                    </center>
+                                    
+                                        {{-- {{$projeks->gambar_projek}} --}}
+                                    </td>
                                     <td> 
-                                        <button class = "btn btn-primary">Lihat Projek</button> 
+
+                                                                             
+                                        <a href="{{route('adminLihatProjek', $projeks->id)}}" class = "btn btn-primary">Lihat Projek</a>
                                         <br>
-                                        <button class = "btn btn-warning" style = "margin-top:10px;">Edit Projek</button>
+                                        <a href= "{{route('adminEditProjek', $projeks->id)}}" class = "btn btn-warning" style = "margin-top:10px;">Edit Projek</a>
                                         <br>
-                                        <button class = "btn btn-danger" style = "margin-top:10px;">Hapus Projek</button>
+
+                                        <form action="{{route('adminHapusProjek', $projeks->id)}}" method = "POST">
+                                            @csrf
+                                            @method('DELETE')
+
+                                            <button class = "btn btn-danger" style = "margin-top:10px;">Hapus Projek</button>
+                                        </form>
+
+                                        
                                     
                                     </td>
                                     {{-- <td>$320,800</td> --}}

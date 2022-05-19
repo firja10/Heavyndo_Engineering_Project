@@ -40,6 +40,7 @@ Kelola Data User PT. HEAVYNDO
                                 <thead>
                                     <tr>
                                         <th>Nama User</th>
+                                        <th>Foto Profil</th>
                                         <th>Email User</th>
                                         <th>Status User</th>
                                         <th>Tanggal Daftar Akun</th>
@@ -51,6 +52,7 @@ Kelola Data User PT. HEAVYNDO
                                 <tfoot>
                                     <tr>
                                         <th>Nama User</th>
+                                        <th>Foto Profil</th>
                                         <th>Email User</th>
                                         <th>Status User</th>
                                         <th>Tanggal Daftar Akun</th>
@@ -66,6 +68,13 @@ Kelola Data User PT. HEAVYNDO
 
                                 <tr>
                                     <td>{{$user->name}}</td>
+                                    <td>
+
+                                        <center>
+                                            <img src="{{asset('storage/User/' . $user->gambar_profil )}}" alt="" style = "width:50%">
+                                        </center>
+
+                                    </td>
                                     <td>{{$user->email}}</td>
                                     <td>
                                         @if ($user->is_admin == 1)
