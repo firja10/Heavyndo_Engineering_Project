@@ -60,8 +60,8 @@ class LandingController extends Controller
     {
         # code...
 
-        // $jenis_Projek = Jenis_Projek::all();
-        $jenis_Projek = Jenis_Projek::paginate(3);
+        $jenis_Projek = Jenis_Projek::all();
+        // $jenis_Projek = Jenis_Projek::paginate(3);
 
         return view('admin.data_proyek', compact('jenis_Projek'));
 
@@ -75,6 +75,44 @@ class LandingController extends Controller
     {
         # code...
         $jenis_Projek = new Jenis_Projek() ; 
+
+
+
+
+
+
+
+        // if($request->hasFile('gambar_projek'))
+        // {
+
+        //     $filename = $request['gambar_projek']->getClientOriginalName();
+
+        //     // if(Jenis_Projek::find($id)->gambar_profil)
+        //     // {
+
+        //     //     Storage::delete('/public/storage/Projek/'.User::find($id)->gambar_profil);
+
+        //     // }
+
+        //     $request["gambar_projek"]->storeAs('Projek', $filename, 'public');
+        
+        
+        
+        
+        // }
+
+            // else {
+            //     $filename=Jenis_Projek::find($id)->gambar_projek;
+            // }
+
+    
+
+
+
+
+
+
+
 
         $jenis_Projek['nama_projek'] = $request->nama_projek;
 
@@ -114,8 +152,8 @@ class LandingController extends Controller
     public function adminKelolaUser()
     {
         # code...
-        // $users = User::all();
-        $users = User::paginate(2);
+        $users = User::all();
+        // $users = User::paginate(2);
         return view('admin.kelola_user', compact('users'));
     
     }
@@ -214,6 +252,73 @@ class LandingController extends Controller
 
             
         }
+
+
+
+
+        public function adminHapusUser(Request $request, $id)
+        {
+            # code...
+
+
+            $users = User::findOrFail($id);
+
+            $users->delete();
+
+            return redirect('/admin/kelola_user')->with('adminhapususer','User Telah Dihapuskan');
+
+            
+        }
+
+
+
+
+
+        public function adminHapusProjek(Request $request, $id)
+        {
+            # code...
+
+
+            $jenis_Projek = Jenis_Projek::findOrFail($id);
+
+            $jenis_Projek->delete();
+
+            return redirect('/admin/data_proyek')->with('adminhapusproyek','Proyek Telah Dihapuskan');
+
+            
+        }
+
+
+
+
+
+        public function adminEditProjek(Request $request, $id)
+        {
+            # code...
+
+
+            $jenis_Projek = Jenis_Projek::findOrFail($id);
+
+            return view('admin.data_proyek_id', compact(''));
+
+            
+        }
+
+
+        public function adminLihatProjek(Request $request, $id)
+        {
+            # code...
+
+
+            $jenis_Projek = Jenis_Projek::findOrFail($id);
+
+            return view('admin.data_proyek_id', compact('jenis_Projek'));
+
+            
+        }
+
+
+
 
 
 

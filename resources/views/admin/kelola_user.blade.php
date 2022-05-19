@@ -82,11 +82,17 @@ Kelola Data User PT. HEAVYNDO
 
                                     <td>
 
-                                        <button class = "btn btn-primary">Lihat User</button> 
+                                        {{-- <button class = "btn btn-primary">Lihat User</button> 
+                                        <br> --}}
+                                        <a href = "{{route('adminEditUser', $user->id)}}"  class = "btn btn-warning" style = "margin-top:10px;">Edit User</a>
                                         <br>
-                                        <button class = "btn btn-warning" style = "margin-top:10px;">Edit User</button>
-                                        <br>
-                                        <button class = "btn btn-danger" style = "margin-top:10px;">Hapus User</button>
+                                        
+                                        <form method = "POST" action="{{route('adminHapusUser', $user->id)}}">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class = "btn btn-danger" style = "margin-top:10px;" type = "submit">Hapus User</button>
+                                        </form>
+                                   
 
                                     </td>
                                     {{-- <td>{{$user->gambar_projek}}</td> --}}

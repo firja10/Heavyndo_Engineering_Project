@@ -93,11 +93,11 @@
             </li>
 
 
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link" href="index.html">
                     <i class="fas fa-fw fa-cogs"></i>
                     <span>Pengaturan</span></a>
-            </li>
+            </li> --}}
 
 
 
@@ -159,12 +159,12 @@
                     <span>Laporan</span></a>
             </li>
 
-
+{{-- 
             <li class="nav-item">
                 <a class="nav-link" href="index.html">
                     <i class="fas fa-fw fa-cogs"></i>
                     <span>Pengaturan</span></a>
-            </li>
+            </li> --}}
 
 
 
@@ -202,11 +202,11 @@
             </li>
 
 
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link" href="index.html">
                     <i class="fas fa-fw fa-cogs"></i>
                     <span>Pengaturan</span></a>
-            </li>
+            </li> --}}
 
 
 
@@ -612,7 +612,7 @@
 
     <!-- MODAL TAMBAH PROJEK -->
 
-    <form action="{{route('adminTambahDataProyek')}}" method="post">
+    <form action="{{route('adminTambahDataProyek')}}" method="post" enctype="multipart/form-data">
         @csrf
 
   <div class="modal fade" id="modaltambahProjek" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -630,7 +630,7 @@
 
      
                 <div class="form-group">
-                    <label for="nama_projek"> Nama Projek</label>
+                    <label for="nama_projek"> Nama Aktivitas</label>
                     <input type="text" name="nama_projek" id="nama_projek" class = "form-control" placeholder="Masukkan Nama Projek">
                 </div>
 
@@ -695,7 +695,7 @@
 
       <!-- MODAL TAMBAH PROJEK -->
 
-    <form action="{{route('adminTambahUser')}}" method="post">
+    <form action="{{route('adminTambahUser')}}" method="post" enctype="multipart/form-data">
         @csrf
 
   <div class="modal fade" id="modaltambahUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"

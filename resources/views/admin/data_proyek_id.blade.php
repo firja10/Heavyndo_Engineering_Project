@@ -3,7 +3,7 @@
 
 @section('title')
 
-Data {{$users->name}}
+Data {{$jenis_Projek->nama_projek}}
     
 @endsection
 
@@ -31,7 +31,7 @@ Data {{$users->name}}
 
                                             <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Edit Data {{$users->name}}</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Data Projek</h1>
 
                         
 
@@ -42,21 +42,7 @@ Data {{$users->name}}
                                 {{-- <a href = "#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle = "modal" data-target = "#modaltambahProjek"><i
                                     class="fas fa-plus fa-sm text-white-50" ></i> Tambah Data Projek</a> --}}
 
-
-
-
-
-
-
-                                    
-
-
-
-
-
-
-
-
+                        
 
                     </div>
 
@@ -68,64 +54,41 @@ Data {{$users->name}}
                     </div>
                     <div class="card-body">
                  
-
-
-
-                        <form method="POST" action="" >
-                            @csrf
-                            <div class="form-group">
-                              <label for="EmailInput">Alamat Email</label>
-                              <input type="email" class="form-control" id="EmailInput" placeholder="Email" value ="{{$users->email}}" name = "email" >
-                            </div>
-
-
-                            <div class="form-group">
-                                <label for="NameInput">Nama</label>
-                                <input type="text" class="form-control" id="NameInput" placeholder = "Name" value="{{$users->name}}" name = "name">
-                            </div>
-
-
-
-                            <div class="form-group">
-                                <label for="PassInput">Password Baru</label>
-                                <input type="password" class="form-control" id="PassInput" placeholder= "Password" value="{{$users->password}}" name = "password">
-                            </div>
-
-
-                            <div class="form-group">
-
-                                <label for="gambarprofil">Foto Profil</label>
-                                <input type="file" class="form-control" id="gambarprofil" value = "{{$users->gambar_profil}}" name = "password">
-
-                            </div>
-
-
-                            
-
                     
-                            {{-- <div class="form-group">
-                              <label for="exampleFormControlSelect2">Status Jabatan</label>
-                              <select class="form-control" id="exampleFormControlSelect2">
-                          
-                                @if ($users->is_admin == 1)
-                                <option value="" selected disabled >Admin</option>
-                                @elseif($users->is_supervisor == 1)
-                                <option value="" selected disabled >SuperVisor</option>
-                                @elseif($users->is_manager == 1)
-                                <option value="" selected disabled >Manager</option>
-                                @endif
-                                <option>Admin</option>
-                                <option>SuperVisor</option>
-                                <option>Manager</option>
-                              </select>
-                            </div> --}}
+                            <div class="row">
+                                <div class="col-md-4">
 
-                            <center>
-                                <button class = "btn btn-primary" type = "submit">Update Data</button>
-                            </center>
-                           
+                                    <img src="{{asset('src/images/logo_sementara.png')}}" alt="" style = "width:70%">
 
-                          </form>
+                                </div>
+
+                                <div class="col-md-8">
+
+                                    <h2>{{$jenis_Projek->nama_projek}}</h2>
+
+                                    <ul>
+                                        <li>Durasi Projek : {{$jenis_Projek->durasi_projek}}</li>
+                                        <li>Status Projek : 
+                                        @if ($jenis_Projek->status_projek == "on_going")
+                                        On Going
+                                        @elseif($jenis_Projek->status_projek == "finished")
+                                        Finished 
+                                        @elseif($jenis_Projek->status_projek == "cancelled")
+                                        Cancelled   
+                                        @endif
+                                           
+                                        </li>
+                                    </ul>
+                                        
+                                    <br>
+                                    
+                                    <button class = "btn btn-primary"> Edit Projek</button>
+
+                                </div>
+
+                            </div>
+                  
+
 
 
 
