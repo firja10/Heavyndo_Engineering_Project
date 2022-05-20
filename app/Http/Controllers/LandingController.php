@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Jenis_Projek;
 use App\Models\User;
+use App\Models\AktivitasProjek;
 use Illuminate\Support\Facades\Storage;
 
 class LandingController extends Controller
@@ -209,6 +210,8 @@ class LandingController extends Controller
         
             $orders = User::where('id', $id)->update([
                 'name' => $request['name'],
+                'email'=> $request['email'],
+                'password'=> bcrypt($request['password']),
                 'gambar_profil' =>$filename,
             ]);
 
@@ -310,6 +313,20 @@ class LandingController extends Controller
         }
 
 
+
+        public function adminUpdateProjek(Request $request, $id)
+        {
+            # code...
+
+
+            $jenis_Projek = Jenis_Projek::findOrFail($id);
+
+            return view('admin.data_proyek_edit_id', compact('jenis_Projek'));
+
+            
+        }
+
+
         public function adminLihatProjek(Request $request, $id)
         {
             # code...
@@ -322,6 +339,54 @@ class LandingController extends Controller
             
         }
 
+
+
+        public function adminKelolaAktivitas()
+        {
+            # code...
+
+            $aktivitas_projek = AktivitasProjek::all();
+            return view('admin.data_aktivitas', compact('aktivitas_projek'));
+
+
+        }
+
+
+
+
+        public function adminTambahAktivitas(Request $request)
+        {
+            # code...
+
+       
+            $aktivitas_projek = new AktivitasProjek();
+            if($request->hasFile('foto_aktivitas'))
+            {
+                $filename = $request['foto_aktivitas']->getClientOriginalName();
+    
+    
+                $request["foto_aktivitas"]->storeAs('AktivitasProjek', $filename, 'public');
+            }
+
+            
+
+
+        }
+
+
+
+
+
+
+
+        public function adminLihatAktivitas($id)
+        {
+            # code...
+
+            $aktivitas_projek = AktivitasProjek::findOrFail($id);
+            return view('admin.data_aktivitas', compact('aktivitas_projek'));
+
+        }
 
 
 
