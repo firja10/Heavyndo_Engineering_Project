@@ -64,6 +64,34 @@ Route::patch('/admin/data_proyek/edit/{id}', [\App\Http\Controllers\LandingContr
 
 
 
+
+// Data Aktivitas Projek
+
+Route::get('/admin/data_proyek/{id}/data_aktivitas', [\App\Http\Controllers\LandingController::class,'adminKelolaAktivitas'])->name('adminKelolaAktivitas')->middleware('is_admin');
+
+Route::post('/admin/data_aktivitas', [\App\Http\Controllers\LandingController::class,'adminTambahAktivitas'])->name('adminTambahAktivitas')->middleware('is_admin');
+
+
+Route::get('/admin/data_aktivitas/{id}', [\App\Http\Controllers\LandingController::class,'adminEditAktivitas'])->name('adminEditAktivitas')->middleware('is_admin');
+
+
+Route::delete('/admin/data_aktivitas/{id}', [\App\Http\Controllers\LandingController::class,'adminHapusAktivitas'])->name('adminHapusAktivitas')->middleware('is_admin');
+
+Route::patch('/admin/data_aktivitas/{id}', [\App\Http\Controllers\LandingController::class,'adminUpdateAktivitas'])->name('adminUpdateAktivitas')->middleware('is_admin');
+
+
+
+
+Route::get('/admin//data_aktivitas/{id}', [\App\Http\Controllers\LandingController::class,'adminLihatAktivitas'])->name('adminLihatAktivitas')->middleware('is_admin');
+
+
+
+
+
+
+
+
+
 Route::get('/admin/kelola_user', [\App\Http\Controllers\LandingController::class,'adminKelolaUser'])->name('adminKelolaUser')->middleware('is_admin');
 Route::post('/admin/kelola_user', [\App\Http\Controllers\LandingController::class,'adminTambahUser'])->name('adminTambahUser')->middleware('is_admin');
 

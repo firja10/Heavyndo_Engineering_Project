@@ -7,6 +7,8 @@ use App\Models\Jenis_Projek;
 use App\Models\User;
 use App\Models\AktivitasProjek;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
+use DateTime;
 
 class LandingController extends Controller
 {
@@ -374,12 +376,20 @@ class LandingController extends Controller
 
 
 
-        public function adminKelolaAktivitas()
+        public function adminKelolaAktivitas($id)
         {
             # code...
 
-            $aktivitas_projek = AktivitasProjek::all();
-            return view('admin.data_aktivitas', compact('aktivitas_projek'));
+            // $aktivitas_projek = AktivitasProjek::all();
+            
+            // return view('admin.data_aktivitas', compact('aktivitas_projek'));
+
+            $jenis_projek_id = Jenis_Projek::findOrFail($id);
+            $id_jenis_projek  = $jenis_projek_id->id;
+
+            $aktivitas_projek = DB::table('aktivitas_projeks')->where('jenis_projek_id', $id_jenis_projek)->get();
+
+             return view('admin.data_aktivitas', compact('aktivitas_projek', 'jenis_projek_id'));
 
 
         }
@@ -410,23 +420,27 @@ class LandingController extends Controller
             $aktivitas_projek['tanggal_akhir'] = $request->tanggal_akhir;
 
 
-            $t_awal = $request->tanggal_awal;
-            $t_akhir = $request->tanggal_akhir;
+            $t_awal = new DateTime($request->tanggal_awal);
+            $t_akhir = new DateTime($request->tanggal_akhir);
 
             $interval = $t_awal->diff($t_akhir);
 
-            $diffInDays    = $interval->d;
+            $diffInDays  = $interval->d;
 
 
-            $aktivitas_projek['durasi_aktivitas	'] =  $diffInDays;
+            $aktivitas_projek['durasi_aktivitas'] =  $diffInDays;
 
-            $aktivitas_projek['status_aktivitas	'] = $request->status_aktivitas;
+            $aktivitas_projek['status_aktivitas'] = $request->status_aktivitas;
 
-            $aktivitas_projek['foto_aktivitas	'] = $filename;
+            $aktivitas_projek['penanggung_jawab'] = $request->penanggung_jawab;
+
+            $aktivitas_projek['jenis_projek_id'] = $request->jenis_projek_id;
+
+            $aktivitas_projek['foto_aktivitas'] = $filename;
 
             $aktivitas_projek->save();
 
-            return redirect('/admin/kelola_user')->with('admintambahuser','User Telah Ditambahkan');
+            return redirect('/admin/data_proyek/' .$aktivitas_projek['jenis_projek_id'] . '/data_aktivitas' )->with('admintambahaktivitas','Aktivitas Telah Ditambahkan');
 
 
 
@@ -448,6 +462,26 @@ class LandingController extends Controller
             return view('admin.data_aktivitas', compact('aktivitas_projek'));
 
         }
+
+
+
+
+        public function adminHapusAktivitas($id)
+        {
+            # code...
+        }
+
+        public function adminUpdateAktivitas($id)
+        {
+            # code...
+        }
+
+
+        public function adminEditAktivitas($id)
+        {
+            # code...
+        }
+
 
 
 

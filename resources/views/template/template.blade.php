@@ -811,6 +811,88 @@
 
 
 
+   <!-- MODAL TAMBAH AKTIVITAS -->
+
+   <form action="{{route('adminTambahAktivitas')}}" method="post" enctype="multipart/form-data">
+    @csrf
+
+<div class="modal fade" id="modaltambahAktivitas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Tambah Data Aktivitas</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+          </button>
+      </div>
+      <div class="modal-body">
+        {{-- <h6> <strong> Silakan Tambahkan Data Projek  </strong> </h6> --}}
+
+
+        <div class="form-group">
+            <label for="nama_aktivitas"> Nama Aktivitas</label>
+            <input type="text" name="nama_aktivitas" id="nama_aktivitas" class = "form-control" placeholder="Masukkan Nama Aktivitas">
+        </div>
+
+            <div class="form-group">
+                <label for="tanggal_awal"> Tanggal Awal Aktivitas</label>
+                <input type="date" name="tanggal_awal" id="tanggal_awal" class = "form-control" placeholder="Masukkan Tanggal Awal">
+            </div>
+
+            <div class="form-group">
+                <label for="tanggal_akhir"> Tanggal Akhir Aktivitas</label>
+                <input type="date" name="tanggal_akhir" id="tanggal_akhir" class = "form-control" placeholder="Masukkan Tanggal Akhir">
+            </div>
+
+            <div class="form-group">
+                <label for="penanggung_jawab"> Penanggung Jawab Aktivitas</label>
+                <input type="text" name="penanggung_jawab" id="penanggung_jawab" class = "form-control" placeholder="Masukkan Nama Aktivitas">
+            </div>
+
+
+
+            
+            <div class="form-group">
+                <label for="status_aktivitas">Status Aktivitas</label>
+                    <select name="status_aktivitas" id="status_aktivitas" class = "form-control">
+                        <option value="" selected disabled> -- Silakan Pilih --</option>
+                        <option value="on_going"> On Going</option>
+                        <option value="finished">Finished</option>
+                        <option value="cancelled">Cancelled</option>
+                    </select>
+            </div>
+
+
+
+
+            <div class="form-group">
+                <label for="foto_aktivitas"> Foto Aktivitas</label>
+                <input type="file" name="foto_aktivitas" id="foto_aktivitas" class = "form-control">
+            </div>
+
+            <input type="hidden" name="jenis_projek_id" value = {{$jenis_projek_id->id}}>
+
+            <input type="hidden" name="nama_projek" value = "{{$jenis_projek_id->nama_projek}}">
+
+
+      </div>
+      <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <button class="btn btn-primary" type = "submit">Tambah Data</button>
+      </div>
+  </div>
+</div>
+</div>
+
+
+</form>
+
+
+
+
+
+
 
 
 
