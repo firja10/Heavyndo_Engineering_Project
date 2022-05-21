@@ -79,8 +79,35 @@ Data Aktivitas {{$jenis_projek_id->nama_projek}}
                                 <tr>
                                     <td>{{$aktivitas->nama_aktivitas}}</td>
                                     <td>{{$aktivitas->durasi_aktivitas}} Hari</td>
-                                    <td>{{$aktivitas->tanggal_awal}}</td>
-                                    <td>{{$aktivitas->tanggal_akhir}}</td>
+                                    <?php 
+                                    
+                                    $bulan = array (
+                                                1 =>   'Januari',
+                                                'Februari',
+                                                'Maret',
+                                                'April',
+                                                'Mei',
+                                                'Juni',
+                                                'Juli',
+                                                'Agustus',
+                                                'September',
+                                                'Oktober',
+                                                'November',
+                                                'Desember'
+                                            );
+                                            $show_awal = explode('-', $aktivitas->tanggal_awal);
+                                            $show_akhir = explode('-', $aktivitas->tanggal_akhir);
+                                            
+                                            // variabel pecahkan 0 = tanggal
+                                            // variabel pecahkan 1 = bulan
+                                            // variabel pecahkan 2 = tahun
+                                        
+                                            $first_date = $show_awal[2] . ' ' . $bulan[ (int)$show_awal[1] ] . ' ' . $show_awal[0];
+                                            $final_date = $show_akhir[2] . ' ' . $bulan[ (int)$show_akhir[1] ] . ' ' . $show_akhir[0];
+                                    
+                                    ?>
+                                    <td><?php echo $first_date; ?></td>
+                                    <td><?php echo $final_date; ?></td>
                                     <td>{{$aktivitas->penanggung_jawab}}</td>
                                     <td>
                                     @if ($aktivitas->status_aktivitas == "on_going")
