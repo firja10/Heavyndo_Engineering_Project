@@ -78,6 +78,20 @@ Data {{$jenis_Projek->nama_projek}}
                                         @endif
                                            
                                         </li>
+
+                                        <li>Anggaran Projek : 
+                                            <?php 
+                                        
+                                            $hasil_rupiah = "Rp " . number_format($jenis_Projek->anggaran_projek,2,',','.');
+                                            echo $hasil_rupiah;
+                                            
+                                            ?>
+                                        </li>
+
+                                        <li>Deskripsi Projek : 
+                                            {{$jenis_Projek->deskripsi_projek}}
+                                        </li>
+
                                     </ul>
                                         
                                     <br>

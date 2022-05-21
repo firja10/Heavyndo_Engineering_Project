@@ -506,8 +506,18 @@
                                    @endif
                             
                                  </span>
-                                <img class="img-profile rounded-circle"
-                                    src="{{asset('src/bootstrap/img/undraw_profile.svg')}}">
+
+                                 @if (Auth::user()->gambar_profil == NULL)
+                                 <img class="img-profile rounded-circle"
+                                 src="{{asset('src/bootstrap/img/undraw_profile.svg')}}">
+
+                                 @else
+                                 <img class="img-profile rounded-circle"
+                                 src="{{asset('storage/User/'.Auth::user()->gambar_profil )}}">
+
+                                 @endif
+
+
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -516,14 +526,14 @@
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
                                 </a>
-                                <a class="dropdown-item" href="#">
+                                {{-- <a class="dropdown-item" href="#">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Settings
                                 </a>
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Activity Log
-                                </a>
+                                </a> --}}
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" 
                                 

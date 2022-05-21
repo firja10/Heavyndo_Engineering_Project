@@ -319,9 +319,42 @@ class LandingController extends Controller
             # code...
 
 
-            $jenis_Projek = Jenis_Projek::findOrFail($id);
+            // $jenis_Projek = Jenis_Projek::findOrFail($id);
 
-            return view('admin.data_proyek_edit_id', compact('jenis_Projek'));
+            // return view('admin.data_proyek_edit_id', compact('jenis_Projek'));
+
+
+            if($request->hasFile('gambar_projek'))
+            {
+    
+                $filename = $request['gambar_projek']->getClientOriginalName();
+    
+                if(Jenis_Projek::find($id)->gambar_projek)
+                {
+    
+                    Storage::delete('/public/storage/Projek/'.Jenis_Projek::find($id)->gambar_projek);
+    
+                }
+    
+                $request["gambar_projek"]->storeAs('Projek', $filename, 'public'); }
+    
+                else {
+                    $filename=Jenis_Projek::find($id)->gambar_projek;
+                }
+    
+            
+                $orders = Jenis_Projek::where('id', $id)->update([
+                    'nama_projek' => $request['nama_projek'],
+                    'durasi_projek'=> $request['durasi_projek'],
+                    'deskripsi_projek'=> $request['deskripsi_projek'],
+                    'anggaran_projek'=> $request['anggaran_projek'],
+                    'status_projek'=> $request['status_projek'],
+                    'gambar_projek' =>$filename,
+                ]);
+    
+    
+                return redirect('/admin/data_proyek/'. $id)->with('update_data_proyek','Data Proyek Berhasil Diupdate');
+
 
             
         }
@@ -368,7 +401,35 @@ class LandingController extends Controller
                 $request["foto_aktivitas"]->storeAs('AktivitasProjek', $filename, 'public');
             }
 
+
+
             
+            $aktivitas_projek['nama_aktivitas'] = $request->nama_aktivitas;
+            $aktivitas_projek['tanggal_awal'] = $request->tanggal_awal;
+
+            $aktivitas_projek['tanggal_akhir'] = $request->tanggal_akhir;
+
+
+            $t_awal = $request->tanggal_awal;
+            $t_akhir = $request->tanggal_akhir;
+
+            $interval = $t_awal->diff($t_akhir);
+
+            $diffInDays    = $interval->d;
+
+
+            $aktivitas_projek['durasi_aktivitas	'] =  $diffInDays;
+
+            $aktivitas_projek['status_aktivitas	'] = $request->status_aktivitas;
+
+            $aktivitas_projek['foto_aktivitas	'] = $filename;
+
+            $aktivitas_projek->save();
+
+            return redirect('/admin/kelola_user')->with('admintambahuser','User Telah Ditambahkan');
+
+
+
 
 
         }

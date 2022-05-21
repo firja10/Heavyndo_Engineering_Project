@@ -71,8 +71,9 @@ Data {{$jenis_Projek->nama_projek}}
 
 
 
-                        <form method="POST" action="" >
+                        <form method="POST" action="{{route('adminUpdateProjek', $jenis_Projek->id)}}" enctype="multipart/form-data">
                             @csrf
+                            @method('PATCH')
                 
                             <div class="form-group">
                                 <label for="NameInput">Nama Projek</label>
@@ -86,19 +87,36 @@ Data {{$jenis_Projek->nama_projek}}
                             </div>
 
                             <div class="form-group">
+                                <label for="AnggaranInput">Anggaran Projek</label>
+                                <input type="number" class="form-control" id="AnggaranInput" placeholder = "Anggaran Projek" value="{{$jenis_Projek->anggaran_projek}}" name = "anggaran_projek">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="DeskripsiInput">Deskripsi Projek</label>
+                                {{-- <input type="text" class="form-control" id="DeskripsiInput" placeholder = "Deskripsi Projek" value="{{$jenis_Projek->deskripsi_projek}}" name = "deskripsi_projek"> --}}
+                                <Textarea name="deskripsi_projek" class = "form-control" id = "DeskripsiInput">{{$jenis_Projek->deskripsi_projek}}</Textarea>
+                            </div>
+
+
+                            <div class="form-group">
                                 <label for="StatusInput">Status Projek</label>
 
-                                <select name="" id="" class = "form-control">
-                                    <option value="" disabled selected>
+                                <select name="status_projek" id="StatusInput" class = "form-control">
+                                  
                                         @if ($jenis_Projek->status_projek == "on_going")
+                                        <option value="on_going" disabled selected>
                                             On Going
+                                        </option>
                                         @elseif($jenis_Projek->status_projek == "finished")
+                                        <option value="finished" disabled selected>    
                                             Finished
-                                        
+                                        </option>
                                         @elseif($jenis_Projek->status_projek == "cancelled")  
+                                        <option value="cancelled" disabled selected>  
                                             Cancelled
+                                        </option>
                                         @endif
-                                    </option>
+                                 
                                     <option value="on_going">On Going</option>
                                     <option value="finished">Finished</option>
                                     <option value="cancelled">Cancelled</option>
@@ -112,10 +130,10 @@ Data {{$jenis_Projek->nama_projek}}
 
                             <div class="form-group">
 
-                                <img src="{{asset('storage/User/'.$jenis_Projek->gambar_projek )}}" alt="" style = "width:100px">
+                                <img src="{{asset('storage/Projek/'.$jenis_Projek->gambar_projek )}}" alt="" style = "width:100px">
                                     <br> <br>
-                                <label for="gambarprofil">Foto Projek</label>
-                                <input type="file" class="form-control" id="gambarprofil" value = "{{$jenis_Projek->gambar_profil}}" name = "password">
+                                <label for="gambarprojek">Foto Projek</label>
+                                <input type="file" class="form-control" id="gambarprojek" value = "{{$jenis_Projek->gambar_projek}}" name = "gambar_projek">
 
                             </div>
 

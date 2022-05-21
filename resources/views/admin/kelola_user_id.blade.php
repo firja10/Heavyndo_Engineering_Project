@@ -71,8 +71,10 @@ Data {{$users->name}}
 
 
 
-                        <form method="POST" action="" >
+                        <form method="POST" action="{{route('adminUpdateUser', $users->id)}}" enctype="multipart/form-data" >
                             @csrf
+                            @method('PATCH')
+
                             <div class="form-group">
                               <label for="EmailInput">Alamat Email</label>
                               <input type="email" class="form-control" id="EmailInput" placeholder="Email" value ="{{$users->email}}" name = "email" >
@@ -95,7 +97,10 @@ Data {{$users->name}}
                             <div class="form-group">
 
                                 <label for="gambarprofil">Foto Profil</label>
-                                <input type="file" class="form-control" id="gambarprofil" value = "{{$users->gambar_profil}}" name = "password">
+                                <br>
+                                <img src="{{asset('storage/User/'.$users->gambar_profil )}}" alt="" style = "width:100px">
+                                <br> <br>
+                                <input type="file" class="form-control" id="gambarprofil" value = "{{$users->gambar_profil}}" name = "gambar_profil">
 
                             </div>
 
