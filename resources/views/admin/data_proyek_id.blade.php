@@ -98,6 +98,8 @@ Data {{$jenis_Projek->nama_projek}}
 
                                     {{-- <button class = "btn btn-primary"> Edit Projek</button> --}}
                                     <a href = "{{route('adminEditProjek', $jenis_Projek->id)}}" class = "btn btn-primary"> Edit Projek</a>
+                                    <br> <br>
+                                    <a href = "{{route('adminKelolaAktivitas', $jenis_Projek->id)}}" class = "btn btn-dark"> Lihat Projek</a>
 
                                 </div>
 

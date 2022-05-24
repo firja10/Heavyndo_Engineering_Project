@@ -469,11 +469,20 @@ class LandingController extends Controller
         public function adminHapusAktivitas($id)
         {
             # code...
+
+            $jenis_projek_id = Jenis_Projek::findOrFail($id);
+            $id_jenis_projek = $jenis_projek_id->id;
+            $aktivitas_projek = AktivitasProjek::findOrFail($id);
+            $aktivitas_projek->delete();
+            return redirect('/admin/data_proyek/'.$id_jenis_projek . '/data_aktivitas')->with('adminhapusaktivitas','Aktivitas Telah Dihapus');
         }
 
         public function adminUpdateAktivitas($id)
         {
             # code...
+
+            
+
         }
 
 
