@@ -4,6 +4,36 @@
 Data Proyek PT. HEAVYNDO
     
 @endsection
+
+
+
+
+@section('style')
+
+
+<style>
+    #data_projek {
+        background-color:#ffff;
+        /* color:#5073DC; */
+    }
+
+    #data_projek a, #data_projek i {
+        color:#5073DC;
+    }
+</style>
+
+
+    
+@endsection
+
+
+
+
+
+
+
+
+
 @section('content')
 
 

@@ -4,6 +4,27 @@
     Selamat Datang di PT. HEAVYNDO
 @endsection
 
+
+
+
+@section('style')
+
+<style>
+    #beranda {
+        background-color:#ffff;
+        /* color:#5073DC; */
+    }
+
+    #beranda a, #beranda i {
+        color:#5073DC;
+    }
+</style>
+    
+@endsection
+
+
+
+
 @section('content')
 
 

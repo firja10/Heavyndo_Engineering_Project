@@ -9,6 +9,25 @@ Data {{$users->name}}
 
 
 
+@section('style')
+
+<style>
+    #kelola_user {
+        background-color:#ffff;
+        /* color:#5073DC; */
+    }
+
+    #kelola_user a, #kelola_user i {
+        color:#5073DC;
+    }
+</style>
+    
+@endsection
+
+
+
+
+
 @section('content')
 
 
@@ -88,10 +107,10 @@ Data {{$users->name}}
 
 
 
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label for="PassInput">Password Baru</label>
                                 <input type="password" class="form-control" id="PassInput" placeholder= "Password" value="{{$users->password}}" name = "password">
-                            </div>
+                            </div> --}}
 
 
                             <div class="form-group">

@@ -4,6 +4,26 @@
 Kelola Data User PT. HEAVYNDO
     
 @endsection
+
+
+
+@section('style')
+
+<style>
+    #kelola_user {
+        background-color:#ffff;
+        /* color:#5073DC; */
+    }
+
+    #kelola_user a, #kelola_user i {
+        color:#5073DC;
+    }
+</style>
+    
+@endsection
+
+
+
 @section('content')
 
 

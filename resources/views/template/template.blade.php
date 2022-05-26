@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.0/css/jquery.dataTables.min.css">
 
 
- 
+    @yield('style')
 
 
 
@@ -39,7 +39,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{url('/')}}">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -62,7 +62,7 @@
                 
           
 
-            <li class="nav-item active">
+            <li class="nav-item active" id = "beranda">
                 <a class="nav-link" href="{{url('/')}}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Beranda</span></a>
@@ -70,14 +70,14 @@
 
 
 
-            <li class="nav-item">
+            <li class="nav-item" id = "data_projek">
                 <a class="nav-link" href="{{url('/admin/data_proyek')}}">
                     <i class="fas fa-fw fa-list-alt"></i>
                     <span>Data Proyek</span></a>
             </li>
 
 
-            <li class="nav-item">
+            <li class="nav-item" id = "kelola_user">
                 <a class="nav-link" href="{{url('/admin/kelola_user')}}">
                     <i class="fas fa-fw fa-user-circle"></i>
                     <span>Kelola User</span></a>
@@ -111,7 +111,7 @@
                 
          
 
-             <li class="nav-item active">
+             <li class="nav-item active" id = "beranda">
                 <a class="nav-link" href="{{url('/')}}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Beranda</span></a>
@@ -119,7 +119,7 @@
 
 
 
-            <li class="nav-item">
+            <li class="nav-item" id = "data_projek">
                 <a class="nav-link" href="{{url('/admin/data_proyek')}}">
                     <i class="fas fa-fw fa-file-image"></i>
                     <span>Daftar Proyek</span></a>
@@ -144,7 +144,7 @@
             </li> --}}
 
 
-            <li class="nav-item">
+            <li class="nav-item" id = "rab">
                 <a class="nav-link" href="{{url('/admin/kelola_user')}}">
                     <i class="fas fa-fw fa-credit-card"></i>
                     <span>RAB</span></a>
@@ -180,7 +180,7 @@
 
 
 
-             <li class="nav-item active">
+             <li class="nav-item active" id = "beranda">
                 <a class="nav-link" href="{{url('/')}}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Beranda</span></a>
@@ -188,11 +188,37 @@
 
 
 
-            <li class="nav-item">
+            <li class="nav-item" id = "data_projek">
+                <a class="nav-link" href="{{url('/admin/data_proyek')}}">
+                    <i class="fas fa-fw fa-list-alt"></i>
+                    <span>Data Proyek</span></a>
+            </li>
+
+
+            <li class="nav-item" id = "kelola_user">
+                <a class="nav-link" href="{{url('/admin/kelola_user')}}">
+                    <i class="fas fa-fw fa-user-circle"></i>
+                    <span>Kelola User</span></a>
+            </li>
+
+
+
+            <li class="nav-item" id = "rab">
+                <a class="nav-link" href="{{url('/admin/kelola_user')}}">
+                    <i class="fas fa-fw fa-credit-card"></i>
+                    <span>RAB</span></a>
+            </li>
+
+
+
+
+
+
+            {{-- <li class="nav-item" id = "grafik">
                 <a class="nav-link" href="{{url('/admin/kelola_user')}}">
                     <i class="fas fa-fw fa-signal"></i>
                     <span>Grafik</span></a>
-            </li>
+            </li> --}}
 
 
             {{-- <li class="nav-item">
@@ -216,7 +242,7 @@
 
 
 
-             <li class="nav-item active">
+             <li class="nav-item active" id = "beranda">
                 <a class="nav-link" href="{{url('/')}}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Beranda</span></a>
@@ -224,7 +250,7 @@
 
 
 
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link" href="{{url('/admin/kelola_user')}}">
                     <i class="fas fa-fw fa-signal"></i>
                     <span>Grafik</span></a>
@@ -242,7 +268,7 @@
                 <a class="nav-link" href="index.html">
                     <i class="fas fa-fw fa-cogs"></i>
                     <span>Pengaturan</span></a>
-            </li>
+            </li> --}}
 
 
 

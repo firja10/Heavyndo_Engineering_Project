@@ -213,7 +213,7 @@ class LandingController extends Controller
             $orders = User::where('id', $id)->update([
                 'name' => $request['name'],
                 'email'=> $request['email'],
-                'password'=> bcrypt($request['password']),
+                // 'password'=> bcrypt($request['password']),
                 'gambar_profil' =>$filename,
             ]);
 
