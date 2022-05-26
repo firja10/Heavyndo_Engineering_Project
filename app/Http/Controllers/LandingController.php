@@ -326,9 +326,15 @@ class LandingController extends Controller
             // return view('admin.data_proyek_edit_id', compact('jenis_Projek'));
 
 
+
+
+
+
+
             if($request->hasFile('gambar_projek'))
             {
     
+                
                 $filename = $request['gambar_projek']->getClientOriginalName();
     
                 if(Jenis_Projek::find($id)->gambar_projek)
@@ -344,6 +350,13 @@ class LandingController extends Controller
                     $filename=Jenis_Projek::find($id)->gambar_projek;
                 }
     
+
+
+
+
+
+
+
             
                 $orders = Jenis_Projek::where('id', $id)->update([
                     'nama_projek' => $request['nama_projek'],

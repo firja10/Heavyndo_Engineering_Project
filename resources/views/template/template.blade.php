@@ -122,12 +122,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{url('/admin/data_proyek')}}">
                     <i class="fas fa-fw fa-file-image"></i>
-                    <span>Gambar Proyek</span></a>
+                    <span>Daftar Proyek</span></a>
             </li>
 
 
 
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link" href="{{url('/admin/data_proyek')}}">
                     <i class="fas fa-fw fa-tasks"></i>
                     <span>Data Kemajuan</span></a>
@@ -141,7 +141,7 @@
                 <a class="nav-link" href="{{url('/admin/kelola_user')}}">
                     <i class="fas fa-fw fa-signal"></i>
                     <span>Grafik</span></a>
-            </li>
+            </li> --}}
 
 
             <li class="nav-item">
