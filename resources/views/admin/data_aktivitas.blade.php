@@ -53,7 +53,9 @@ Data Aktivitas {{$jenis_projek_id->nama_projek}}
                                         <th>Tanggal Akhir Aktivitas</th>
                                         <th>Penanggung Jawab Aktivitas</th>
                                         <th>Status Aktivitas</th>
+                                        <th>Persentase Progress (%)</th>
                                         <th>Gambar Aktivitas</th>
+                                        <th>Aksi</th>
                                         {{-- <th>Aksi</th> --}}
                                         {{-- <th>Salary</th> --}}
                                     </tr>
@@ -66,7 +68,9 @@ Data Aktivitas {{$jenis_projek_id->nama_projek}}
                                         <th>Tanggal Akhir Aktivitas</th>
                                         <th>Penanggung Jawab Aktivitas</th>
                                         <th>Status Aktivitas</th>
+                                        <th>Persentase Progress (%)</th>
                                         <th>Gambar Aktivitas</th>
+                                        <th>Aksi</th>
                                         {{-- <th>Aksi</th> --}}
                                         {{-- <th>Salary</th> --}}
                                     </tr>
@@ -137,6 +141,9 @@ Data Aktivitas {{$jenis_projek_id->nama_projek}}
                                     @endif
                                     
                                     </td>
+                                    <td>
+                                       {{$aktivitas->persentase_progress}}
+                                    </td>
                                   
                                     <td>
                                     <center>
@@ -144,6 +151,22 @@ Data Aktivitas {{$jenis_projek_id->nama_projek}}
                                     </center>
 
                                     </td>
+
+                                    <td>
+                                        <a href="{{route('adminLihatAktivitas', $aktivitas->id)}}" class="btn btn-primary">Lihat Aktivitas</a>
+                                        <br>
+                                        <br>
+
+
+
+                                        <button class = "btn btn-success">Beri Notifikasi</button>
+
+                                        <br><br>
+                                        <button class="btn btn-danger">Hapus Aktivitas</button>
+                                        
+                                    </td>
+
+
                                     {{-- <td> 
 
                                                                              

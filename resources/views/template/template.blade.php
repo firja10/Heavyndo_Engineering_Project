@@ -452,8 +452,11 @@
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="messagesDropdown">
                                 <h6 class="dropdown-header">
-                                    Message Center
+                                   Pusat Notifikasi
                                 </h6>
+
+
+
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
                                         <img class="rounded-circle" src="{{asset('src/bootstrap/img/undraw_profile_1.svg')}}"
@@ -466,6 +469,9 @@
                                         <div class="small text-gray-500">Emily Fowler · 58m</div>
                                     </div>
                                 </a>
+
+
+
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
                                         <img class="rounded-circle" src="{{asset('src/bootstrap/img/undraw_profile_2.svg')}}"
@@ -478,6 +484,9 @@
                                         <div class="small text-gray-500">Jae Chun · 1d</div>
                                     </div>
                                 </a>
+
+
+
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
                                         <img class="rounded-circle" src="{{asset('src/bootstrap/img/undraw_profile_3.svg')}}"
@@ -490,6 +499,9 @@
                                         <div class="small text-gray-500">Morgan Alvarez · 2d</div>
                                     </div>
                                 </a>
+
+
+
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
                                         <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
@@ -503,6 +515,10 @@
                                     </div>
                                 </a>
                                 <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+
+
+
+                                
                             </div>
                         </li>
 

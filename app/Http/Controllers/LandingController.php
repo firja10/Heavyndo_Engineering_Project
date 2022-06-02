@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\AktivitasProjek;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
+use App\Models\Notifikasi;
 use DateTime;
 
 class LandingController extends Controller
@@ -353,10 +354,6 @@ class LandingController extends Controller
 
 
 
-
-
-
-
             
                 $orders = Jenis_Projek::where('id', $id)->update([
                     'nama_projek' => $request['nama_projek'],
@@ -449,6 +446,8 @@ class LandingController extends Controller
 
             $aktivitas_projek['jenis_projek_id'] = $request->jenis_projek_id;
 
+            $aktivitas_projek['persentase_progress'] = $request->persentase_progress;
+
             $aktivitas_projek['foto_aktivitas'] = $filename;
 
             $aktivitas_projek->save();
@@ -472,7 +471,7 @@ class LandingController extends Controller
             # code...
 
             $aktivitas_projek = AktivitasProjek::findOrFail($id);
-            return view('admin.data_aktivitas', compact('aktivitas_projek'));
+            return view('admin.data_aktivitas_id', compact('aktivitas_projek'));
 
         }
 
@@ -490,20 +489,155 @@ class LandingController extends Controller
             return redirect('/admin/data_proyek/'.$id_jenis_projek . '/data_aktivitas')->with('adminhapusaktivitas','Aktivitas Telah Dihapus');
         }
 
-        public function adminUpdateAktivitas($id)
+        public function adminUpdateAktivitas($id, Request $request)
         {
             # code...
 
+
+
+            if($request->hasFile('foto_aktivitas'))
+            {
+    
+                
+                $filename = $request['foto_aktivitas']->getClientOriginalName();
+    
+                if(AktivitasProjek::find($id)->foto_aktivitas)
+                {
+    
+                    Storage::delete('/public/storage/AktivitasProjek/'.AktivitasProjek::find($id)->foto_aktivitas);
+    
+                }
+    
+                $request["foto_aktivitas"]->storeAs('AktivitasProjek', $filename, 'public'); }
+    
+                else {
+                    $filename=AktivitasProjek::find($id)->foto_aktivitas;
+                }
+    
+
+
+
+
+
+                                 
+            $t_awal = new DateTime($request['tanggal_awal']);
+            $t_akhir = new DateTime($request['tanggal_akhir']);
+
+            $interval = $t_awal->diff($t_akhir);
+
+            $diffInDays  = $interval->d;
+
+
+            // $request['durasi_aktivitas'] =  $diffInDays;
+
+
+
+
+
+
             
+                $orders = AktivitasProjek::where('id', $id)->update([
+                    'nama_aktivitas' => $request['nama_aktivitas'],
+                  
+
+
+                    'penanggung_jawab'=> $request['penanggung_jawab'],        
+
+                    'persentase_progress'=> $request['persentase_progress'],
+
+                    'status_aktivitas'=> $request['status_aktivitas'],
+
+                    'tanggal_awal'=> $request['tanggal_awal'],
+
+                    'tanggal_akhir'=> $request['tanggal_akhir'],
+
+                    'durasi_aktivitas'=>$diffInDays,
+
+                    
+                    'foto_aktivitas' =>$filename,
+                ]);
+    
+    
+                return redirect('/admin/data_aktivitas/'. $id)->with('update_data_aktivitas','Data Aktivitas Berhasil Diupdate');
+
 
         }
+
+
 
 
         public function adminEditAktivitas($id)
         {
             # code...
+
+            $aktivitas_projek = AktivitasProjek::findOrFail($id);
+            return view('admin.data_aktivitas_id_edit', compact('aktivitas_projek'));
+
         }
 
+
+
+
+
+
+
+
+
+        public function adminKelolaNotifikasi()
+        {
+            # code...
+            $notifikasis = Notifikasi::all();
+            return view('admin.data_notifikasi', compact('notifikasis'));
+
+        }
+
+
+        public function adminLihatNotifikasi($id)
+        {
+            # code...
+            $notifikasis = Notifikasi::findOrFail($id);
+            return view('admin.data_notifikasi_id', compact('notifikasis'));
+            
+        }
+
+
+        public function adminStoreNotifikasi(Request $request)
+        {
+            # code...
+
+
+            $notifikasis = new Notifikasi();
+
+            $notifikasis['nama_aktivitas'] = $request->nama_aktivitas;
+            $notifikasis['nama_notifikasi'] = $request->nama_notifikasi;
+            $notifikasis['tanggal_awal'] = $request->tanggal_awal;
+            $notifikasis['tanggal_akhir'] = $request->tanggal_akhir;
+
+
+            $t_awal = new DateTime($request->tanggal_awal);
+            $t_akhir = new DateTime($request->tanggal_akhir);
+
+            $interval = $t_awal->diff($t_akhir);
+
+            $diffInDays  = $interval->d;
+
+
+            $notifikasis['tanggal_notifikasi'] =  date('Y-m-d H:i:s');
+
+
+            $notifikasis['jenis_aktivitas_id'] = $request->jenis_projek_id;
+
+
+            $notifikasis['icon_notifikasi'] = $request->icon_notifikasi;
+
+            $notifikasis->save();
+
+
+            return redirect('/admin/data_notifikasi')->with('success_notif','Notifikasi Berhasil Ditambahkan');
+
+
+            
+        }
 
 
 
