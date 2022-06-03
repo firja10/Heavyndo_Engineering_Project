@@ -609,23 +609,45 @@ class LandingController extends Controller
             $notifikasis = new Notifikasi();
 
             $notifikasis['nama_aktivitas'] = $request->nama_aktivitas;
-            $notifikasis['nama_notifikasi'] = $request->nama_notifikasi;
-            $notifikasis['tanggal_awal'] = $request->tanggal_awal;
-            $notifikasis['tanggal_akhir'] = $request->tanggal_akhir;
+            
+            $notifikasis['pengirim_notifikasi'] = $request->pengirim_notifikasi;
 
 
-            $t_awal = new DateTime($request->tanggal_awal);
-            $t_akhir = new DateTime($request->tanggal_akhir);
+
+         
+
+
+            $notifikasis['tanggal_awal_aktivitas'] = $request->tanggal_awal_aktivitas;
+            $notifikasis['tanggal_akhir_aktivitas'] = $request->tanggal_akhir_aktivitas;
+
+            $notifikasis['tanggal_notifikasi'] =  date('Y-m-d H:i:s');
+
+
+            $t_awal = new DateTime($request->tanggal_awal_aktivitas);
+            $t_akhir = new DateTime($request->tanggal_akhir_aktivitas);
+
+            $t_saat_ini = new DateTime($notifikasis['tanggal_notifikasi']);
 
             $interval = $t_awal->diff($t_akhir);
 
             $diffInDays  = $interval->d;
 
+            $selisih_notif = $t_saat_ini->diff($t_akhir);
 
-            $notifikasis['tanggal_notifikasi'] =  date('Y-m-d H:i:s');
+            $beda_hari = $selisih_notif->d;
 
 
-            $notifikasis['jenis_aktivitas_id'] = $request->jenis_projek_id;
+                   
+         
+         
+            $notifikasis['nama_notifikasi'] = 'H - '. $beda_hari . ' Deadline Aktivitas ' . $notifikasis['nama_aktivitas']  ;
+
+
+            $notifikasis['deskripsi_notifikasi'] = 'Salam, Saya dari Admin Heavyndo Engineering ingin mengingatkan bahwa Aktivitas ' . $notifikasis['nama_notifikasi'] . ' harus sudah selesai H - '. $beda_hari . ' atau  ' . $beda_hari .' Hari Lagi. Diharapkan untuk segera diselesaikan. Terima kasih';
+
+         
+
+            $notifikasis['aktivitas_projek_id'] = $request->aktivitas_projek_id;
 
 
             $notifikasis['icon_notifikasi'] = $request->icon_notifikasi;
@@ -637,6 +659,18 @@ class LandingController extends Controller
 
 
             
+        }
+
+
+
+        public function adminHapusNotifikasi($id, Notifikasi $notifikasi)
+        {
+            # code...
+
+            $notifikasis = Notifikasi::findOrFail($id);
+            $notifikasis->delete();
+            return redirect('/admin/data_notifikasi')->with('hapus_notif','Notifikasi Berhasil Dihapus');
+
         }
 
 

@@ -158,8 +158,22 @@ Data Aktivitas {{$jenis_projek_id->nama_projek}}
                                         <br>
 
 
+                                        <form action="{{route('adminStoreNotifikasi')}}" method = "POST" enctype="multipart/form-data">
+                                            @csrf
+                                        
+                                            <input type="hidden" name="nama_aktivitas" id="" value="{{$aktivitas->nama_aktivitas}}">
 
-                                        <button class = "btn btn-success">Beri Notifikasi</button>
+                                            <input type="hidden" name="tanggal_awal_aktivitas" value="{{$aktivitas->tanggal_awal}}">
+                                            <input type="hidden" name="tanggal_akhir_aktivitas" value="{{$aktivitas->tanggal_akhir}}">
+                                            <input type="hidden" name="aktivitas_projek_id" value = "{{$aktivitas->id}}">
+                                            <input type="hidden" name="icon_notifikasi" value = "{{Auth::user()->gambar_profil}}">
+
+
+                                        <button class = "btn btn-success" type = "submit">Beri Notifikasi</button>
+
+                                        </form>
+
+                              
 
                                         <br><br>
                                         <button class="btn btn-danger">Hapus Aktivitas</button>

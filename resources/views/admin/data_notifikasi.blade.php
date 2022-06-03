@@ -101,8 +101,8 @@ Data Notifikasi
                                                 'November',
                                                 'Desember'
                                             );
-                                            $show_awal = explode('-', $notifikasi_aktivitas->tanggal_awal);
-                                            $show_akhir = explode('-', $notifikasi_aktivitas->tanggal_akhir);
+                                            $show_awal = explode('-', $notifikasi_aktivitas->tanggal_awal_aktivitas);
+                                            $show_akhir = explode('-', $notifikasi_aktivitas->tanggal_akhir_aktivitas);
                                             $show_sekarang = explode('-', $notifikasi_aktivitas->tanggal_notifikasi);
                                             
                                             // variabel pecahkan 0 = tanggal
@@ -122,16 +122,17 @@ Data Notifikasi
                                  
                                                         
                                    <td>
-                                        <a href="{{route('adminLihatAktivitas', $notifikasi_aktivitas->id)}}" class="btn btn-primary">Lihat Aktivitas</a>
-                                        <br>
-                                        <br>
-
-
-
-                                        <button class = "btn btn-success">Beri Notifikasi</button>
+                                        <a href="{{route('adminLihatAktivitas', $notifikasi_aktivitas->id)}}" class="btn btn-primary">Lihat Notifikasi</a>
+                                
 
                                         <br><br>
-                                        <button class="btn btn-danger">Hapus Aktivitas</button>
+                                        <form action="{{route('adminHapusNotifikasi', $notifikasi_aktivitas->id)}}" method = "POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-danger" type = "submit">Hapus Notifikasi</button>
+
+                                        </form>
+                                      
                                         
                                     </td>
 
