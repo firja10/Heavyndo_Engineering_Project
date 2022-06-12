@@ -677,6 +677,21 @@ class LandingController extends Controller
 
 
 
+        public function adminEditNotifikasi($id, Notifikasi $notifikasi)
+        {
+            # code...
+
+            $notifikasis = Notifikasi::findOrFail($id);
+            // $notifikasis->delete();
+            // return redirect('/admin/data_notifikasi')->with('hapus_notif','Notifikasi Berhasil Dihapus');
+            return view('admin.data_notifikasi_id', compact('notifikasis'));
+
+        }
+
+
+
+
+
 
 
 

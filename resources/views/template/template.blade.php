@@ -494,7 +494,7 @@
                                 @foreach ($daftar_notif as $message)
 
 
-                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                <a class="dropdown-item d-flex align-items-center" href="{{route('adminLihatNotifikasi', $message->id)}}">
                                     <div class="dropdown-list-image mr-3">
                                         <img class="rounded-circle" src="{{asset('storage/User/' . $message->icon_notifikasi)}}"
                                             alt="...">

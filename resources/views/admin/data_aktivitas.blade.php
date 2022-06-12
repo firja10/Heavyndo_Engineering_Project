@@ -167,6 +167,7 @@ Data Aktivitas {{$jenis_projek_id->nama_projek}}
                                             <input type="hidden" name="tanggal_akhir_aktivitas" value="{{$aktivitas->tanggal_akhir}}">
                                             <input type="hidden" name="aktivitas_projek_id" value = "{{$aktivitas->id}}">
                                             <input type="hidden" name="icon_notifikasi" value = "{{Auth::user()->gambar_profil}}">
+                                            <input type="hidden" name="pengirim_notifikasi" value = "{{Auth::user()->name}}">
 
 
                                         <button class = "btn btn-success" type = "submit">Beri Notifikasi</button>

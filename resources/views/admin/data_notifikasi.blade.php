@@ -84,7 +84,7 @@ Data Notifikasi
 
                                 <tr>
                                     <td>{{$notifikasi_aktivitas->nama_notifikasi}}</td>
-                                    <td>{{$notifikasi_aktivitas->pengirim_notifikasi}} Hari</td>
+                                    <td>{{$notifikasi_aktivitas->pengirim_notifikasi}}</td>
                                     <?php 
                                     
                                     $bulan = array (
@@ -122,7 +122,7 @@ Data Notifikasi
                                  
                                                         
                                    <td>
-                                        <a href="{{route('adminLihatAktivitas', $notifikasi_aktivitas->id)}}" class="btn btn-primary">Lihat Notifikasi</a>
+                                        <a href="{{route('adminLihatNotifikasi', $notifikasi_aktivitas->id)}}" class="btn btn-primary">Lihat Notifikasi</a>
                                 
 
                                         <br><br>
