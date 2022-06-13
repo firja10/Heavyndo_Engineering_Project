@@ -491,7 +491,7 @@
                                 </a> --}}
 
 
-                                @foreach ($daftar_notif as $message)
+                                @foreach ($daftar_notif->reverse() as $message)
 
 
                                 <a class="dropdown-item d-flex align-items-center" href="{{route('adminLihatNotifikasi', $message->id)}}">

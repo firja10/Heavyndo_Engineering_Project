@@ -79,7 +79,7 @@ Data Notifikasi
                                 </tfoot>
                                 <tbody>
 
-                                @foreach ($notifikasis as $notifikasi_aktivitas)
+                                @foreach ($notifikasis->reverse() as $notifikasi_aktivitas)
                                     
 
                                 <tr>
