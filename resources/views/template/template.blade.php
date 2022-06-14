@@ -180,7 +180,7 @@
 
 
 
-             <li class="nav-item active" id = "beranda">
+             <li class="nav-item" id = "beranda">
                 <a class="nav-link" href="{{url('/')}}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Beranda</span></a>
@@ -189,14 +189,14 @@
 
 
             <li class="nav-item" id = "data_projek">
-                <a class="nav-link" href="{{url('/admin/data_proyek')}}">
+                <a class="nav-link" href="{{url('/manager/data_proyek')}}">
                     <i class="fas fa-fw fa-list-alt"></i>
                     <span>Data Proyek</span></a>
             </li>
 
 
             <li class="nav-item" id = "kelola_user">
-                <a class="nav-link" href="{{url('/admin/kelola_user')}}">
+                <a class="nav-link" href="{{url('/manager/kelola_user')}}">
                     <i class="fas fa-fw fa-user-circle"></i>
                     <span>Kelola User</span></a>
             </li>
@@ -204,7 +204,7 @@
 
 
             <li class="nav-item" id = "rab">
-                <a class="nav-link" href="{{url('/admin/kelola_user')}}">
+                <a class="nav-link" href="{{url('/manager/data_rab')}}">
                     <i class="fas fa-fw fa-credit-card"></i>
                     <span>RAB</span></a>
             </li>

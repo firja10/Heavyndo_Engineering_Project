@@ -694,6 +694,41 @@ class LandingController extends Controller
 
 
 
+        // HALAMAN MANAGER !
+
+
+        public function ManagerDataProyek()
+        {
+            # code...
+            
+            $data_projeks = Jenis_Projek::all();
+            return view('manager.data_proyek', compact('data_projeks'));
+        }
+
+
+        public function ManagerKelolaUser()
+        {
+            # code...
+
+            $kelola_user = User::all();
+            return view('manager.kelola_user', compact('kelola_user'));
+
+        }
+
+
+        public function ManagerRAB()
+        {
+            # code...
+            
+            $rab_projeks = Jenis_Projek::all();
+            return view('manager.data_rab', compact('rab_projeks'));
+            
+
+        }
+
+
+
+
 
 
 

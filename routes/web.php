@@ -184,8 +184,14 @@ Route::get('/admin', [App\Http\Controllers\LandingController::class, 'adminHome'
 
 
 
+// HALAMAN MANAGER !!
 
 
 
+Route::get('/manager/data_proyek', [\App\Http\Controllers\LandingController::class,'ManagerDataProyek'])->name('ManagerDataProyek')->middleware('is_manager');
+
+Route::get('/manager/kelola_user', [\App\Http\Controllers\LandingController::class,'ManagerKelolaUser'])->name('ManagerKelolaUser')->middleware('is_manager');
+
+Route::get('/manager/data_rab', [\App\Http\Controllers\LandingController::class,'ManagerRAB'])->name('ManagerRAB')->middleware('is_manager');
 
 
