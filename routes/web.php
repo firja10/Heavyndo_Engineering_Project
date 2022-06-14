@@ -182,6 +182,21 @@ Route::get('/admin', [App\Http\Controllers\LandingController::class, 'adminHome'
 
 
 
+// HALAMAN SUPERVISOR 
+
+Route::get('/supervisor/data_proyek', [\App\Http\Controllers\LandingController::class,'SupervisorDataProyek'])->name('SupervisorDataProyek')->middleware('is_supervisor');
+
+
+Route::get('/supervisor/data_rab', [\App\Http\Controllers\LandingController::class,'SupervisorRAB'])->name('SupervisorRAB')->middleware('is_supervisor');
+
+Route::get('/supervisor/data_rab/{id}', [\App\Http\Controllers\LandingController::class,'SupervisorEditRAB'])->name('SupervisorEditRAB')->middleware('is_supervisor');
+
+Route::patch('/supervisor/data_rab/{id}', [\App\Http\Controllers\LandingController::class,'SupervisorUpdateRAB'])->name('SupervisorUpdateRAB')->middleware('is_supervisor');
+
+
+
+
+
 
 
 // HALAMAN MANAGER !!

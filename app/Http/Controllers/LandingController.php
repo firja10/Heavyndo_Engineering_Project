@@ -694,6 +694,88 @@ class LandingController extends Controller
 
 
 
+
+        //SUPERVISOR 
+
+
+
+        public function SupervisorDataProyek()
+        {
+            # code...
+
+            $data_projeks = Jenis_Projek::all();
+            return view('supervisor.data_proyek', compact('data_projeks'));
+
+
+
+        }
+
+
+
+
+        
+        public function SupervisorRAB()
+        {
+            # code...
+
+            $rab_projeks = Jenis_Projek::all();
+            return view('supervisor.data_rab', compact('rab_projeks'));
+
+        }
+
+
+
+
+        public function SupervisorEditRAB($id)
+        {
+            # code...
+
+            $rab_projeks_id = Jenis_Projek::findOrFail($id);
+            return view('supervisor.data_rab_id', compact('rab_projeks_id'));
+
+        }
+
+
+
+        public function SupervisorUpdateRAB(Request $request, $id)
+        {
+            # code...
+            
+            Jenis_Projek::where('id', $id)->update([
+
+                'anggaran_projek'=>$request['anggaran_projek'],
+
+            ]);
+
+            return redirect('/supervisor/data_rab')->with('sukses_update_rab', 'RAB Telah Sukses Terupdate');
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         // HALAMAN MANAGER !
 
 
@@ -725,6 +807,10 @@ class LandingController extends Controller
             
 
         }
+
+
+
+
 
 
 

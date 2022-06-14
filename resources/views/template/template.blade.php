@@ -120,7 +120,7 @@
 
 
             <li class="nav-item" id = "data_projek">
-                <a class="nav-link" href="{{url('/admin/data_proyek')}}">
+                <a class="nav-link" href="{{url('/supervisor/data_proyek')}}">
                     <i class="fas fa-fw fa-file-image"></i>
                     <span>Daftar Proyek</span></a>
             </li>
@@ -145,7 +145,7 @@
 
 
             <li class="nav-item" id = "rab">
-                <a class="nav-link" href="{{url('/admin/kelola_user')}}">
+                <a class="nav-link" href="{{url('/supervisor/data_rab')}}">
                     <i class="fas fa-fw fa-credit-card"></i>
                     <span>RAB</span></a>
             </li>
