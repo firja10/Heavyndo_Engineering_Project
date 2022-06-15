@@ -105,6 +105,49 @@ Data Aktivitas {{ $aktivitas_projek->nama_aktivitas}}
                                         
                                         </li>
 
+                                        <li>
+                                        <?php
+                                            
+                                            $bulan = array (
+                                                1 =>   'Januari',
+                                                'Februari',
+                                                'Maret',
+                                                'April',
+                                                'Mei',
+                                                'Juni',
+                                                'Juli',
+                                                'Agustus',
+                                                'September',
+                                                'Oktober',
+                                                'November',
+                                                'Desember'
+                                            );
+                                           
+                                            $show_akhir = explode('-', $aktivitas_projek->tanggal_akhir);
+                                            
+                                            // variabel pecahkan 0 = tanggal
+                                            // variabel pecahkan 1 = bulan
+                                            // variabel pecahkan 2 = tahun
+                                        
+                                          
+                                            $final_date = $show_akhir[2] . ' ' . $bulan[ (int)$show_akhir[1] ] . ' ' . $show_akhir[0];
+
+                                            $tanggal_sekarang = date('Y-m-d H:i:s');
+
+                                            ?>    
+                                            
+                                            Deadline : <?php echo $final_date; ?> &nbsp;
+
+                                            @if ($tanggal_sekarang > $aktivitas_projek->tanggal_akhir)
+                                            <br>
+                                            <button class = "btn btn-danger">Sudah Melewati Deadline</button>
+
+                                            @else
+                                                
+                                            @endif
+
+                                        </li>
+
                                     </ul>
                                         
                                     <br>

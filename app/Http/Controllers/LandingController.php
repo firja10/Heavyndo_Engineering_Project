@@ -637,16 +637,37 @@ class LandingController extends Controller
             $beda_hari = $selisih_notif->d;
 
 
+
+
+            $bulan = array (
+                1 =>   'Januari',
+                'Februari',
+                'Maret',
+                'April',
+                'Mei',
+                'Juni',
+                'Juli',
+                'Agustus',
+                'September',
+                'Oktober',
+                'November',
+                'Desember'
+            );
+            $show_awal = explode('-', $notifikasis['tanggal_awal_aktivitas']);
+            $show_akhir = explode('-', $notifikasis['tanggal_akhir_aktivitas']);
+ 
+
+
+
                    
          
          
             $notifikasis['nama_notifikasi'] = 'H - '. $beda_hari . ' Deadline Aktivitas ' . $notifikasis['nama_aktivitas']  ;
 
 
-            $notifikasis['deskripsi_notifikasi'] = 'Salam, Saya dari Admin Heavyndo Engineering ingin mengingatkan bahwa Aktivitas ' . $notifikasis['nama_notifikasi'] . ' harus sudah selesai H - '. $beda_hari . ' atau  ' . $beda_hari .' Hari Lagi. Diharapkan untuk segera diselesaikan. Terima kasih';
+            $notifikasis['deskripsi_notifikasi'] = 'Salam, Saya dari Admin Heavyndo Engineering ingin mengingatkan bahwa Aktivitas ' . $notifikasis['nama_notifikasi'] . ' harus sudah selesai H - '. $beda_hari . ' atau  ' . $beda_hari .' Hari Lagi. Diharapkan untuk segera diselesaikan, dengan deadline lebih tepatnya pada '. $show_akhir .'. Terima kasih';
 
          
-
             $notifikasis['aktivitas_projek_id'] = $request->aktivitas_projek_id;
 
 

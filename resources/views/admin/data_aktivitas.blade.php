@@ -131,10 +131,43 @@ Data Aktivitas {{$jenis_projek_id->nama_projek}}
                                         
                                             $first_date = $show_awal[2] . ' ' . $bulan[ (int)$show_awal[1] ] . ' ' . $show_awal[0];
                                             $final_date = $show_akhir[2] . ' ' . $bulan[ (int)$show_akhir[1] ] . ' ' . $show_akhir[0];
-                                    
+                                            $tanggal_sekarang = date('Y-m-d H:i:s');
                                     ?>
                                     <td><?php echo $first_date; ?></td>
-                                    <td><?php echo $final_date; ?></td>
+                                    <td><?php echo $final_date;
+                                     ?> 
+
+
+                                     @if ($tanggal_sekarang > $aktivitas->tanggal_akhir)
+
+                                     <br>
+                                     <div class="alert alert-danger alert-block">
+                                         {{-- <button type="button" class="close" data-dismiss="alert">×</button>	 --}}
+                                           <strong>Sudah Terlewat</strong>
+                                       </div>
+ 
+                                     @elseif($tanggal_sekarang < $aktivitas->tanggal_akhir)
+
+                                     <?php 
+
+                                          $t_akhir = $aktivitas->tanggal_akhir;
+                                          $t_awal = $aktivitas->tanggal_awal;
+
+                                          $interval = $t_awal->diff($t_akhir);
+
+                                          $diffInDays  = $interval->d;
+
+                                     ?>
+
+                                     <br>
+                                     <div class="alert alert-warning alert-block">
+                                         {{-- <button type="button" class="close" data-dismiss="alert">×</button>	 --}}
+                                           <strong>H - <?php echo $diffInDays ; ?></strong>
+                                       </div>
+                                     @endif
+                           
+
+                                    </td>
                                     <td>{{$aktivitas->penanggung_jawab}}</td>
                                     <td>
                                     @if ($aktivitas->status_aktivitas == "on_going")

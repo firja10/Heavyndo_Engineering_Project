@@ -102,6 +102,8 @@
                                     
                                     <span><?php echo $present_date; ?></span>
                                     <br>
+                                     <span>Deadline : </span><button class = "btn btn-warning" style = "cursor:pointer"><?php echo $final_date; ?></button>
+                                    <br>
 
                              
                                     <p>

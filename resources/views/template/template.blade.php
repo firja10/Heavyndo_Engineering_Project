@@ -25,6 +25,13 @@
 
     @yield('style')
 
+    <style>
+        .control-label:after {
+  content:"*";
+  color:red;
+}
+    </style>
+
 
 
 
@@ -62,7 +69,7 @@
                 
           
 
-            <li class="nav-item active" id = "beranda">
+            <li class="nav-item" id = "beranda">
                 <a class="nav-link" href="{{url('/')}}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Beranda</span></a>
@@ -111,7 +118,7 @@
                 
          
 
-             <li class="nav-item active" id = "beranda">
+             <li class="nav-item" id = "beranda">
                 <a class="nav-link" href="{{url('/')}}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Beranda</span></a>
@@ -389,7 +396,7 @@
                             </div>
                         </li>
 
-                        <!-- Nav Item - Alerts -->
+                        {{-- <!-- Nav Item - Alerts -->
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -438,7 +445,7 @@
                                 </a>
                                 <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
                             </div>
-                        </li>
+                        </li> --}}
 
 
 
@@ -452,7 +459,7 @@
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-envelope fa-fw"></i>
+                                <i class="fas fa-bell fa-fw"></i>
                                 <!-- Counter - Messages -->
                                 <?php
 
@@ -700,26 +707,26 @@
 
      
                 <div class="form-group">
-                    <label for="nama_projek"> Nama Aktivitas</label>
-                    <input type="text" name="nama_projek" id="nama_projek" class = "form-control" placeholder="Masukkan Nama Projek">
+                    <label for="nama_projek" class = "control-label"> Nama Aktivitas</label>
+                    <input type="text" name="nama_projek" id="nama_projek" class = "form-control" placeholder="Masukkan Nama Projek" required>
                 </div>
 
 
                 <div class="form-group">
-                    <label for="nama_projek"> Durasi Projek</label>
-                    <input type="text" name="durasi_projek" id="durasi_projek" class = "form-control" placeholder="Masukkan Lama Durasi Projek">
+                    <label for="nama_projek" class = "control-label"> Durasi Projek</label>
+                    <input type="text" name="durasi_projek" id="durasi_projek" class = "form-control" placeholder="Masukkan Lama Durasi Projek" required>
                 </div>
 
 
 
                 <div class="form-group">
-                    <label for="nama_projek"> Status Projek</label>
+                    <label for="nama_projek" class = "control-label"> Status Projek</label>
 
                     
 {{--                 
                     <input type="text" name="status_projek" id="status_projek" class = "form-control" placeholder="Masukkan Status Projek Saat Ini "> --}}
                 
-                    <select name="status_projek" id="status_projek" class = "form-control">
+                    <select name="status_projek" id="status_projek" class = "form-control" required>
                         <option value="" selected disabled> -- Silakan Pilih --</option>
                         <option value="on_going"> On-Going</option>
                         <option value="finished">Finished</option>
@@ -729,12 +736,12 @@
                 </div>
                 
                 <div class="form-group">
-                    <label for="nama_projek"> Anggaran Projek</label>
-                    <input type="number" name="anggaran_projek" id="anggaran_projek" class = "form-control" placeholder="Masukkan Anggaran Projek Saat Ini ">
+                    <label for="nama_projek" class = "control-label"> Anggaran Projek</label>
+                    <input type="number" name="anggaran_projek" id="anggaran_projek" class = "form-control" placeholder="Masukkan Anggaran Projek Saat Ini " required>
                 </div>
 
                 <div class="form-group">
-                    <label for="nama_projek"> Gambar Projek</label>
+                    <label for="nama_projek" class = "control-label"> Gambar Projek</label>
                     <input type="file" name="gambar_projek" id="gambar_projek" class = "form-control">
                 </div>
 
@@ -783,30 +790,30 @@
 
 
             <div class="form-group">
-                <label for="name"> Nama User</label>
-                <input type="text" name="name" id="name" class = "form-control" placeholder="Masukkan Nama User">
+                <label for="name" class = "control-label"> Nama User</label>
+                <input type="text" name="name" id="name" class = "form-control" placeholder="Masukkan Nama User" required>
             </div>
 
                 <div class="form-group">
-                    <label for="email"> Email User</label>
-                    <input type="email" name="email" id="email" class = "form-control" placeholder="Masukkan Email User">
+                    <label for="email" class = "control-label"> Email User</label>
+                    <input type="email" name="email" id="email" class = "form-control" placeholder="Masukkan Email User" required>
                 </div>
 
 
                 
                 <div class="form-group">
-                    <label for="password"> Password User</label>
-                    <input type="password" name="password" id="password" class = "form-control" placeholder="Masukkan Password User">
+                    <label for="password" class = "control-label"> Password User</label>
+                    <input type="password" name="password" id="password" class = "form-control" placeholder="Masukkan Password User" required>
                 </div>
 
 
 
                 <div class="form-group">
-                    <label for="is_admin"> Status Admin</label>  
+                    <label for="is_admin" class = "control-label"> Status Admin</label>  
 {{--                 
                     <input type="text" name="status_projek" id="status_projek" class = "form-control" placeholder="Masukkan Status Projek Saat Ini "> --}}
                 
-                    <select name="is_admin" id="is_admin" class = "form-control">
+                    <select name="is_admin" id="is_admin" class = "form-control" required >
                         <option value="" selected disabled> -- Silakan Pilih --</option>
                         <option value=1> Iya</option>
                         <option value=0>Tidak</option>
@@ -817,11 +824,11 @@
 
 
                 <div class="form-group">
-                    <label for="is_supervisor"> Status SuperVisor</label>  
+                    <label for="is_supervisor" class = "control-label"> Status SuperVisor</label>  
 {{--                 
                     <input type="text" name="status_projek" id="status_projek" class = "form-control" placeholder="Masukkan Status Projek Saat Ini "> --}}
                 
-                    <select name="is_supervisor" id="is_supervisor" class = "form-control">
+                    <select name="is_supervisor" id="is_supervisor" class = "form-control" required>
                         <option value="" selected disabled> -- Silakan Pilih --</option>
                         <option value=1> Iya</option>
                         <option value=0>Tidak</option>
@@ -833,11 +840,11 @@
 
                 
                 <div class="form-group">
-                    <label for="is_manager"> Status Manager</label>  
+                    <label for="is_manager" class = "control-label"> Status Manager</label>  
 {{--                 
                     <input type="text" name="status_projek" id="status_projek" class = "form-control" placeholder="Masukkan Status Projek Saat Ini "> --}}
                 
-                    <select name="is_manager" id="is_manager" class = "form-control">
+                    <select name="is_manager" id="is_manager" class = "form-control" required>
                         <option value="" selected disabled> -- Silakan Pilih --</option>
                         <option value=1> Iya</option>
                         <option value=0>Tidak</option>
@@ -847,11 +854,9 @@
 
 
                 <div class="form-group">
-                    <label for="gambar_profil"> Foto Profil User</label>
-                    <input type="file" name="gambar_profil" id="gambar_profil" class = "form-control">
+                    <label for="gambar_profil" class = "control-label"> Foto Profil User</label> 
+                    <input type="file" name="gambar_profil" id="gambar_profil" class = "form-control" required>
                 </div>
-
-
 
 
           </div>
