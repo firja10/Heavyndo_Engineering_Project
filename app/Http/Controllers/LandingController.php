@@ -596,6 +596,11 @@ class LandingController extends Controller
         {
             # code...
             $notifikasis = Notifikasi::findOrFail($id);
+
+            Notifikasi::where('id', $id)->update([
+                'status'=>1
+            ]);
+
             return view('admin.data_notifikasi_id', compact('notifikasis'));
             
         }
@@ -673,6 +678,8 @@ class LandingController extends Controller
 
             $notifikasis['icon_notifikasi'] = $request->icon_notifikasi;
 
+            $notifikasis['status'] = 0;
+
             $notifikasis->save();
 
 
@@ -706,6 +713,21 @@ class LandingController extends Controller
             // $notifikasis->delete();
             // return redirect('/admin/data_notifikasi')->with('hapus_notif','Notifikasi Berhasil Dihapus');
             return view('admin.data_notifikasi_id', compact('notifikasis'));
+
+        }
+
+
+
+
+        public function UbahStatusNotifikasi($id, Request $request)
+        {
+            # code...
+
+            Notifikasi::where('id', $id)->update([
+                'status'=>1
+            ]);
+
+            return redirect('/admin/data_notifikasi/' . $id);
 
         }
 
@@ -828,6 +850,8 @@ class LandingController extends Controller
             
 
         }
+
+
 
 
 

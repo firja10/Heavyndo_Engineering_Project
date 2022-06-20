@@ -466,14 +466,26 @@
 
 
                                 
-                                $hitung_notif = DB::table('notifikasis')->count();
+                                $hitung_notif = DB::table('notifikasis')->where('status',0)->count();
                                 
-                                $daftar_notif = DB::table('notifikasis')->get();
+                                $daftar_notif = DB::table('notifikasis')->where('status',0)->get();
 
 
 
                                 ?>
-                                <span class="badge badge-danger badge-counter"><?php echo $hitung_notif ?></span>
+                                <span class="badge badge-danger badge-counter"><?php 
+                                
+                                if ($hitung_notif > 0) {
+                                    # code...
+                                    echo $hitung_notif;
+                                }
+
+                                else {
+                                    
+                                }
+                          
+                                
+                                ?></span>
                             </a>
                             <!-- Dropdown - Messages -->
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -529,7 +541,7 @@
 
                       
 
-                                <a class="dropdown-item text-center small text-gray-500" href="{{url('/admin/data_notifikasi')}}">Read More Messages</a>
+                                <a class="dropdown-item text-center small text-gray-500" href="{{url('/admin/data_notifikasi')}}">Lihat Notifikasi Lain</a>
 
 
 
@@ -876,6 +888,23 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    <!-- MODAL TAMBAH AKTIVITAS -->
 
  @yield('form_penting')
@@ -902,6 +931,29 @@
         $('#dataTable').DataTable();
         });
     </script>
+
+
+<!-- Notification -->
+<script>
+
+    $(document).ready(function()
+    {
+
+        functin load_unseen_notif(view = '')
+        {
+
+            $.ajax({
+            
+            })
+
+        }
+
+    });
+
+</script>
+
+
+
 
 <script src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"></script>
 

@@ -102,7 +102,7 @@
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $jumlah_projek ?></div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            <i class="fas fa-calendar fa-2x text-300 text-primary"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -125,12 +125,41 @@
                                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $users; ?></div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-user fa-2x text-gray-300"></i>
+                                            <i class="fas fa-user fa-2x text-300 text-success"></i>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+
+
+
+
+                                 <!-- Earnings (Monthly) Card Example -->
+                                 <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-danger shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                                        Jumlah Aktivitas</div>
+                                                    
+                                                    <?php 
+                                                    $users = DB::table('aktivitas_projeks')->count();
+                                                    ?>
+        
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $users; ?></div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <i class="fas fa-list-alt fa-2x text-300 text-danger"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
 
                         <!-- Earnings (Monthly) Card Example -->
                         {{-- <div class="col-xl-3 col-md-6 mb-4">
@@ -188,6 +217,104 @@
                     </div>
 
                     <!-- Content Row -->
+
+
+
+                @if (Auth::user()->is_admin == 1)
+                    
+            
+
+                    <div class="row">
+
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-primary shadow h-100 py-2 bg-primary">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-white text-uppercase mb-1">
+                                                        Tambah Projek</div>
+                                                    
+                                          
+                                                </div>
+                                                <div class="col-auto">
+                                                    <button class = "btn bg-primary border-0" data-toggle="modal" data-target="#modaltambahProjek">
+                                                        <i class="fas fa-plus-circle fa-2x text-300 text-white"></i>
+                                                    </button>
+                                                  
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-success shadow h-100 py-2 bg-success">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-white text-uppercase mb-1">
+                                                        Tambah User</div>
+                                                    
+                                          
+                                                </div>
+                                                <div class="col-auto">
+                                                    <button class = "btn bg-success border-0" data-toggle="modal" data-target="#modaltambahUser">
+                                                        <i class="fas fa-plus-circle fa-2x text-300 text-white"></i>
+                                                    </button>
+                                                  
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col-xl-3 col-md-6 mb-4">
+                                    <div class="card border-left-danger shadow h-100 py-2 bg-danger">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col mr-2">
+                                                    <div class="text-xs font-weight-bold text-white text-uppercase mb-1">
+                                                        Tambah Aktivitas</div>
+                                                    
+                                          
+                                                </div>
+                                                <div class="col-auto">
+                                                    {{-- <button class = "btn bg-danger border-0" data-toggle="modal" data-target="#modaltambahAktivitas_opsi">
+                                                        <i class="fas fa-plus-circle fa-2x text-300 text-white"></i>
+                                                    </button> --}}
+
+                                                    <a class = "btn bg-danger border-0" href = "">
+                                                        <i class="fas fa-plus-circle fa-2x text-300 text-white"></i>
+                                                    </a>
+
+                                                  
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+                    </div>
+
+                    
+
+
+                    @else
+                    
+                    @endif
+
+
+
+
+
+
 
     
 

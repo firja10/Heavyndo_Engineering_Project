@@ -360,6 +360,7 @@ aria-hidden="true">
                 <input type="file" name="foto_aktivitas" id="foto_aktivitas" class = "form-control">
             </div>
 
+  
             <input type="hidden" name="jenis_projek_id" value = {{$jenis_projek_id->id}}>
 
             <input type="hidden" name="nama_projek" value = "{{$jenis_projek_id->nama_projek}}">
