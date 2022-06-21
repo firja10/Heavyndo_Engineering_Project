@@ -137,7 +137,7 @@
 
 
                                  <!-- Earnings (Monthly) Card Example -->
-                                 <div class="col-xl-3 col-md-6 mb-4">
+                                 {{-- <div class="col-xl-3 col-md-6 mb-4">
                                     <div class="card border-left-danger shadow h-100 py-2">
                                         <div class="card-body">
                                             <div class="row no-gutters align-items-center">
@@ -146,10 +146,12 @@
                                                         Jumlah Aktivitas</div>
                                                     
                                                     <?php 
-                                                    $users = DB::table('aktivitas_projeks')->count();
+                                                    // $users = DB::table('aktivitas_projeks')->count();
                                                     ?>
         
-                                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $users; ?></div>
+                                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><?php
+                                                    //  echo $users;
+                                                      ?></div>
                                                 </div>
                                                 <div class="col-auto">
                                                     <i class="fas fa-list-alt fa-2x text-300 text-danger"></i>
@@ -157,7 +159,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
 
 
 
@@ -271,7 +273,14 @@
 
 
 
-                                <div class="col-xl-3 col-md-6 mb-4">
+
+
+
+
+
+
+
+                                {{-- <div class="col-xl-3 col-md-6 mb-4">
                                     <div class="card border-left-danger shadow h-100 py-2 bg-danger">
                                         <div class="card-body">
                                             <div class="row no-gutters align-items-center">
@@ -282,9 +291,7 @@
                                           
                                                 </div>
                                                 <div class="col-auto">
-                                                    {{-- <button class = "btn bg-danger border-0" data-toggle="modal" data-target="#modaltambahAktivitas_opsi">
-                                                        <i class="fas fa-plus-circle fa-2x text-300 text-white"></i>
-                                                    </button> --}}
+                              
 
                                                     <a class = "btn bg-danger border-0" href = "">
                                                         <i class="fas fa-plus-circle fa-2x text-300 text-white"></i>
@@ -295,7 +302,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
+
+
+
 
 
 
