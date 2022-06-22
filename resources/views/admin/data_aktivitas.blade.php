@@ -157,8 +157,8 @@ Data Aktivitas {{$jenis_projek_id->nama_projek}}
 
                                      <?php 
 
-                                          $t_akhir = $aktivitas->tanggal_akhir;
-                                          $t_awal = $aktivitas->tanggal_awal;
+                                          $t_akhir = new DateTime($aktivitas->tanggal_akhir);
+                                          $t_awal = new DateTime($aktivitas->tanggal_awal);
 
                                           $interval = $t_awal->diff($t_akhir);
 
