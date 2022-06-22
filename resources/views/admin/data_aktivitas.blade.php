@@ -45,8 +45,15 @@ Data Aktivitas {{$jenis_projek_id->nama_projek}}
                                 $aktivitass_sum = DB::table('aktivitas_projeks')->where('jenis_projek_id', $jenis_projek_id->id)->sum('persentase_progress');
                                     // var_dump($aktivitass);
                                 $jumlah_aktivitass = DB::table('aktivitas_projeks')->where('jenis_projek_id', $jenis_projek_id->id)->count();
-
+                                
+                                if($jumlah_aktivitass > 0)
+                                {
                                 $aktivitass_bagi = $aktivitass_sum/$jumlah_aktivitass;
+                                }
+
+                                else{
+                                    $aktivitass_bagi = 0;
+                                }
 
                                     ?>
                     Persentase Progress Rata - rata : 
