@@ -93,6 +93,13 @@ Data Aktivitas {{ $aktivitas_projek->nama_aktivitas}}
 
 
                             <div class="form-group">
+                                <label for="PJInput">Penanggung Jawab</label>
+                                <input type="text" class="form-control" id="PJInput" placeholder = "Penanggung Jawab" value="{{$aktivitas_projek->penanggung_jawab}}" name = "penanggung_jawab">
+                            </div>
+
+
+
+                            <div class="form-group">
                                 <label for="AwalInput">Tanggal Awal</label>
                                 <input type="date" class="form-control" id="AwalInput" placeholder = "Tanggal Awal" value="{{$aktivitas_projek->tanggal_awal}}" name = "tanggal_awal">
                             </div>
