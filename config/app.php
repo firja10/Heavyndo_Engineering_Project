@@ -179,7 +179,7 @@ return [
 
 
 
-        Illuminate\Support\Facades\Redis::class,
+        // Illuminate\Support\Facades\Redis::class,
 
     ],
 
@@ -238,7 +238,7 @@ return [
 
 
         
-        'Redis' => Illuminate\Support\Facades\Redis::class,
+        // 'Redis' => Illuminate\Support\Facades\Redis::class,
 
     ],
 
