@@ -93,7 +93,7 @@
 
                             <div class="card border-left-primary shadow h-100 py-2">
 
-                                <button type="button" class="btn btn-white" data-toggle="modal" data-target="#Projek1">
+                                <button class = "btn btn-white" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style = "border:0">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
@@ -122,10 +122,7 @@
                                 </button>`
 
 
-
-
-
-                                {{-- <div class="row">
+                                <div class="row">
                                     <div class="col">
                                         <div class="collapse" id="collapseExample">
                                             <div class="card card-body">
@@ -133,8 +130,7 @@
                                             </div>
                                           </div>
                                     </div>
-                                </div> --}}
-
+                                </div>
 
                             </div>
 
@@ -152,10 +148,7 @@
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-success shadow h-100 py-2">
 
-
-
-
-                                <button type="button" class="btn btn-white" data-toggle="modal" data-target="#User1">
+                                <button class = "btn btn-white" type="button" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample" style = "border:0">
 
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -173,14 +166,16 @@
                                             <i class="fas fa-user fa-2x text-300 text-success"></i>
                                         </div>
                                     </div>
-                                
                                 </div>
-
-                            </button>
-
                             </div>
 
-                    
+                        </button>
+
+
+
+                        
+
+
 
 
                         </div>

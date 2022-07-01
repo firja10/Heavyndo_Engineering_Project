@@ -103,7 +103,8 @@ Edit Data RAB {{$rab_projeks_id->nama_projek}}
 
                             <div class="form-group">
                                 <label for="AnggaranInput">Anggaran Projek</label>
-                                <input type="number" class="form-control" id="AnggaranInput" placeholder = "Anggaran Projek" value="{{$rab_projeks_id->anggaran_projek}}" name = "anggaran_projek">
+                                {{-- <input type="number" class="form-control" id="AnggaranInput" placeholder = "Anggaran Projek" value="{{$rab_projeks_id->anggaran_projek}}" name = "anggaran_projek"> --}}
+                                <input type="number" class="form-control" id="AnggaranInput1" placeholder = "Anggaran Projek" value="{{$rab_projeks_id->anggaran_projek}}" name = "anggaran_projek">
                             </div>
 
                           
@@ -141,6 +142,43 @@ Edit Data RAB {{$rab_projeks_id->nama_projek}}
 
             </div>
             <!-- /.container-fluid -->
+
+
+
+
+
+            <script>
+                var AnggaranInput = document.getElementById('AnggaranInput');
+                AnggaranInput.addEventListener("keyup", function (e) 
+                {
+                    AnggaranInput.value = formatRupiah(this.value, "Rp. ");
+            
+                });
+            
+            
+             function formatRupiah(angka, prefix) {
+                
+                var number_string = angka.replace(/[^,\d]/g, "").toString(),
+                split = number_string.split(","),
+                sisa = split[0].length % 3,
+                AnggaranInput = split[0].substr(0,sisa),
+                ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+            
+            
+                if (ribuan) {
+                separator = sisa ? "." : "";
+                AnggaranInput += separator + ribuan.join(".");
+              }
+            
+              AnggaranInput = split[1] != undefined ? AnggaranInput + "," + split[1] : AnggaranInput;
+              return prefix == undefined ? AnggaranInput : AnggaranInput ? "Rp. " + AnggaranInput : "";
+            
+            
+             }
+            
+            
+            </script>
+            
 
 
 

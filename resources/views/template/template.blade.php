@@ -891,6 +891,110 @@
 
 
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <?php 
+  
+  //User
+  $user_jumlah_admin = DB::table('users')->where('is_admin', 1)->count();
+  $user_jumlah_supervisor = DB::table('users')->where('is_supervisor', 1)->count();
+  $user_jumlah_manager = DB::table('users')->where('is_manager', 1)->count();
+
+  //Projek 
+  $projek_jumlah_ongoing = DB::table('jenis__projeks')->where('status_projek', 'on_going')->count();
+  $projek_jumlah_finished = DB::table('jenis__projeks')->where('status_projek', 'finished')->count();
+  $projek_jumlah_cancelled = DB::table('jenis__projeks')->where('status_projek', 'cancelled')->count();
+  
+  ?>
+
+
+
+
+
+  <!-- Modal -->
+<div class="modal fade" id="User1" tabindex="-1" role="dialog" aria-labelledby="User1" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="User1">User</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <button class="btn btn-primary"> Admin : <?php echo $user_jumlah_admin; ?> </button> &nbsp;
+          <button class="btn btn-danger"> Supervisor : <?php echo $user_jumlah_supervisor ?> </button> &nbsp;
+          <button class="btn btn-success"> Manager : <?php echo $user_jumlah_manager ?> </button> &nbsp;
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+    <!-- Modal -->
+<div class="modal fade" id="Projek1" tabindex="-1" role="dialog" aria-labelledby="Projek1" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="Projek1">Daftar Projek</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <button class="btn btn-primary"> On Going : <?php echo $projek_jumlah_ongoing ?> </button> &nbsp;
+            <button class="btn btn-success"> Finished : <?php echo $projek_jumlah_finished ?> </button> &nbsp;
+            <button class="btn btn-danger"> Cancelled : <?php echo $projek_jumlah_cancelled ?> </button> &nbsp;
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -917,6 +1021,12 @@
 
 
 
+
+
+
+
+
+<!-- Formatting Rupiah -->
 
 
 
