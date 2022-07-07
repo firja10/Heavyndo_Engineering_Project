@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Jenis_Projek;
 use App\Models\User;
 use App\Models\AktivitasProjek;
+use App\Models\Message;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use App\Models\Notifikasi;
@@ -783,10 +784,16 @@ class LandingController extends Controller
         public function SupervisorUpdateRAB(Request $request, $id)
         {
             # code...
+
+            $array_titik = array('.', 'Rp', ' ');
+
+            $rab_replace  = str_replace($array_titik, '', $request['anggaran_projek']);
+
+            $rab = (int) $rab_replace;
             
             Jenis_Projek::where('id', $id)->update([
 
-                'anggaran_projek'=>$request['anggaran_projek'],
+                'anggaran_projek'=>$rab_replace,
 
             ]);
 
@@ -857,6 +864,34 @@ class LandingController extends Controller
 
 
 
+
+        // PART OF MESSAGES 
+
+
+        // Menampilkan Semuanya
+
+        public function data_messages()
+        {
+            # code...
+
+            $messages = Message::all();
+
+            return view('', compact('messages'));
+            // return view('')
+        }
+
+
+        // Menampilkan Per Id 
+
+        public function data_messages_id()
+        {
+            # code...
+        }
+
+        public function store_messages()
+        {
+            # code...
+        }
 
 
 

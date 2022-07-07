@@ -103,8 +103,8 @@ Edit Data RAB {{$rab_projeks_id->nama_projek}}
 
                             <div class="form-group">
                                 <label for="AnggaranInput">Anggaran Projek</label>
-                                {{-- <input type="number" class="form-control" id="AnggaranInput" placeholder = "Anggaran Projek" value="{{$rab_projeks_id->anggaran_projek}}" name = "anggaran_projek"> --}}
-                                <input type="number" class="form-control" id="AnggaranInput1" placeholder = "Anggaran Projek" value="{{$rab_projeks_id->anggaran_projek}}" name = "anggaran_projek">
+                                <input type="text" class="form-control" id="AnggaranInput" placeholder = "Anggaran Projek" value="{{$rab_projeks_id->anggaran_projek}}" name = "anggaran_projek">
+                                {{-- <input type="number" class="form-control" id="AnggaranInput1" placeholder = "Anggaran Projek" value="{{$rab_projeks_id->anggaran_projek}}" name = "anggaran_projek"> --}}
                             </div>
 
                           

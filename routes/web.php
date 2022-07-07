@@ -1,5 +1,6 @@
 <?php
 
+use App\Events\NotifikasiPesan;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,6 +14,26 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+
+
+
+Route::get('/welcome', function () {
+   
+    // NotifikasiPesan::dispatch('Pesan Baru');
+    return view('admin.welcome');
+});
+
+
+
+Route::get('/notifikasi/pesan', function () {
+   
+    NotifikasiPesan::dispatch('Pesan Baru');
+
+});
+
+
 
 
 Auth::routes();
@@ -209,4 +230,8 @@ Route::get('/manager/kelola_user', [\App\Http\Controllers\LandingController::cla
 
 Route::get('/manager/data_rab', [\App\Http\Controllers\LandingController::class,'ManagerRAB'])->name('ManagerRAB')->middleware('is_manager');
 
+
+
+
+// COBA KIRIM MESSAGE 
 
