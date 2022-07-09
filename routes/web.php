@@ -235,3 +235,7 @@ Route::get('/manager/data_rab', [\App\Http\Controllers\LandingController::class,
 
 // COBA KIRIM MESSAGE 
 
+Route::get('notifikasis', [\App\Http\Controllers\NotifikasiController::class, 'fetchNotifikasis'])->name('fetchNotifikasis');
+
+Route::post('notifikasis', [\App\Http\Controllers\NotifikasiController::class, 'sendNotifikasis'])->name('sendNotifikasis');
+

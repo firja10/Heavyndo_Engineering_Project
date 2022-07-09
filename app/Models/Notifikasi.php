@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Notifikasi extends Model
 {
     use HasFactory;
+
+
+    public function user()
+    {
+        # code...
+
+        return $this->belongsTo(User::class);
+
+    }
+
+
 }
