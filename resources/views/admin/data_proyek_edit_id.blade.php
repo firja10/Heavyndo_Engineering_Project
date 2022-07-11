@@ -65,6 +65,7 @@ Data {{$jenis_Projek->nama_projek}}
                     <div class="card-header py-3">
                         {{-- <h6 class="m-0 font-weight-bold text-primary">
                             DataTables Example</h6> --}}
+                            <button class = "btn btn-dark" onclick = "history.back()">Previous</button>
                     </div>
                     <div class="card-body">
                  

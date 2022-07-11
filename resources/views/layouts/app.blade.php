@@ -12,7 +12,7 @@
     <!-- Scripts -->
     {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
 
-    <script src="{{ mix('/js/app.js') }}"></script>
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -21,7 +21,7 @@
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
 
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-
+    <script defer src="{{ mix('js/app.js') }}"></script>
 
 
     <!-- resources/views/layouts/app.blade.php -->
@@ -128,7 +128,7 @@
 
             <br><br>
             <div id="app">
-                <example-component></example-component>
+                <about-us/>
             </div>
 
 
@@ -136,5 +136,8 @@
 
         </main>
     </div>
+
+
 </body>
+
 </html>
