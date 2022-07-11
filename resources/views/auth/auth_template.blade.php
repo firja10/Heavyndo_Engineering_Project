@@ -12,9 +12,13 @@
     <style>
         .bg-login-image
         {
-            background:url("{{asset('src/images/logo_sementara.png')}}");
+            /* background:url("{{asset('src/images/logo_sementara.png')}}"); */
+            background:url("{{asset('logo_pt.jpeg')}}");
             background-position:center;
-            background-size:cover;
+            /* background-size:cover; */
+            background-size:80%;
+
+            background-repeat: no-repeat;
     
         }
 
