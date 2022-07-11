@@ -235,7 +235,18 @@ Route::get('/manager/data_rab', [\App\Http\Controllers\LandingController::class,
 
 // COBA KIRIM MESSAGE 
 
-Route::get('notifikasis', [\App\Http\Controllers\NotifikasiController::class, 'fetchNotifikasis'])->name('fetchNotifikasis');
+Route::get('chat', [\App\Http\Controllers\MessageController::class, 'index'])->name('index');
 
-Route::post('notifikasis', [\App\Http\Controllers\NotifikasiController::class, 'sendNotifikasis'])->name('sendNotifikasis');
+Route::get('messages', [\App\Http\Controllers\MessageController::class, 'fetchMessages'])->name('fetchMessages');
+
+Route::post('messages', [\App\Http\Controllers\NotifikasiController::class, 'sendMessage'])->name('sendMessage');
+
+
+
+
+// Route::get('daftar_notifikasis', [\App\Http\Controllers\NotifikasiController::class, 'index'])->name('index');
+
+// Route::get('notifikasis', [\App\Http\Controllers\NotifikasiController::class, 'fetchNotifikasis'])->name('fetchNotifikasis');
+
+// Route::post('notifikasis', [\App\Http\Controllers\NotifikasiController::class, 'sendNotifikasis'])->name('sendNotifikasis');
 

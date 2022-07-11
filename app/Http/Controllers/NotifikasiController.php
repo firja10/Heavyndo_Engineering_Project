@@ -18,6 +18,8 @@ class NotifikasiController extends Controller
     public function index()
     {
         //
+
+        return view('chat');
     }
 
     /**

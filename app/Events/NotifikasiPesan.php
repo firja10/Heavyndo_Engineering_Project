@@ -2,6 +2,8 @@
 
 namespace App\Events;
 
+use App\Models\Message;
+use App\Models\User;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -13,20 +15,22 @@ use Illuminate\Queue\SerializesModels;
 class NotifikasiPesan implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-    // public $username;
+    public $username;
     public $message;
+
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($message)
+    public function __construct(Message $message,User $user)
     {
         //
         // $this->username = $username;
         // $this->message = "{$username} mengirimkan pesan notifikasi";
         $this->message = $message;
+        $this->user = $user;
     }
 
     /**
