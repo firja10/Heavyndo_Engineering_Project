@@ -251,7 +251,14 @@ Data Aktivitas {{$jenis_projek_id->nama_projek}}
                               
 
                                         <br><br>
-                                        <button class="btn btn-danger">Hapus Aktivitas</button>
+
+                                        <form action="{{route('adminHapusAktivitas', $aktivitas->id)}}" method = "POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-danger" type = "submit">Hapus Aktivitas</button>
+                                        </form>
+
+                                 
                                         
                                     </td>
 

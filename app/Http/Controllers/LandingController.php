@@ -483,12 +483,18 @@ class LandingController extends Controller
         {
             # code...
 
-            $jenis_projek_id = Jenis_Projek::findOrFail($id);
-            $id_jenis_projek = $jenis_projek_id->id;
+
+            // $jenis_projek_id = Jenis_Projek::findOrFail($id);
+            // $id_jenis_projek = $jenis_projek_id->id;
             $aktivitas_projek = AktivitasProjek::findOrFail($id);
+            $id_jenis_projek = $aktivitas_projek->jenis_projek_id;
+           
             $aktivitas_projek->delete();
             return redirect('/admin/data_proyek/'.$id_jenis_projek . '/data_aktivitas')->with('adminhapusaktivitas','Aktivitas Telah Dihapus');
         }
+
+
+
 
         public function adminUpdateAktivitas($id, Request $request)
         {
@@ -578,6 +584,10 @@ class LandingController extends Controller
 
 
 
+      
+
+
+
 
 
 
@@ -663,7 +673,8 @@ class LandingController extends Controller
             $show_akhir = explode('-', $notifikasis['tanggal_akhir_aktivitas']);
  
 
-
+            $first_date = $show_awal[2] . ' ' . $bulan[ (int)$show_awal[1] ] . ' ' . $show_awal[0];
+            $final_date = $show_akhir[2] . ' ' . $bulan[ (int)$show_akhir[1] ] . ' ' . $show_akhir[0];
 
                    
          
@@ -671,9 +682,12 @@ class LandingController extends Controller
             $notifikasis['nama_notifikasi'] = 'H - '. $beda_hari . ' Deadline Aktivitas ' . $notifikasis['nama_aktivitas']  ;
 
 
-            $notifikasis['deskripsi_notifikasi'] = 'Salam, Saya dari Admin Heavyndo Engineering ingin mengingatkan bahwa Aktivitas ' . $notifikasis['nama_notifikasi'] . ' harus sudah selesai H - '. $beda_hari . ' atau  ' . $beda_hari .' Hari Lagi. Diharapkan untuk segera diselesaikan, dengan deadline lebih tepatnya pada '. $show_akhir .'. Terima kasih';
+            $notifikasis['deskripsi_notifikasi'] = 'Salam, Saya dari Admin Heavyndo Engineering ingin mengingatkan bahwa Aktivitas ' . $notifikasis['nama_notifikasi'] . ' harus sudah selesai H - '. $beda_hari . ' atau  ' . $beda_hari .' Hari Lagi. Diharapkan untuk segera diselesaikan, dengan deadline lebih tepatnya pada '. $final_date .'. Terima kasih';
 
-         
+
+            // $notifikasis['deskripsi_notifikasi'] = 'Salam, Saya dari Admin Heavyndo Engineering ingin mengingatkan bahwa Aktivitas ' . $notifikasis['nama_notifikasi'] . ' harus sudah selesai H - 2 Hari Lagi. Diharapkan untuk segera diselesaikan, dengan deadline lebih tepatnya pada '. $show_akhir .'. Terima kasih';
+
+            
             $notifikasis['aktivitas_projek_id'] = $request->aktivitas_projek_id;
 
 
