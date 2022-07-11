@@ -38,8 +38,8 @@ Data Aktivitas {{$jenis_projek_id->nama_projek}}
 
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">
+                    <div class="card-header py-3 d-flex justify-content-center">
+                        <h6 class="m-0 font-weight-bold text-primary mr-auto">
                                 <?php 
                                 //    $aktivitass = DB::table('aktivitas_projeks')->where('jenis_projek_id', $jenis_projek_id->id)->get();
                                 $aktivitass_sum = DB::table('aktivitas_projeks')->where('jenis_projek_id', $jenis_projek_id->id)->sum('persentase_progress');
@@ -61,9 +61,10 @@ Data Aktivitas {{$jenis_projek_id->nama_projek}}
                                 echo $aktivitass_bagi;
                                 ?>
                                 %
-                                </h6>
+                                {{-- </h6>
 
-                                <h6 class="m-0 font-weight-bold text-primary">
+                                <h6 class="m-0 font-weight-bold text-primary"> --}}
+                                    <br>
                       
                         Jumlah Aktivitas : 
                                     <?php 
@@ -71,6 +72,10 @@ Data Aktivitas {{$jenis_projek_id->nama_projek}}
                                     ?>
                                     
                                     </h6>
+                                    
+                                    <br>
+
+                                    <button class = "btn btn-dark" onclick="history.back()">Previous</button>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">

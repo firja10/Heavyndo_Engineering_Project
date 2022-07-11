@@ -101,13 +101,13 @@ Data Aktivitas {{ $aktivitas_projek->nama_aktivitas}}
 
                             <div class="form-group">
                                 <label for="AwalInput">Tanggal Awal</label>
-                                <input type="date" class="form-control" id="AwalInput" placeholder = "Tanggal Awal" value="{{$aktivitas_projek->tanggal_awal}}" name = "tanggal_awal">
+                                <input type="date" class="form-control" id="AwalInput" placeholder = "dd-mm-yy" value="{{$aktivitas_projek->tanggal_awal}}" name = "tanggal_awal">
                             </div>
 
                             
                             <div class="form-group">
                                 <label for="AkhirInput">Tanggal Akhir</label>
-                                <input type="date" class="form-control" id="AkhirInput" placeholder = "Tanggal Akhir" value="{{$aktivitas_projek->tanggal_akhir}}" name = "tanggal_akhir">
+                                <input type="date" class="form-control" id="AkhirInput" placeholder = "dd-mm-yy" value="{{$aktivitas_projek->tanggal_akhir}}" name = "tanggal_akhir">
                             </div>
 
 

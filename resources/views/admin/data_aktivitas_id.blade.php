@@ -164,6 +164,23 @@ Data Aktivitas {{ $aktivitas_projek->nama_aktivitas}}
 
 
 
+                            <div class="row">
+                                {{-- <div class="col-md-6 ">
+                                    <button class = "btn btn-dark float-start">Previous</button>
+                                </div>
+                                <div class="col-md-6 ">
+                                    <button class = "btn btn-dark float-end">Next</button>
+                                </div> --}}
+
+                                <div class="col-md-12 d-flex justify-content-between">
+                                    <button class = "btn btn-dark mr-auto" onclick = "history.back()">Previous</button>
+                                    {{-- <button class = "btn btn-dark ml-auto">Next</button> --}}
+                                </div>
+
+
+                            </div>
+
+
 
 
 
