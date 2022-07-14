@@ -153,12 +153,7 @@ Data Proyek PT. HEAVYNDO
                                 </tr>
                     
 
-                                <?php 
-                                
-                                $anggaran_khusus = DB::table('anggarans')->where('projek_id',$anggaran_projeks->projek_id)->sum('rab');
-                           
-                                
-                                ?>
+                 
                          
                                 @endforeach
                     
@@ -167,7 +162,12 @@ Data Proyek PT. HEAVYNDO
                             </table>
                         </div>
 
-
+                        <?php 
+                                
+                        $anggaran_khusus = DB::table('anggarans')->where('projek_id',$id)->sum('rab');
+                   
+                        
+                        ?>
                         
 
 
