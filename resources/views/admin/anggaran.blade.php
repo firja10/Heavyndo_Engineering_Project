@@ -133,7 +133,7 @@ Data Proyek PT. HEAVYNDO
                                     </td>     
 
                                     <td> 
-                                        <a href="" class="btn btn-success">Edit</a>
+                                        <a href="{{route('AdminDataAnggaranEditId', $anggaran_projeks->id)}}" class="btn btn-success">Edit</a>
 
                                         <br>
                                         <br>

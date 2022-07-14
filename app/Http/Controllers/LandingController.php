@@ -951,7 +951,7 @@ class LandingController extends Controller
 
             $anggaran = Anggaran::findOrFail($id);
 
-            return view('admin.anggaran_edit_id', compact('AdminDataAnggaranEditId'));
+            return view('admin.anggaran_edit_id', compact('anggaran'));
 
         }
 
@@ -988,6 +988,33 @@ class LandingController extends Controller
             $anggaran->save();
 
             return redirect('/admin/data_proyek/'. $anggaran['projek_id'] . '/rab')->with('sukses_tambah_anggaran', 'Anggaran Berhasil Ditambahkan');
+
+        }
+
+
+
+        public function AdminUpdateAnggaran($id, Request $request)
+        {
+            # code...
+
+
+            $array_titik = array('.', 'Rp', ' ');
+
+            $rab_replace  = str_replace($array_titik, '', $request['rab']);
+
+            $rab = (int) $rab_replace;
+
+
+            Anggaran::where('id', $id)->update([
+
+                'detail_nama'=>$request['detail_nama'],
+                'rab'=>$rab,
+
+            ]);
+
+            return redirect('admin/rab/edit/'. $id);
+
+
 
         }
 

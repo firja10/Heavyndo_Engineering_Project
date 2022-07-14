@@ -292,6 +292,9 @@ Route::delete('admin/rab/{id}', [\App\Http\Controllers\LandingController::class,
 Route::get('admin/rab/edit/{id}', [\App\Http\Controllers\LandingController::class, 'AdminDataAnggaranEditId'])->name('AdminDataAnggaranEditId');
 
 
+Route::patch('admin/rab/edit/{id}', [\App\Http\Controllers\LandingController::class, 'AdminUpdateAnggaran'])->name('AdminUpdateAnggaran');
+
+
 
 
 
