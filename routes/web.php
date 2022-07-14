@@ -280,19 +280,19 @@ Route::post('messages', [\App\Http\Controllers\MessageController::class, 'sendMe
 
 
 // ANGGARAN 
-Route::get('admin/data_proyek/{id}/rab', [\App\Http\Controllers\LandingController::class, 'AdminDataAnggaran'])->name('AdminDataAnggaran');
+Route::get('admin/data_proyek/{id}/rab', [\App\Http\Controllers\LandingController::class, 'AdminDataAnggaran'])->name('AdminDataAnggaran')->middleware('is_admin');
 
-Route::post('admin/data_proyek/rab', [\App\Http\Controllers\LandingController::class, 'AdminStoreAnggaran'])->name('AdminStoreAnggaran');
+Route::post('admin/data_proyek/rab', [\App\Http\Controllers\LandingController::class, 'AdminStoreAnggaran'])->name('AdminStoreAnggaran')->middleware('is_admin');
 
-Route::get('admin/rab/{id}', [\App\Http\Controllers\LandingController::class, 'AdminDataAnggaranId'])->name('AdminDataAnggaranId');
+Route::get('admin/rab/{id}', [\App\Http\Controllers\LandingController::class, 'AdminDataAnggaranId'])->name('AdminDataAnggaranId')->middleware('is_admin');
 
-Route::delete('admin/rab/{id}', [\App\Http\Controllers\LandingController::class, 'AdminHapusAnggaran'])->name('AdminHapusAnggaran');
-
-
-Route::get('admin/rab/edit/{id}', [\App\Http\Controllers\LandingController::class, 'AdminDataAnggaranEditId'])->name('AdminDataAnggaranEditId');
+Route::delete('admin/rab/{id}', [\App\Http\Controllers\LandingController::class, 'AdminHapusAnggaran'])->name('AdminHapusAnggaran')->middleware('is_admin');
 
 
-Route::patch('admin/rab/edit/{id}', [\App\Http\Controllers\LandingController::class, 'AdminUpdateAnggaran'])->name('AdminUpdateAnggaran');
+Route::get('admin/rab/edit/{id}', [\App\Http\Controllers\LandingController::class, 'AdminDataAnggaranEditId'])->name('AdminDataAnggaranEditId')->middleware('is_admin');
+
+
+Route::patch('admin/rab/edit/{id}', [\App\Http\Controllers\LandingController::class, 'AdminUpdateAnggaran'])->name('AdminUpdateAnggaran')->middleware('is_admin');
 
 
 
