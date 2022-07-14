@@ -82,8 +82,10 @@ Data {{$jenis_Projek->nama_projek}}
 
                                         <li>Anggaran Projek : 
                                             <?php 
-                                        
-                                            $hasil_rupiah = "Rp " . number_format($jenis_Projek->anggaran_projek,2,',','.');
+
+                                            
+                                            $total_rab = DB::table('anggarans')->where('projek_id', $jenis_Projek->id)->sum('rab');
+                                            $hasil_rupiah = "Rp " . number_format($total_rab,2,',','.');
                                             echo $hasil_rupiah;
                                             
                                             ?>
@@ -99,6 +101,8 @@ Data {{$jenis_Projek->nama_projek}}
 
                                     {{-- <button class = "btn btn-primary"> Edit Projek</button> --}}
                                     <a href = "{{route('adminEditProjek', $jenis_Projek->id)}}" class = "btn btn-primary"> Edit Projek</a>
+                                    <br><br>
+                                    <a href="{{route('AdminDataAnggaran', $jenis_Projek->id)}}" class="btn btn-success">Lihat Anggaran</a>
                                     <br> <br>
                                     <a href = "{{route('adminKelolaAktivitas', $jenis_Projek->id)}}" class = "btn btn-dark"> Lihat Aktivitas</a>
 

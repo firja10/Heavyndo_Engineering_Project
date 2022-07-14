@@ -152,8 +152,15 @@ Data Proyek PT. HEAVYNDO
                                     </td>
                                     <td>
                                     <?php 
+
+
+                                      $total_rab = DB::table('anggarans')->where('projek_id', $projeks->id)->sum('rab');
+
+
                                         
-                                        $hasil_rupiah = "Rp " . number_format($projeks->anggaran_projek,2,',','.');
+                                        // $hasil_rupiah = "Rp " . number_format($projeks->anggaran_projek,2,',','.');
+
+                                        $hasil_rupiah = "Rp " . number_format($total_rab,2,',','.');
                                         echo $hasil_rupiah;
                                         
                                         ?>

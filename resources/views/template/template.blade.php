@@ -1003,6 +1003,89 @@
 
 
 
+  
+
+
+
+
+      <!-- MODAL TAMBAH RAB -->
+
+      <form action="{{route('AdminStoreAnggaran')}}" method="post" enctype="multipart/form-data">
+        @csrf
+
+  <div class="modal fade" id="modaltambahAnggaran" tabindex="-1" role="dialog" aria-labelledby="examplemodaltambahAnggaranLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="examplemodaltambahAnggaranLabel">Tambah Data Anggaran</h5>
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+              </button>
+          </div>
+          <div class="modal-body">
+            {{-- <h6> <strong> Silakan Tambahkan Data Projek  </strong> </h6> --}}
+
+            <?php 
+            
+            $daftar_projek = DB::table('jenis__projeks')->get();
+            
+            ?>
+
+
+            <div class="form-group">
+                <label for="nama_projek" class = "control-label"> Nama Projek</label>
+
+                <select name="projek_id" id="projek_id" class = "form-control">
+                    @foreach ($daftar_projek as $item_projek)
+                    <option value="{{$item_projek->id}}">{{$item_projek->nama_projek}}</option>
+                    @endforeach
+                </select>
+
+                {{-- <input type="text" name="nama_projek" id="nama_projek" class = "form-control" placeholder="Masukkan Nama Projek" required> --}}
+            </div>
+
+            <div class="form-group">
+                <label for="detail_nama" class = "control-label"> Nama Kebutuhan</label>
+                <input type="text" name="detail_nama" id="detail_nama" class = "form-control" placeholder="Masukkan Nama Kebutuhan" required>
+            </div>
+
+
+            
+            <div class="form-group">
+                <label for="rab" class = "control-label"> Nominal Anggaran Kebutuhan </label>
+                <input type="number" name="rab" id="rab" class = "form-control" required>
+            </div>
+
+
+
+
+          </div>
+          <div class="modal-footer">
+              <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+              <button class="btn btn-primary" type = "submit">Tambah Data</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

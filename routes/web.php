@@ -275,3 +275,29 @@ Route::post('messages', [\App\Http\Controllers\MessageController::class, 'sendMe
 
 // Route::post('notifikasis', [\App\Http\Controllers\NotifikasiController::class, 'sendNotifikasis'])->name('sendNotifikasis');
 
+
+
+
+
+// ANGGARAN 
+Route::get('admin/data_proyek/{id}/rab', [\App\Http\Controllers\LandingController::class, 'AdminDataAnggaran'])->name('AdminDataAnggaran');
+
+Route::post('admin/data_proyek/rab', [\App\Http\Controllers\LandingController::class, 'AdminStoreAnggaran'])->name('AdminStoreAnggaran');
+
+Route::get('admin/rab/{id}', [\App\Http\Controllers\LandingController::class, 'AdminDataAnggaranId'])->name('AdminDataAnggaranId');
+
+Route::delete('admin/rab/{id}', [\App\Http\Controllers\LandingController::class, 'AdminHapusAnggaran'])->name('AdminHapusAnggaran');
+
+
+Route::get('admin/rab/edit/{id}', [\App\Http\Controllers\LandingController::class, 'AdminDataAnggaranEditId'])->name('AdminDataAnggaranEditId');
+
+
+
+
+
+
+
+
+
+
+

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Jenis_Projek;
 use App\Models\User;
 use App\Models\AktivitasProjek;
+use App\Models\Anggaran;
 use App\Models\Message;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
@@ -905,6 +906,110 @@ class LandingController extends Controller
         public function store_messages()
         {
             # code...
+        }
+
+
+
+
+
+
+
+
+        // ANGGARAN 
+
+        public function AdminDataAnggaran($id)
+        {
+
+            # code...
+
+            $anggaran = DB::table('anggarans')->where('projek_id', $id)->get();
+
+
+            // $anggaran = Anggaran::all();
+
+            return view('admin.anggaran', compact('anggaran', 'id'));
+
+        }
+
+
+
+        public function AdminDataAnggaranId($id)
+        {
+            # code...
+
+            $anggaran = Anggaran::findOrFail($id);
+
+            return view('admin.anggaran_id', compact('AdminDataAnggaranId'));
+
+        }
+
+
+
+        public function AdminDataAnggaranEditId($id)
+        {
+            # code...
+
+            $anggaran = Anggaran::findOrFail($id);
+
+            return view('admin.anggaran_edit_id', compact('AdminDataAnggaranEditId'));
+
+        }
+
+
+
+        public function AdminStoreAnggaran(Request $request)
+        {
+        # code...
+
+       
+            $anggaran = new Anggaran();
+            $anggaran['projek_id'] = $request->projek_id;
+
+            
+            $nama_projek_object =Jenis_Projek::select('nama_projek')->where('id', $anggaran['projek_id'])->get();
+
+            // $nama_projek_decode = json_decode($nama_projek_object, true);
+
+            // $nama_projek = current((array)$nama_projek_object);
+
+
+            foreach ($nama_projek_object as $item_nama_projek) {
+                # code...
+
+               $nama_projeks = $item_nama_projek->nama_projek;
+               $anggaran['nama_projek'] = $nama_projeks;
+            }
+
+
+           
+            $anggaran['rab'] = $request->rab;
+         
+            $anggaran['detail_nama'] = $request->detail_nama;
+            $anggaran->save();
+
+            return redirect('/admin/data_proyek/'. $anggaran['projek_id'] . '/rab')->with('sukses_tambah_anggaran', 'Anggaran Berhasil Ditambahkan');
+
+        }
+
+
+
+
+
+        public function AdminHapusAnggaran($id)
+        {
+            # code...
+
+            $anggaran = Anggaran::findOrFail($id);
+           
+
+
+            $id_projek = $anggaran->projek_id;
+
+            $anggaran->delete();
+
+            return redirect('/admin/data_proyek/' . $id_projek . '/rab' );
+
+
         }
 
 
