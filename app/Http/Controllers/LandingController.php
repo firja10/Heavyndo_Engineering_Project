@@ -963,6 +963,10 @@ class LandingController extends Controller
 
        
             $anggaran = new Anggaran();
+
+          
+
+
             $anggaran['projek_id'] = $request->projek_id;
 
             
@@ -981,8 +985,18 @@ class LandingController extends Controller
             }
 
 
+
+
+            $array_titik = array('.', 'Rp', ' ');
+
+            $rab_replace  = str_replace($array_titik, '', $request->rab);
+
+            $rab = (int) $rab_replace;
            
-            $anggaran['rab'] = $request->rab;
+
+
+
+            $anggaran['rab'] = $rab;
          
             $anggaran['detail_nama'] = $request->detail_nama;
             $anggaran->save();

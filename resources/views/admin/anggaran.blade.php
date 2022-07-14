@@ -99,7 +99,6 @@ Data Proyek PT. HEAVYNDO
                                         <th>Nominal</th>
                                         <th>Aksi</th>
                          
-                                        {{-- <th>Salary</th> --}}
                                     </tr>
                                 </thead>
                                 <tfoot>
@@ -109,7 +108,6 @@ Data Proyek PT. HEAVYNDO
                                         <th>Nominal</th>
                                         <th>Aksi</th>
                             
-                                        {{-- <th>Salary</th> --}}
                                     </tr>
                                 </tfoot>
                                 <tbody>

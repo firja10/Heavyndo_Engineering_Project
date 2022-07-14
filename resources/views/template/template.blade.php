@@ -1054,7 +1054,8 @@
             
             <div class="form-group">
                 <label for="rab" class = "control-label"> Nominal Anggaran Kebutuhan </label>
-                <input type="number" name="rab" id="rab" class = "form-control" required>
+                {{-- <input type="number" name="rab" id="rab" class = "form-control" required> --}}
+                <input type="text" name="rab" id="rab" class = "form-control" required>
             </div>
 
 
@@ -1149,6 +1150,41 @@
 
 </script>
 
+
+
+
+
+<script>
+    var AnggaranRAB = document.getElementById('rab');
+    AnggaranRAB.addEventListener("keyup", function (e) 
+    {
+        AnggaranRAB.value = formatRupiah(this.value, "Rp. ");
+
+    });
+
+
+ function formatRupiah(angka, prefix) {
+    
+    var number_string = angka.replace(/[^,\d]/g, "").toString(),
+    split = number_string.split(","),
+    sisa = split[0].length % 3,
+    AnggaranRAB = split[0].substr(0,sisa),
+    ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+
+    if (ribuan) {
+    separator = sisa ? "." : "";
+    AnggaranRAB += separator + ribuan.join(".");
+  }
+
+  AnggaranRAB = split[1] != undefined ? AnggaranRAB + "," + split[1] : AnggaranRAB;
+  return prefix == undefined ? AnggaranRAB : AnggaranRAB ? "Rp. " + AnggaranRAB : "";
+
+
+ }
+
+
+</script>
 
 
 
