@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Message;
 
 class User extends Authenticatable
 {
@@ -52,11 +53,11 @@ class User extends Authenticatable
 
 
 
-    public function notifikasi()
+    public function messages()
     {
         # code...
 
-        return $this->hasMany(Notifikasi::class);
+        return $this->hasMany(Message::class);
 
     }
 

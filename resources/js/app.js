@@ -8,9 +8,17 @@ require('./bootstrap');
 import Vue from 'vue';
 
 import About from './components/AboutComponent.vue'
+import ExampleComponent from './components/ExampleComponent.vue'
+import ChatMessages from './components/ChatMessages.vue'
+import ChatForm from './components/ChatForm.vue'
+
+import ChatComponent from './components/ChatComponent.vue'
+
+import VueChatScroll from 'vue-chat-scroll'
 
 window.Vue = require('vue').default;
 
+Vue.use(VueChatScroll)
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -26,6 +34,14 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 Vue.component('about-us', require('./components/AboutComponent.vue').default);
 
+Vue.component('chat-messages', require('./components/ChatMessages.vue').default);
+
+Vue.component('chat-form', require('./components/ChatForm.vue').default);
+
+Vue.component('chat-component', require('./components/ChatComponent.vue').default);
+
+
+
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
@@ -38,4 +54,44 @@ Vue.component('about-us', require('./components/AboutComponent.vue').default);
 const app = new Vue({
     el: '#app',
     "about-us":About,
+    "example-component":ExampleComponent,
+    "chat-messages":ChatMessages,
+    "chat-form":ChatForm,
+    "chat-component":ChatComponent,
+
+    
+    data: {
+        messages: []
+    },
+
+    created() {
+        this.fetchMessages();
+    },
+
+    methods: {
+        fetchMessages() {
+            axios.get('/messages').then(response => {
+                this.messages = response.data;
+            });
+        },
+
+        addMessage(message) {
+            this.messages.push(message);
+
+            axios.post('/messages', message).then(response => {
+              console.log(response.data);
+            });
+        }
+    }
+
 });
+
+
+
+Echo.private('tugas-andre')
+  .listen('NotifikasiPesan', (e) => {
+    this.messages.push({
+      message: e.message.message,
+      user: e.user
+    });
+  });

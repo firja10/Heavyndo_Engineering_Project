@@ -71,7 +71,7 @@
         methods: {
             startListening() {
                 var self = this;
-                Echo.join(`chat`)
+                Echo.join(`tugas-andre`)
                     .here(user => {
                         self.users = user;
                     })
@@ -81,7 +81,7 @@
                     .leaving(user => {
                         self.users = self.users.filter(u => u.id != user.id);
                     })
-                    .listen('ChatSent', (event) => {
+                    .listen('NotifikasiPesan', (event) => {
                         self.messages.push(event.chat);
                     })
                     .listenForWhisper('typing', user => {
@@ -108,7 +108,7 @@
                 this.newMessage = '';
             },
             sendTypingEvent() {
-                Echo.join('chat')
+                Echo.join('tugas-andre')
                     .whisper('typing', this.user);
             }
         }

@@ -1,8 +1,10 @@
 <?php
 
 use App\Events\NotifikasiPesan;
+// use GuzzleHttp\Psr7\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +32,29 @@ Route::get('/welcome', function () {
 Route::get('/notifikasi/pesan', function () {
    
     NotifikasiPesan::dispatch('Pesan Baru');
+
+});
+
+
+Route::get('/message', function () {
+   
+    // NotifikasiPesan::dispatch('Pesan Baru');
+    return view('message');
+});
+
+Route::post('send', function(Request $request){
+
+    $request->validate([
+        'name'=>'required',
+        'message'=>'required',
+
+    ]);
+    
+    $message = [
+        'name'=>$request->name,
+        'message'=>$request->message,
+    ];
+    NotifikasiPesan::dispatch($message);
 
 });
 
@@ -239,7 +264,7 @@ Route::get('chat', [\App\Http\Controllers\MessageController::class, 'index'])->n
 
 Route::get('messages', [\App\Http\Controllers\MessageController::class, 'fetchMessages'])->name('fetchMessages');
 
-Route::post('messages', [\App\Http\Controllers\NotifikasiController::class, 'sendMessage'])->name('sendMessage');
+Route::post('messages', [\App\Http\Controllers\MessageController::class, 'sendMessage'])->name('sendMessage');
 
 
 

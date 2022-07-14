@@ -127,9 +127,9 @@
 
 
             <br><br>
-            <div id="app">
-                <about-us/>
-            </div>
+            {{-- <div id="app">
+                <example-component/>
+            </div> --}}
 
 
 

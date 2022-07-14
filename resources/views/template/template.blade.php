@@ -18,6 +18,10 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
+
+    <script defer src="{{ mix('js/app.js') }}"></script>
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+
     <link href="{{asset('src/bootstrap/css/sb-admin-2.min.css')}}" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.0/css/jquery.dataTables.min.css">

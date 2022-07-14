@@ -3,7 +3,7 @@
     <div class="row justify-content-center">
       <div class="col-md-8">
         <div class="card">
-          <div class="card-header page-title">About Us Component</div>
+          <div class="card-header page-title">Komponen Tentang Kami</div>
 
           <div class="card-body body-content">
             Hi, Online Web tutor. I am About Us Page

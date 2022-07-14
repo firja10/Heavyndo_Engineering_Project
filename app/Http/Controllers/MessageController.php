@@ -16,7 +16,8 @@ class MessageController extends Controller
      */
     public function index()
     {
-        return view('chat');
+        // return view('chat');
+        return view('pesan');
 
         //
     }
@@ -120,11 +121,26 @@ public function sendMessage(Request $request)
   ]);
 
 
-    // $message = Message::where('user_id', $user_id)->create([
-    //     'deskripsi_notifikasi'=>$request['deskripsi_notifikasi'],
+
+
+// $message = auth()->user()->messages()->create([
+//     'message' => $request->message
+// ]);
+
+
+
+
+
+
+
+    // $message = Message::where('user_id', $user)->create([
+    //     'message'=>$request['message'],
+    //     'user_id'=>$user,
     // ]);
 
-    broadcast(new NotifikasiPesan($message->load('user')))->toOthers();
+    broadcast(new NotifikasiPesan($user, $message))->toOthers();
+
+    // broadcast(new NotifikasiPesan($message->load('user')))->toOthers();
 
     return ['status' => 'Message Sent!'];
 
