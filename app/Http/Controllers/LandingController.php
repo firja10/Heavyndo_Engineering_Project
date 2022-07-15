@@ -1012,6 +1012,12 @@ class LandingController extends Controller
             # code...
 
 
+
+
+
+
+
+
             $array_titik = array('.', 'Rp', ' ');
 
             $rab_replace  = str_replace($array_titik, '', $request['rab']);
@@ -1026,13 +1032,38 @@ class LandingController extends Controller
 
             ]);
 
-            return redirect('admin/rab/edit/'. $id);
+
+            $id_projeks = Anggaran::select('projek_id')->where('id',$id)->get();
+
+
+            // $id_projek = DB::table('jenis__Projeks')->select('')->get();
+
+            
+            foreach ($id_projeks as $item_projeks) {
+                # code...
+
+               $projek_id = $item_projeks->projek_id;
+
+               return redirect('/admin/data_proyek/'. $projek_id . '/rab');
+
+            }
+
 
 
 
         }
 
 
+
+
+
+        public function Cari_Id_Projek()
+        {
+            # code...
+
+
+
+        }
 
 
 
@@ -1052,19 +1083,6 @@ class LandingController extends Controller
 
 
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
