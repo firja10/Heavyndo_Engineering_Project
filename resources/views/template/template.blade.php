@@ -1186,10 +1186,10 @@ foreach ($obj_to_array as $arrays_kosong) {
 
 }
 
-$encodedulu = json_encode($array_kosong_dua);
-// print_r($obj_to_array);
+// $encodedulu = json_encode($array_kosong_dua);
+// // print_r($obj_to_array);
 
-$echojson = json_decode($encodedulu, true);
+// $echojson = json_decode($encodedulu, true);
 
 
 
@@ -1337,28 +1337,6 @@ window.addEventListener("load", function() {
 
         function AutoSubmit() {
 
-
-   
-        // var array_php = <?php $echojson ?>;
-
-
-        // var currentTime = new Date();
-
-        // //  var phpTime = new Date('<?= $array_kosong_dua[3] ?>');
-
-        // var tanggal_js = 'tanggal_akhir';
-
-
-
-
-        // document.getElementById('tanggal_test').innerHTML = <?php print_r($echojson); ?>;
-
-
-    //    for(let index = 0; index < array_php.length; index++) 
-    //    {
-    //     document.getElementById('tanggal_test').innerHTML = array_php[index];
-    
-    //    }
 
 
 
