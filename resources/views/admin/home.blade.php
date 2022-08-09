@@ -68,8 +68,8 @@
 
                         
 
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" ><i
+                                class="fas fa-download fa-sm text-white-50" ></i> Generate Report</a>
                     </div>
 
                     <!-- Content Row -->
@@ -167,7 +167,18 @@
                                             $users = DB::table('users')->count();
                                             ?>
 
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $users; ?></div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $users; ?>
+                                            
+                                                <br>
+
+                                                <?php 
+
+
+
+
+                                                ?>
+
+                                            </div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-user fa-2x text-300 text-success"></i>

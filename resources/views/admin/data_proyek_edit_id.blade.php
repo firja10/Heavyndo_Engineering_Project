@@ -87,10 +87,10 @@ Data {{$jenis_Projek->nama_projek}}
                                 <input type="text" class="form-control" id="DurasiInput" placeholder = "Durasi Projek" value="{{$jenis_Projek->durasi_projek}}" name = "durasi_projek">
                             </div>
 
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label for="AnggaranInput">Anggaran Projek</label>
                                 <input type="number" class="form-control" id="AnggaranInput" placeholder = "Anggaran Projek" value="{{$jenis_Projek->anggaran_projek}}" name = "anggaran_projek">
-                            </div>
+                            </div> --}}
 
                             <div class="form-group">
                                 <label for="DeskripsiInput">Deskripsi Projek</label>

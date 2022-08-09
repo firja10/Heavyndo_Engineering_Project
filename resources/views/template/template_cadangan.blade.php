@@ -551,8 +551,6 @@
 
                                 <a class="dropdown-item text-center small text-gray-500" href="{{url('/admin/data_notifikasi')}}">Lihat Notifikasi Lain</a>
 
-                                <a class="dropdown-item text-center small text-gray-500" href="#" data-toggle="modal" data-target="#notifikasiModal">Lihat Notifikasi Terbaru</a>
-
 
 
                                 
@@ -757,10 +755,10 @@
                 
                 </div>
                 
-                {{-- <div class="form-group">
+                <div class="form-group">
                     <label for="nama_projek" class = "control-label"> Anggaran Projek</label>
                     <input type="number" name="anggaran_projek" id="anggaran_projek" class = "form-control" placeholder="Masukkan Anggaran Projek Saat Ini " required>
-                </div> --}}
+                </div>
 
                 <div class="form-group">
                     <label for="nama_projek" class = "control-label"> Gambar Projek</label>
@@ -1089,49 +1087,6 @@
 
 
 
-<!-- Pemberitahuan / Pengumuman  -->
-
-
-<!-- Modal -->
-<div class="modal fade bd-example-modal-sm" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-    <div class="modal-dialog modal-sm" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1161,35 +1116,36 @@ $new_tanggal_sekarang = new Date($tanggal_sekarang);
 
 $aktivitas_akan_datang = DB::table('aktivitas_projeks')->get();
 
-$array_kosong = array();
+// $array_kosong = array();
 
-foreach ($aktivitas_akan_datang as $array_item) {
-    # code...
+// foreach ($aktivitas_akan_datang as $array_item) {
+//     # code...
 
-    $array_kosong[] = $array_item;
+//     $array_kosong[] = $array_item;
 
-}
-
-
-
-$array_array_kosong = (array)$array_kosong;
-
-$obj_to_array = json_decode(json_encode($array_kosong), true);
+// }
 
 
 
-$array_kosong_dua = array();
+// $array_array_kosong = (array)$array_kosong;
 
-foreach ($obj_to_array as $arrays_kosong) {
-    # code...
-    $array_kosong_dua[$arrays_kosong['id']] = $arrays_kosong['tanggal_akhir'];
+// $obj_to_array = json_decode(json_encode($array_kosong), true);
 
-}
 
-$encodedulu = json_encode($array_kosong_dua);
+
+// $array_kosong_dua = array();
+
+// foreach ($obj_to_array as $arrays_kosong) {
+//     # code...
+//     $array_kosong_dua[$arrays_kosong['id']] = $arrays_kosong['tanggal_akhir'];
+
+// }
+
+
+
+
 // print_r($obj_to_array);
 
-$echojson = json_decode($encodedulu, true);
 
 
 
@@ -1209,27 +1165,17 @@ $echojson = json_decode($encodedulu, true);
 
 
 <!-- Modal -->
-
-<?php
-
-$notif_terakhir = DB::table('notifikasis')->first();
-
-?>
-<div class="modal fade bd-example-modal-md" id="notifikasiModal" tabindex="-1" aria-labelledby="notifikasiModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-md">
+<div class="modal fade" id="notifikasiModal" tabindex="-1" aria-labelledby="notifikasiModalLabel" aria-hidden="true">
+    <div class="modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="notifikasiModalLabel"><?php      echo $notif_terakhir->nama_notifikasi; ?></h5>
+          <h5 class="modal-title" id="notifikasiModalLabel">Modal title</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-       <?php 
-
-            echo $notif_terakhir->deskripsi_notifikasi;
-
-       ?>
+          ...
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -1326,44 +1272,98 @@ $notif_terakhir = DB::table('notifikasis')->first();
 
 
 
- <script type="text/javascript">
+
+    <script>
 
 
-window.addEventListener("load", function() {
-  // Check time and update the button's state every second.
-  setInterval(AutoSubmit, 1000);
-}, false);
+// window.addEventListener("load", function() {
+//   // Check time and update the button's state every second.
+//   setInterval(AutoSubmit, 1000);
+// }, false);
 
 
-        function AutoSubmit() {
-
-
-   
-        // var array_php = <?php $echojson ?>;
-
-
-        // var currentTime = new Date();
-
-        // //  var phpTime = new Date('<?= $array_kosong_dua[3] ?>');
-
-        // var tanggal_js = 'tanggal_akhir';
+//         function AutoSubmit() {
 
 
 
+//         // var currentTime = new Date();
 
-        // document.getElementById('tanggal_test').innerHTML = <?php print_r($echojson); ?>;
+//         // var phpTime = new Date('<?= $array_kosong_dua[3] ?>');
+
+//         // // var array_kosong_js = '<?= $array_kosong_dua ?>';
 
 
-    //    for(let index = 0; index < array_php.length; index++) 
-    //    {
-    //     document.getElementById('tanggal_test').innerHTML = array_php[index];
+
+
+
+//         //         // var hours = currentTime.getHours();
+//         // // var minutes = currentTime.getMinutes();
+
+//         // var times = currentTime.getTime();
+
+//         // var days_1 = times/(1000*3600*24);
+
+//         // var days_2 = phpTime/(1000*3600*24);
+
+//         // var perbedaan = days_1 - days_2;
+
+
+
+
+        
+//         // for (let index = 0; index < array_kosong_js.length; index++) {
+            
+//         //     if (currentTime < array_kosong_js[index]) {
+             
+//         //         document.getElementById('tanggal_test').innerHTML = "Masih Lama";
+
+//         //     }
+
+//         //     else if(currentTime > array_kosong_js[index])
+//         //     {
+
+//         //         document.getElementById('tanggal_test').innerHTML = "Sudah Lewat";
+//         //     }
+            
+            
+//         // }
+
+
+
+
+
+
+
+//         // if(currentTime > phpTime)
+//         // {
+
+//         //     document.getElementById('tanggal_test').innerHTML = "Sudah Lewat";
+//         // }
+
+//         // else if(currentTime <= phpTime){
+
+//         //     document.getElementById('tanggal_test').innerHTML = "Masih Lama";
+//         // }
+
+
+
+
     
-    //    }
+//         // at 11.30 am and at 8.30 pm
+
+//         // if ((hours === 11 && minutes === 30) 
+//         // || (hours === 20 && minutes === 30)) {
+//         // document.getElementById('submit').click();
+//         // } else {
+//         // console.log( "Wait for specified time" );
+//         // }
 
 
 
 
-        }
+
+
+//         }
 
 
 

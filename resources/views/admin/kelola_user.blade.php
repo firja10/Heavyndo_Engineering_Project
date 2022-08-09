@@ -157,3 +157,15 @@ Kelola Data User PT. HEAVYNDO
 
 
 @endsection
+
+
+
+@push('script')
+
+<script>
+    $(document).ready( function () {
+$('#dataTable').DataTable();
+} );
+</script>
+    
+@endpush

@@ -12,18 +12,127 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use App\Models\Notifikasi;
 use DateTime;
+use Illuminate\Support\Facades\Date;
 
 class LandingController extends Controller
 {
     //
 
-    public function Home()
+    // public function Home()
+    // {
+    //     # code...
+
+    //     return view('admin.home');
+
+    // }
+
+
+
+
+
+    public function Home(Request $request)
     {
         # code...
+
+
+
+
+         $tanggal_ini = date('Y-m-d');
+
+        $notifikasis = new Notifikasi();
+
+
+
+
+        
+        $aktivitas_dl = DB::table('aktivitas_projeks')->get();
+
+        $tgl_aktivitas = DB::table('aktivitas_projeks')->where('tanggal_akhir','<=',$tanggal_ini)->get();
+
+        $array_act = array();
+
+        foreach ($aktivitas_dl as $item_array) {
+            # code...
+
+            $array_act[] = $item_array;
+
+            
+
+        }
+
+        $sebuah_array = (array) $array_act;
+
+
+        $key = array_search(9,array_column($array_act,'id'));
+
+
+
+
+
+
+
+        //  $aktivitas_dl = DB::table('aktivitas_projeks')->get();
+
+         
+
+        //  $array_act = array();
+
+        //  foreach ($aktivitas_dl as $item_array) {
+        //      # code...
+
+        //      $array_act[] = $item_array;
+
+
+        //  }
+
+        //  $array_dua = (array) $array_act[0];
+
+        //  $tanggal_awal = $array_dua['tanggal_awal'];
+         
+        //  echo $tanggal_awal;
+
+
+
+
+
+
+
+
+         
+
+
+
+        //  $t_awal = new DateTime($request->tanggal_awal_aktivitas);
+        //  $t_akhir = new DateTime($request->tanggal_akhir_aktivitas);
+
+        //  $t_saat_ini = new DateTime($tanggal_ini);
+
+        //  $interval = $t_awal->diff($t_akhir);
+
+        //  $diffInDays  = $interval->d;
+
+
+
+
+        // if()
+        // {
+
+        // }
+        
+
+
+
+
+
 
         return view('admin.home');
 
     }
+
+
+
+
+
 
 
     public function Landing()
@@ -116,7 +225,7 @@ class LandingController extends Controller
 
         $jenis_Projek['status_projek'] = $request->status_projek;
 
-        $jenis_Projek['anggaran_projek'] = $request->anggaran_projek;
+        // $jenis_Projek['anggaran_projek'] = $request->anggaran_projek;
 
         $jenis_Projek['gambar_projek'] = $filename;
 
@@ -361,7 +470,7 @@ class LandingController extends Controller
                     'nama_projek' => $request['nama_projek'],
                     'durasi_projek'=> $request['durasi_projek'],
                     'deskripsi_projek'=> $request['deskripsi_projek'],
-                    'anggaran_projek'=> $request['anggaran_projek'],
+                    // 'anggaran_projek'=> $request['anggaran_projek'],
                     'status_projek'=> $request['status_projek'],
                     'gambar_projek' =>$filename,
                 ]);
@@ -955,6 +1064,10 @@ class LandingController extends Controller
 
         }
 
+        
+
+
+
 
 
         public function AdminStoreAnggaran(Request $request)
@@ -1012,12 +1125,6 @@ class LandingController extends Controller
             # code...
 
 
-
-
-
-
-
-
             $array_titik = array('.', 'Rp', ' ');
 
             $rab_replace  = str_replace($array_titik, '', $request['rab']);
@@ -1047,9 +1154,6 @@ class LandingController extends Controller
                return redirect('/admin/data_proyek/'. $projek_id . '/rab');
 
             }
-
-
-
 
         }
 
@@ -1083,6 +1187,39 @@ class LandingController extends Controller
 
 
         }
+
+
+
+
+
+
+        // public function NotifikasiOtomatis()
+        // {
+        //     # code...
+        
+        //     $notifikasis = Notifikasi::all();
+
+        //     foreach ($notifikasis as $notifs) {
+        //         # code...
+
+        //        $nama_notif = $notifs->nama_notifikasi;
+
+        //        $tanggal_akhir = $notifs->tanggal_akhir_aktivitas;
+
+
+
+        //        if ($tanggal_akhir ) {
+        //         # code...
+        //        }
+
+
+
+        //     }
+
+        
+        // }
+
+
 
 
 

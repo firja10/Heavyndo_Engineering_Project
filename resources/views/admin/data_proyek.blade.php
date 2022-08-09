@@ -103,17 +103,7 @@ Data Proyek PT. HEAVYNDO
                                         {{-- <th>Salary</th> --}}
                                     </tr>
                                 </thead>
-                                <tfoot>
-                                    <tr>
-                                        <th>Nama Projek</th>
-                                        <th>Durasi Projek</th>
-                                        <th>Status Projek</th>
-                                        <th>Anggaran Projek</th>
-                                        <th>Gambar Projek</th>
-                                        <th>Aksi</th>
-                                        {{-- <th>Salary</th> --}}
-                                    </tr>
-                                </tfoot>
+       
                                 <tbody>
 
                                 @foreach ($jenis_Projek as $projeks)
@@ -214,3 +204,16 @@ Data Proyek PT. HEAVYNDO
 
 
 @endsection
+
+
+
+
+@push('script')
+
+<script>
+    $(document).ready( function () {
+$('#dataTable').DataTable();
+} );
+</script>
+    
+@endpush

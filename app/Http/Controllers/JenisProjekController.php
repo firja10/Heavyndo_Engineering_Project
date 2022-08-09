@@ -51,7 +51,7 @@ class JenisProjekController extends Controller
 
         $jenis_Projek['status_projek'] = $request->status_projek;
 
-        $jenis_Projek['anggaran_projek'] = $request->anggaran_projek;
+        // $jenis_Projek['anggaran_projek'] = $request->anggaran_projek;
 
         $jenis_Projek['gambar_projek'] = $request->gambar_projek;
 
