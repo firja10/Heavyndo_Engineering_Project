@@ -260,11 +260,13 @@ Data Aktivitas {{$jenis_projek_id->nama_projek}}
 
                                         <br><br>
 
-                                        <form action="{{route('adminHapusAktivitas', $aktivitas->id)}}" method = "POST">
+                                        {{-- <form action="{{route('adminHapusAktivitas', $aktivitas->id)}}" method = "POST">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-danger" type = "submit">Hapus Aktivitas</button>
-                                        </form>
+                                        </form> --}}
+
+                                        <a href="#" class = "btn btn-danger" data-toggle="modal" data-target = "#modalhapusAktivitas">Hapus Aktivitas</a>
 
                                  
                                         
@@ -407,6 +409,66 @@ aria-hidden="true">
 
 
 </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<form action="{{route('adminHapusAktivitas', $aktivitas->id)}}" method = "POST">
+    @csrf
+    @method('DELETE')
+
+<div class="modal fade" id="modalhapusAktivitas" tabindex="-1" role="dialog" aria-labelledby="modalhapusAktivitasLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title" id="modalhapusAktivitasLabel">Anda Yakin Hapus Aktivitas Ini ?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+          </button>
+      </div>
+      <div class="modal-body">
+        {{-- <h6> <strong> Silakan Tambahkan Data Projek  </strong> </h6> --}}
+
+        Jika Anda Yakin Menghapus Aktivitas ini maka silakan tekan tombol Hapus. Jika tidak, tekan tombol Tidak.
+
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-danger" type = "submit">Hapus</button>
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Tidak</button>
+  
+      </div>
+  </div>
+</div>
+</div>
+
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
 
 
 

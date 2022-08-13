@@ -225,13 +225,15 @@ Data Proyek PT. HEAVYNDO
                                         <a href= "{{route('adminEditProjek', $projeks->id)}}" class = "btn btn-warning" style = "margin-top:10px;">Edit Projek</a>
                                         <br>
 
-                                        <form action="{{route('adminHapusProjek', $projeks->id)}}" method = "POST">
+                                        {{-- <form action="{{route('adminHapusProjek', $projeks->id)}}" method = "POST">
                                             @csrf
                                             @method('DELETE')
 
                                             <button class = "btn btn-danger" style = "margin-top:10px;">Hapus Projek</button>
-                                        </form>
+                                        </form> --}}
 
+
+                                        <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#modalhapusProjek">Hapus Notifikasi</a>
                                         
                                     
                                     </td>
@@ -254,6 +256,50 @@ Data Proyek PT. HEAVYNDO
 
 
 
+
+
+
+
+@endsection
+
+
+
+@section('form_penting')
+
+
+
+
+<form action="{{route('adminHapusProjek', $projeks->id)}}" method = "POST">
+    @csrf
+    @method('DELETE')
+
+<div class="modal fade" id="modalhapusProjek" tabindex="-1" role="dialog" aria-labelledby="modalhapusProjekLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title" id="modalhapusProjekLabel">Anda Yakin Hapus Projek Ini ?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+          </button>
+      </div>
+      <div class="modal-body">
+        {{-- <h6> <strong> Silakan Tambahkan Data Projek  </strong> </h6> --}}
+
+        Jika Anda Yakin Menghapus Projek ini maka silakan tekan tombol Hapus. Jika tidak, tekan tombol Tidak.
+
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-danger" type = "submit">Hapus</button>
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Tidak</button>
+  
+      </div>
+  </div>
+</div>
+</div>
+
+
+</form>
 
 
 

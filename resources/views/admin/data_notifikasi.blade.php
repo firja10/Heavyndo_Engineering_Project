@@ -127,12 +127,14 @@ Data Notifikasi
                                 
 
                                         <br><br>
-                                        <form action="{{route('adminHapusNotifikasi', $notifikasi_aktivitas->id)}}" method = "POST">
+                                        {{-- <form action="{{route('adminHapusNotifikasi', $notifikasi_aktivitas->id)}}" method = "POST">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-danger" type = "submit">Hapus Notifikasi</button>
 
-                                        </form>
+                                        </form> --}}
+
+                                        <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#modalhapusNotifikasi">Hapus Notifikasi</a>
                                       
                                         
                                     </td>
@@ -170,6 +172,53 @@ Data Notifikasi
 
             </div>
             <!-- /.container-fluid -->
+
+
+
+
+
+
+    
+@endsection
+
+
+@section('form_penting')
+
+
+
+
+
+<form action="{{route('adminHapusNotifikasi', $notifikasi_aktivitas->id)}}" method = "POST">
+    @csrf
+    @method('DELETE')
+
+<div class="modal fade" id="modalhapusNotifikasi" tabindex="-1" role="dialog" aria-labelledby="modalhapusNotifikasiLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title" id="modalhapusNotifikasiLabel">Anda Yakin Hapus Notifikasi Ini ?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+          </button>
+      </div>
+      <div class="modal-body">
+        {{-- <h6> <strong> Silakan Tambahkan Data Projek  </strong> </h6> --}}
+
+        Jika Anda Yakin Menghapus Notifikasi ini maka silakan tekan tombol Hapus. Jika tidak, tekan tombol Tidak.
+
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-danger" type = "submit">Hapus</button>
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Tidak</button>
+  
+      </div>
+  </div>
+</div>
+</div>
+
+
+</form>
 
 
 

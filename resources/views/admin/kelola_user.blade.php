@@ -117,11 +117,14 @@ Kelola Data User PT. HEAVYNDO
                                         <a href = "{{route('adminEditUser', $user->id)}}"  class = "btn btn-warning" style = "margin-top:10px;">Edit User</a>
                                         <br>
                                         
-                                        <form method = "POST" action="{{route('adminHapusUser', $user->id)}}">
+                                        {{-- <form method = "POST" action="{{route('adminHapusUser', $user->id)}}">
                                             @csrf
                                             @method('DELETE')
                                             <button class = "btn btn-danger" style = "margin-top:10px;" type = "submit">Hapus User</button>
-                                        </form>
+                                        </form> --}}
+
+
+                                        <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#modalhapusUser">Hapus User</a>
                                    
 
                                     </td>
@@ -157,6 +160,59 @@ Kelola Data User PT. HEAVYNDO
 
 
 @endsection
+
+
+
+
+
+
+
+@section('form_penting')
+
+
+
+
+<form method = "POST" action="{{route('adminHapusUser', $user->id)}}">
+ @csrf
+ @method('DELETE')
+
+<div class="modal fade" id="modalhapusUser" tabindex="-1" role="dialog" aria-labelledby="modalhapusUserLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title" id="modalhapusUserLabel">Anda Yakin Hapus User Ini ?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+          </button>
+      </div>
+      <div class="modal-body">
+        {{-- <h6> <strong> Silakan Tambahkan Data Projek  </strong> </h6> --}}
+
+        Jika Anda Yakin Menghapus User ini maka silakan tekan tombol Hapus. Jika tidak, tekan tombol Tidak.
+
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-danger" type = "submit">Hapus</button>
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Tidak</button>
+  
+      </div>
+  </div>
+</div>
+</div>
+
+
+</form>
+
+
+
+
+@endsection
+
+
+
+
+
 
 
 

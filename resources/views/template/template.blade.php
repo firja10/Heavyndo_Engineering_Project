@@ -1264,46 +1264,9 @@ $tanggal_ini = date('Y-m-d');
 $t_saat_ini = new DateTime($tanggal_ini);
 
 
-$notif_terakhir = DB::table('aktivitas_projeks')->first();
+// $notif_terakhir = DB::table('aktivitas_projeks')->first();
 
-
-       //  $t_awal = new DateTime($request->tanggal_awal_aktivitas);
-        $t_akhir = new DateTime($notif_terakhir->tanggal_akhir);
-
-
-        $interval = $t_akhir->diff($t_saat_ini);
-
-        $diffInDays  = $interval->d;
-
-
-
-$bulan = array (
-                                                1 =>   'Januari',
-                                                'Februari',
-                                                'Maret',
-                                                'April',
-                                                'Mei',
-                                                'Juni',
-                                                'Juli',
-                                                'Agustus',
-                                                'September',
-                                                'Oktober',
-                                                'November',
-                                                'Desember'
-                                            );
-                                            $show_awal = explode('-', $notif_terakhir->tanggal_awal);
-                                            $show_akhir = explode('-', $notif_terakhir->tanggal_akhir);
-                                            
-                                            // variabel pecahkan 0 = tanggal
-                                            // variabel pecahkan 1 = bulan
-                                            // variabel pecahkan 2 = tahun
-                                        
-                                            $first_date = $show_awal[2] . ' ' . $bulan[ (int)$show_awal[1] ] . ' ' . $show_awal[0];
-                                            $final_date = $show_akhir[2] . ' ' . $bulan[ (int)$show_akhir[1] ] . ' ' . $show_akhir[0];
-
-
-
-
+$notif_terakhir = DB::table('aktivitas_projeks')->where('tanggal_akhir','>',$tanggal_ini)->get();
 
 
 ?>
@@ -1315,8 +1278,71 @@ $bulan = array (
         <?php
        
 
+
+
+
+       foreach ($notif_terakhir as $activity_last) {
+        # code...
+
+
+
+        
+
+
+
+       //  $t_awal = new DateTime($request->tanggal_awal_aktivitas);
+       $t_akhir = new DateTime($activity_last->tanggal_akhir);
+
+
+$interval = $t_akhir->diff($t_saat_ini);
+
+$diffInDays  = $interval->format('%a');
+
+
+
+$bulan = array (
+                                        1 =>   'Januari',
+                                        'Februari',
+                                        'Maret',
+                                        'April',
+                                        'Mei',
+                                        'Juni',
+                                        'Juli',
+                                        'Agustus',
+                                        'September',
+                                        'Oktober',
+                                        'November',
+                                        'Desember'
+                                    );
+                                    $show_awal = explode('-', $activity_last->tanggal_awal);
+                                    $show_akhir = explode('-', $activity_last->tanggal_akhir);
+                                    
+                                    // variabel pecahkan 0 = tanggal
+                                    // variabel pecahkan 1 = bulan
+                                    // variabel pecahkan 2 = tahun
+                                
+                                    $first_date = $show_awal[2] . ' ' . $bulan[ (int)$show_awal[1] ] . ' ' . $show_awal[0];
+                                    $final_date = $show_akhir[2] . ' ' . $bulan[ (int)$show_akhir[1] ] . ' ' . $show_akhir[0];
+
+
+
+                    if($diffInDays == 3 || $diffInDays == 5 || $diffInDays == 7 || $diffInDays  == 9)
+                    {
+
+                        echo 'Aktivitas ' . $activity_last->nama_aktivitas . ' - ' . $final_date . ' - ' . $diffInDays .' Hari Lagi <br>' ; 
+
+                    }
+
+                    else {
+
+                    }
+                                   
+
+
+       }
+
        
-       echo 'Aktivitas ' . $notif_terakhir->nama_aktivitas . ' - ' . $final_date . ' H - ' . $diffInDays .' Hari Lagi' ; 
+      
        
        ?> </strong>
         </div>
