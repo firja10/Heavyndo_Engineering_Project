@@ -439,3 +439,20 @@
 
     
 @endsection
+
+
+
+@push('script')
+
+
+<script type="text/javascript">
+
+    window.addEventListener("load", function() {
+                $('#notifikasiModal').modal('toggle');
+    
+            })
+    
+    </script>
+    
+    
+@endpush

@@ -114,7 +114,7 @@ Data Aktivitas {{ $aktivitas_projek->nama_aktivitas}}
 
 
 
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label for="StatusInput">Status Aktivitas</label>
 
                                 <select name="status_aktivitas" id="StatusInput" class = "form-control">
@@ -137,8 +137,8 @@ Data Aktivitas {{ $aktivitas_projek->nama_aktivitas}}
                                     <option value="finished">Finished</option>
                                     <option value="cancelled">Cancelled</option>
                                 </select>
-                                {{-- <input type="text" class="form-control" id="StatusInput" placeholder = "Status Projek" value="{{$aktivitas_projek->status_aktivitas}}" name = "status_aktivitas"> --}}
-                            </div>
+                        
+                            </div> --}}
 
 
 

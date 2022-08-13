@@ -25,7 +25,6 @@
     <link href="{{asset('src/bootstrap/css/sb-admin-2.min.css')}}" rel="stylesheet">
 
     {{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.12.0/css/jquery.dataTables.min.css"> --}}
-    <link rel="shortcut icon" href="{{asset('logo_pt.jpeg')}}" type="image/x-icon">
 
 
 
@@ -61,9 +60,8 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{url('/')}}">
-                <div class="sidebar-brand-icon">
-                    {{-- <i class="fas fa-laugh-wink"></i> --}}
-                    <img src="{{asset('logo_pt.jpeg')}}" alt="" width="60">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">PT HEAVYNDO ENGINEERING<sup></sup></div>
             </a>
@@ -1217,35 +1215,7 @@ foreach ($obj_to_array as $arrays_kosong) {
 
 <!-- Modal -->
 
-
-<div class="modal fade bd-example-modal-md" id="notifikasiModal" tabindex="-1" aria-labelledby="notifikasiModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-md">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="notifikasiModalLabel"><?php 
-            echo 'NOTIFIKASI PENTING !';
-            
-            ?></h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-       <?php 
-
-
-
-echo 'Salam, Saya dari Admin Heavyndo Engineering ingin mengingatkan bahwa terdapat Deadline Aktivitas kerja yang harus diselesaikan secepatnya. Diharapkan untuk segera diselesaikan. Terima kasih';
-
-       ?>
-        <br>
-       <strong>Deadline : 
-        <br>
-
-
-
-
-        <?php
+<?php
 
 
 
@@ -1260,20 +1230,17 @@ echo 'Salam, Saya dari Admin Heavyndo Engineering ingin mengingatkan bahwa terda
 
 // $notif_terakhir = DB::table('notifikasis')->first();
 
-$tanggal_ini = date('Y-m-d');
-$t_saat_ini = new DateTime($tanggal_ini);
-
 
 $notif_terakhir = DB::table('aktivitas_projeks')->first();
 
-
        //  $t_awal = new DateTime($request->tanggal_awal_aktivitas);
-        $t_akhir = new DateTime($notif_terakhir->tanggal_akhir);
+        //  $t_akhir = new DateTime($request->tanggal_akhir_aktivitas);
 
+        //  $t_saat_ini = new DateTime($tanggal_ini);
 
-        $interval = $t_akhir->diff($t_saat_ini);
+        //  $interval = $t_awal->diff($t_akhir);
 
-        $diffInDays  = $interval->d;
+        //  $diffInDays  = $interval->d;
 
 
 
@@ -1307,16 +1274,34 @@ $bulan = array (
 
 
 ?>
+<div class="modal fade bd-example-modal-md" id="notifikasiModal" tabindex="-1" aria-labelledby="notifikasiModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="notifikasiModalLabel"><?php 
+            echo 'NOTIFIKASI PENTING !';
+            
+            ?></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+       <?php 
 
 
 
+echo 'Salam, Saya dari Admin Heavyndo Engineering ingin mengingatkan bahwa terdapat Deadline Aktivitas kerja yang harus diselesaikan secepatnya. Diharapkan untuk segera diselesaikan. Terima kasih';
 
-
+       ?>
+        <br>
+       <strong>Deadline : 
+        <br>
         <?php
        
 
        
-       echo 'Aktivitas ' . $notif_terakhir->nama_aktivitas . ' - ' . $final_date . ' H - ' . $diffInDays .' Hari Lagi' ; 
+       echo 'Aktivitas ' . $notif_terakhir->nama_aktivitas . ' - ' . $final_date ; 
        
        ?> </strong>
         </div>

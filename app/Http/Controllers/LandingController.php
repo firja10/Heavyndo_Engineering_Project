@@ -109,7 +109,7 @@ class LandingController extends Controller
 
         //  $interval = $t_awal->diff($t_akhir);
 
-        //  $diffInDays  = $interval->d;
+        //  $diffInDays  = $interval->format('%a');
 
 
 
@@ -546,18 +546,32 @@ class LandingController extends Controller
 
             $interval = $t_awal->diff($t_akhir);
 
-            $diffInDays  = $interval->d;
+            $diffInDays  = $interval->format('%a');
 
 
             $aktivitas_projek['durasi_aktivitas'] =  $diffInDays;
-
-            $aktivitas_projek['status_aktivitas'] = $request->status_aktivitas;
 
             $aktivitas_projek['penanggung_jawab'] = $request->penanggung_jawab;
 
             $aktivitas_projek['jenis_projek_id'] = $request->jenis_projek_id;
 
             $aktivitas_projek['persentase_progress'] = $request->persentase_progress;
+
+
+            if($request->persentase_progress != 100)
+            {
+                $aktivitas_projek['status_aktivitas'] = 'on_going';
+            }
+
+            elseif($request->persentase_progress == 100){
+                $aktivitas_projek['status_aktivitas'] = 'finished';
+            }
+
+
+
+          
+
+
 
             $aktivitas_projek['foto_aktivitas'] = $filename;
 
@@ -642,12 +656,26 @@ class LandingController extends Controller
 
             $interval = $t_awal->diff($t_akhir);
 
-            $diffInDays  = $interval->d;
+            // $diffInDays  = $interval->d;
+
+            $diffInDays  = $interval->format('%a');
 
 
             // $request['durasi_aktivitas'] =  $diffInDays;
 
 
+
+
+
+            
+            if($request['persentase_progress'] != 100)
+            {
+                $status_activity = 'on_going';
+            }
+
+            elseif($request->persentase_progress == 100){
+                $status_activity = 'finished';
+            }
 
 
 
@@ -662,7 +690,8 @@ class LandingController extends Controller
 
                     'persentase_progress'=> $request['persentase_progress'],
 
-                    'status_aktivitas'=> $request['status_aktivitas'],
+            
+                    'status_aktivitas'=> $status_activity,
 
                     'tanggal_awal'=> $request['tanggal_awal'],
 
@@ -756,11 +785,11 @@ class LandingController extends Controller
 
             $interval = $t_awal->diff($t_akhir);
 
-            $diffInDays  = $interval->d;
+            $diffInDays  = $interval->format('%a');
 
             $selisih_notif = $t_saat_ini->diff($t_akhir);
 
-            $beda_hari = $selisih_notif->d;
+            $beda_hari = $selisih_notif->format('%a');
 
 
 

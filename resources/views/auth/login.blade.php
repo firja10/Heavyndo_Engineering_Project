@@ -21,7 +21,8 @@ Login HEAVYNDO
                         <div class="col-lg-6">
                             <div class="p-5">
                                 <div class="text-center">
-                                    <img src="{{asset('src/images/logo_sementara.png')}}" alt="" id = "logo_sementara">
+                                    {{-- <img src="{{asset('src/images/logo_sementara.png')}}" alt="" id = "logo_sementara"> --}}
+                                    <img src="{{asset('logo_pt.jpeg')}}" alt="" id = "logo_sementara">
                                     <h1 class="h4 text-gray-900 mb-4">Silakan Login </h1>
                                 </div>
                                 <form class="user" method="POST" action="{{ route('login') }}">

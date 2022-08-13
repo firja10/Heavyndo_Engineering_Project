@@ -91,7 +91,7 @@ Data Proyek PT. HEAVYNDO
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <table class="table table-bordered" id="data_proyek" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
                                         <th>Nama Projek</th>
@@ -109,10 +109,57 @@ Data Proyek PT. HEAVYNDO
                                 @foreach ($jenis_Projek as $projeks)
                                     
 
+                                <?php 
+                                
+
+                                $status_projek = DB::table('aktivitas_projeks')->where('jenis_projek_id',$projeks->id)->count();
+
+                                $status_projek_full = DB::table('aktivitas_projeks')->where('jenis_projek_id','=',$projeks->id)->where('persentase_progress','=',100)->count();
+
+
+
+                                // $status_projek_full = count($projeks_full);
+
+                                ?>
+
+
+
+
                                 <tr>
                                     <td>{{$projeks->nama_projek}}</td>
                                     <td>{{$projeks->durasi_projek}}</td>
+
                                     <td>
+                               
+                                        @if ($status_projek_full == $status_projek && $status_projek != 0)
+
+                                        <div class="alert alert-success alert-block">
+                                            <strong>Finished</strong>
+                                        </div>
+                                            
+                                        @elseif($status_projek_full != $status_projek)
+                                        <div class="alert alert-warning alert-block">
+                                            <strong>On Going</strong>
+                                        </div>
+                                        @elseif($status_projek_full == 0 || $status_projek_full == NULL)
+
+                                        <div class="alert alert-dark alert-block">
+                                            <strong>Empty</strong>
+                                        </div>
+
+                                        @else
+                                        
+                                        <div class="alert alert-danger alert-block">
+                                            <strong>Cancelled</strong>
+                                        </div>
+                                            
+                                        @endif
+                                    </td>
+
+
+
+
+                                    {{-- <td>
                                     @if ($projeks->status_projek == "on_going")
 
                                     <div class="alert alert-warning alert-block">
@@ -139,7 +186,15 @@ Data Proyek PT. HEAVYNDO
                                     Tidak Ada                                        
                                     @endif
                                     
-                                    </td>
+                                    </td> --}}
+
+
+
+
+
+
+
+
                                     <td>
                                     <?php 
 
@@ -215,5 +270,8 @@ Data Proyek PT. HEAVYNDO
 $('#dataTable').DataTable();
 } );
 </script>
+
+
+
     
 @endpush

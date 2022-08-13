@@ -150,27 +150,30 @@ Data Aktivitas {{$jenis_projek_id->nama_projek}}
                                      ?> 
 
 
+                                    <?php 
+
+                                    $t_akhir = new DateTime($aktivitas->tanggal_akhir);
+                                    $t_awal = new DateTime($aktivitas->tanggal_awal);
+                                    $t_saat_ini = new DateTime($tanggal_sekarang);
+
+                                    $interval = $t_saat_ini->diff($t_akhir);
+
+                                    $diffInDays  = $interval->format('%a');
+
+                                    ?>
+
+
                                      @if ($tanggal_sekarang > $aktivitas->tanggal_akhir)
 
                                      <br>
                                      <div class="alert alert-danger alert-block">
                                          {{-- <button type="button" class="close" data-dismiss="alert">×</button>	 --}}
-                                           <strong>Sudah Terlewat</strong>
+                                           <strong>Sudah Terlewat <?php echo $diffInDays . ' Hari' ?></strong>
                                        </div>
  
                                      @elseif($tanggal_sekarang < $aktivitas->tanggal_akhir)
 
-                                     <?php 
-
-                                          $t_akhir = new DateTime($aktivitas->tanggal_akhir);
-                                          $t_awal = new DateTime($aktivitas->tanggal_awal);
-
-                                          $interval = $t_awal->diff($t_akhir);
-
-                                          $diffInDays  = $interval->d;
-
-                                     ?>
-
+                    
                                      <br>
                                      <div class="alert alert-warning alert-block">
                                          {{-- <button type="button" class="close" data-dismiss="alert">×</button>	 --}}
@@ -359,9 +362,17 @@ aria-hidden="true">
             </div>
 
 
+            <div class="form-group">
+                <label for="persentase_progress"> Progress ( 0 - 100 % )</label>
+                <input type="number" name="persentase_progress" id="persentase_progress" class = "form-control" placeholder="Masukkan Progress">
+            </div>
+
+
+
+
 
             
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <label for="status_aktivitas">Status Aktivitas</label>
                     <select name="status_aktivitas" id="status_aktivitas" class = "form-control">
                         <option value="" selected disabled> -- Silakan Pilih --</option>
@@ -369,7 +380,7 @@ aria-hidden="true">
                         <option value="finished">Finished</option>
                         <option value="cancelled">Cancelled</option>
                     </select>
-            </div>
+            </div> --}}
 
 
 

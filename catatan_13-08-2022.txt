@@ -1,0 +1,21 @@
+Catatan : 
+1.Ada Notifikasi Untuk keseluruhan ( Sebelum Selesai H-7, H-5, H-3, hari ini, Sudah lewat ) => (Prio 1)
+
+2.Ada Alternatif Manual Membuat Notifikasi ( Lewat Form ) => Dicek Kembali
+
+3.Dibuat Rentang untuk Status Aktivitas Projek berdasarkan persentase Progress ( 0 - 99 ) -> on Going, (100) -> Finished => (Prio 1)->Urgent -> Sudah
+
+4.RAB -> Diedit di Supervisor, di Admin hanya ditampilkan => Dicek Kembali -> Sudah
+
+5.Status Projek -> Harus Finished semua di Aktivitas Projek, meskipun sudah lewat deadline, kalo belum tetap On Going di Status Projek => Prio 2
+
+
+6.Status di Aktivitas Projek -> Sudah Terlewat berapa hari ? -> otomatis => Prio 2 -> Sudah
+
+7.Dibuat Laporan PDF Surat Resmi -> Data Projek -> Sudah divalidasi Supervisor && Manager => Prio 2
+
+8.Gambar di Sidebar diganti Logo => Prio 1 -> Sudah
+
+9.Generate Report dihapus / diganti dengan Enabled / Disabled Notifikasi Pop Up => Prio 2
+
+10. Tombol Hapus ada Pop-up Validasi dia dihapus atau ngga ( Yes Or No ) => Prio 1
