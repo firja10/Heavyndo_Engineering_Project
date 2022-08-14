@@ -1,0 +1,4 @@
+Catatan : 
+1.Ada Notifikasi Untuk keseluruhan ( Sebelum Selesai H-7, H-5, H-3, hari ini, Sudah lewat ) => (Prio 1) - Cek -> Ditambahi H-1
+
+2.Dibuat Laporan PDF Surat Resmi -> Data Projek -> Sudah divalidasi Supervisor && Manager => Prio 2 - Cek -> Dibuat Manual Layouting

@@ -58,12 +58,10 @@ Data Notifikasi
 
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
-                    <div class="card-header py-3 justify-content-center d-flex">
+                    <div class="card-header py-3">
                         {{-- <h6 class="m-0 font-weight-bold text-primary">
                             DataTables Example</h6> --}}
-                            <button class = "btn btn-dark mr-auto" onclick="history.back()">Previous</button>
-
-                            <button class = "btn btn-success ml-auto" data-toggle = "modal" data-target = "#TambahNotifikasi"> <i class = "fas fa-plus"></i> Tambah Notifikasi </button>
+                            <button class = "btn btn-dark" onclick="history.back()">Previous</button>
                             
                     
                         </div>
@@ -76,8 +74,8 @@ Data Notifikasi
                                         <th>Pengirim Notifikasi</th>
                                         <th>Tanggal Notifikasi</th>
                                         <th>Deskripsi Notifikasi</th>
-                                         {{-- <th>Nama Aktivitas</th>
-                                        <th>Tanggal Awal Aktivitas</th>
+                                         <th>Nama Aktivitas</th>
+                                        {{-- <th>Tanggal Awal Aktivitas</th>
                                         <th>Tanggal Akhir Aktivitas</th> --}}
                                         <th>Aksi</th>
                                         {{-- <th>Aksi</th> --}}
@@ -90,8 +88,8 @@ Data Notifikasi
                                         <th>Pengirim Notifikasi</th>
                                         <th>Tanggal Notifikasi</th>
                                         <th>Deskripsi Notifikasi</th>
-                                         {{-- <th>Nama Aktivitas</th>
-                                        <th>Tanggal Awal Aktivitas</th>
+                                         <th>Nama Aktivitas</th>
+                                        {{-- <th>Tanggal Awal Aktivitas</th>
                                         <th>Tanggal Akhir Aktivitas</th> --}}
                                         <th>Aksi</th>
                                         {{-- <th>Aksi</th> --}}
@@ -100,7 +98,7 @@ Data Notifikasi
                                 </tfoot>
                                 <tbody>
 
-                                @foreach ($notifikasis as $notifikasi_aktivitas)
+                                @foreach ($notifikasis->reverse() as $notifikasi_aktivitas)
                                     
 
                                 <tr>
@@ -108,8 +106,6 @@ Data Notifikasi
                                     <td>{{$notifikasi_aktivitas->pengirim_notifikasi}}</td>
                                     <?php 
                                     
-                            
-                                
                                     $bulan = array (
                                                 1 =>   'Januari',
                                                 'Februari',
@@ -124,23 +120,26 @@ Data Notifikasi
                                                 'November',
                                                 'Desember'
                                             );
-                                            // $show_awal = explode('-', $notifikasi_aktivitas->tanggal_awal_aktivitas);
-                                            // $show_akhir = explode('-', $notifikasi_aktivitas->tanggal_akhir_aktivitas);
+                                            $show_awal = explode('-', $notifikasi_aktivitas->tanggal_awal_aktivitas);
+                                            $show_akhir = explode('-', $notifikasi_aktivitas->tanggal_akhir_aktivitas);
                                             $show_sekarang = explode('-', $notifikasi_aktivitas->tanggal_notifikasi);
                                             
                                             // variabel pecahkan 0 = tanggal
                                             // variabel pecahkan 1 = bulan
                                             // variabel pecahkan 2 = tahun
                                         
-                                            // $first_date = $show_awal[2] . ' ' . $bulan[ (int)$show_awal[1] ] . ' ' . $show_awal[0];
-                                            // $final_date = $show_akhir[2] . ' ' . $bulan[ (int)$show_akhir[1] ] . ' ' . $show_akhir[0];
+                                            $first_date = $show_awal[2] . ' ' . $bulan[ (int)$show_awal[1] ] . ' ' . $show_awal[0];
+                                            $final_date = $show_akhir[2] . ' ' . $bulan[ (int)$show_akhir[1] ] . ' ' . $show_akhir[0];
                                             $present_date = $show_sekarang[2] . ' ' . $bulan[ (int)$show_sekarang[1] ] . ' ' . $show_sekarang[0];
                                     
                                     ?>
                                      <td><?php echo $present_date; ?></td>
                                     <td>{{$notifikasi_aktivitas->deskripsi_notifikasi}}</td>
                                     
-    
+                                    <td>{{$notifikasi_aktivitas->nama_aktivitas}}</td>
+                                    <td><?php echo $first_date; ?></td>
+                                    <td><?php echo $final_date; ?></td>
+                                 
                                                         
                                    <td>
                                         <a href="{{route('adminLihatNotifikasi', $notifikasi_aktivitas->id)}}" class="btn btn-primary">Lihat Notifikasi</a>
@@ -154,7 +153,7 @@ Data Notifikasi
 
                                         </form> --}}
 
-                                        <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#modalhapusNotifikasi<?php echo $notifikasi_aktivitas->id ?>">Hapus Notifikasi</a>
+                                        <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#modalhapusNotifikasi">Hapus Notifikasi</a>
                                       
                                         
                                     </td>
@@ -180,53 +179,6 @@ Data Notifikasi
                                     </td> --}}
                                     {{-- <td>$320,800</td> --}}
                                 </tr>
-
-
-
-
-
-
-
-
-
-
-                                <form action="{{route('adminHapusNotifikasi', $notifikasi_aktivitas->id)}}" method = "POST">
-                                    @csrf
-                                    @method('DELETE')
-                                
-                                <div class="modal fade" id="modalhapusNotifikasi<?php echo $notifikasi_aktivitas->id ?>" tabindex="-1" role="dialog" aria-labelledby="modalhapusNotifikasiLabel"
-                                aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                  <div class="modal-content">
-                                      <div class="modal-header">
-                                          <h5 class="modal-title" id="modalhapusNotifikasiLabel">Anda Yakin Hapus Notifikasi ini ?</h5>
-                                          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                              <span aria-hidden="true">×</span>
-                                          </button>
-                                      </div>
-                                      <div class="modal-body">
-                                
-                                
-                                        Jika Anda Yakin Menghapus Notifikasi ini maka silakan tekan tombol Hapus. Jika tidak, tekan tombol Tidak.
-                                
-                                      </div>
-                                      <div class="modal-footer">
-                                        <button class="btn btn-danger" type = "submit">Hapus</button>
-                                          <button class="btn btn-secondary" type="button" data-dismiss="modal">Tidak</button>
-                                  
-                                      </div>
-                                  </div>
-                                </div>
-                                </div>
-                                
-                                
-                                </form>
-
-
-
-
-
-
 
                                 @endforeach
                     
@@ -255,7 +207,7 @@ Data Notifikasi
 
 
 
-{{-- <form action="{{route('adminHapusNotifikasi', $notifikasi_aktivitas->id)}}" method = "POST">
+<form action="{{route('adminHapusNotifikasi', $notifikasi_aktivitas->id)}}" method = "POST">
     @csrf
     @method('DELETE')
 
@@ -270,7 +222,7 @@ aria-hidden="true">
           </button>
       </div>
       <div class="modal-body">
-
+        {{-- <h6> <strong> Silakan Tambahkan Data Projek  </strong> </h6> --}}
 
         Jika Anda Yakin Menghapus Notifikasi ini maka silakan tekan tombol Hapus. Jika tidak, tekan tombol Tidak.
 
@@ -285,67 +237,10 @@ aria-hidden="true">
 </div>
 
 
-</form> --}}
-
-
-
-
-
-
-
-
-
-<form action="{{route('TambahNotifikasi')}}" method = "POST">
-    @csrf
-
-<div class="modal fade" id="TambahNotifikasi" tabindex="-1" role="dialog" aria-labelledby="TambahNotifikasiLabel"
-aria-hidden="true">
-<div class="modal-dialog" role="document">
-  <div class="modal-content">
-      <div class="modal-header">
-          <h5 class="modal-title" id="TambahNotifikasiLabel">Tambah Notifikasi</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-          </button>
-      </div>
-      <div class="modal-body">
-        {{-- <h6> <strong> Silakan Tambahkan Data Projek  </strong> </h6> --}}
-
-
-        <div class="form-group">
-
-            <label for="naam_notifikasi">Nama Notifikasi</label>
-            <input type="text" class="form-control" name = "nama_notifikasi" id = "nama_notifikasi">
-
-        </div>
-
-
-        <div class="form-group">   
-
-            <label for="deskripsi_notifikasi">Deskripsi Notifikasi</label>
-          
-            <textarea name="deskripsi_notifikasi" id="deskripsi_notifikasi" cols="30" rows="10" class = "form-control">
-
-            </textarea>
-
-        
-        </div>
-
-
-      </div>
-      <div class="modal-footer">
-
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Tidak</button>
-          
-          <button class="btn btn-primary" type = "submit">Tambah</button>
-  
-      </div>
-  </div>
-</div>
-</div>
-
-
 </form>
+
+
+
 
 
 

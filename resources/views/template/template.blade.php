@@ -567,7 +567,7 @@
 
                       
 
-                                <a class="dropdown-item text-center small text-gray-500" href="{{url('/admin/data_notifikasi')}}">Lihat Notifikasi Lain</a>
+                                <a class="dropdown-item text-center small text-gray-500" href="{{url('/data_notifikasi')}}">Lihat Notifikasi Lain</a>
 
                                 <a class="dropdown-item text-center small text-gray-500" href="#" data-toggle="modal" data-target="#notifikasiModal">Lihat Notifikasi Terbaru</a>
 
@@ -1246,8 +1246,7 @@ foreach ($obj_to_array as $arrays_kosong) {
 
 
 
-echo 'Salam, Saya dari Admin Heavyndo Engineering ingin mengingatkan bahwa terdapat Deadline Aktivitas kerja yang harus diselesaikan secepatnya. Diharapkan untuk segera diselesaikan. Terima kasih';
-
+echo 'Salam, Saya dari Admin Heavyndo Engineering ingin mengingatkan bahwa terdapat Deadline Aktivitas kerja yang harus diselesaikan secepatnya. Diharapkan untuk segera diselesaikan. Terima kasih'
        ?>
         <br>
        <strong>Deadline : 
@@ -1337,7 +1336,7 @@ $bulan = array (
 
 
 
-                    if($diffInDays == 3 || $diffInDays == 5 || $diffInDays == 7 || $diffInDays  == 9)
+                    if($diffInDays == 1 ||  $diffInDays == 3 || $diffInDays == 5 || $diffInDays == 7)
                     {
 
                         echo 'Aktivitas ' . $activity_last->nama_aktivitas . ' - ' . $final_date . ' - ' . $diffInDays .' Hari Lagi <br>' ; 
@@ -1345,6 +1344,19 @@ $bulan = array (
                     }
 
                     else {
+
+            
+
+                                               echo "<script type='text/javascript'>window.addEventListener('load', function() {
+            $('#notifikasiModal').modal('hide');
+
+        })
+
+</script>
+
+
+                   ";
+                                  
 
                     }
                                    

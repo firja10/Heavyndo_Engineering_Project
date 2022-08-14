@@ -455,7 +455,11 @@ $t_sekarang = new DateTime($tanggal_sekarang);
 
 // $notif_sekarang = DB::table('aktivitas_projeks')->where('tanggal_akhir','>',$tanggal_sekarang)->count();
 
-$notif_sekarang = DB::table('aktivitas_projeks')->where('tanggal_akhir','>',$tanggal_sekarang)->whereRaw('DATEDIFF(tanggal_akhir,Now())>5')->whereRaw('DATEDIFF(tanggal_akhir,Now())>7')->whereRaw('DATEDIFF(tanggal_akhir,Now())>9')->count();
+$notif_sekarang = DB::table('aktivitas_projeks')->where('tanggal_akhir','>',$tanggal_sekarang)
+->whereRaw('DATEDIFF(tanggal_akhir,Now())>1')
+->whereRaw('DATEDIFF(tanggal_akhir,Now())>5')
+->whereRaw('DATEDIFF(tanggal_akhir,Now())>7')
+->whereRaw('DATEDIFF(tanggal_akhir,Now())>3')->count();
 
 
 ?>
@@ -471,7 +475,39 @@ $notif_sekarang = DB::table('aktivitas_projeks')->where('tanggal_akhir','>',$tan
     
     </script>
 {{-- @endif --}}
+
+@elseif($notif_sekarang == 0)
+
+
+<script type="text/javascript">
+
+    window.addEventListener("load", function() {
+                $('#notifikasiModal').modal('hide');
     
+            })
+    
+    </script>
+
+
+
+@else
+
+
+<script type="text/javascript">
+
+    window.addEventListener("load", function() {
+                $('#notifikasiModal').modal('hide');
+    
+            })
+    
+    </script>
+
+
+
+
 @endif
+
+
+
 
 @endpush

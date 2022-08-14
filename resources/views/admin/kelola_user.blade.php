@@ -125,7 +125,7 @@ Kelola Data User PT. HEAVYNDO
                                         </form> --}}
 
 
-                                        <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#modalhapusUser">Hapus User</a>
+                                        <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#modalhapusUser<?php echo $user->id ?>">Hapus User</a>
                                    
 
                                     </td>
@@ -177,7 +177,7 @@ Kelola Data User PT. HEAVYNDO
  @csrf
  @method('DELETE')
 
-<div class="modal fade" id="modalhapusUser" tabindex="-1" role="dialog" aria-labelledby="modalhapusUserLabel"
+<div class="modal fade" id="modalhapusUser<?php echo $user->id ?>" tabindex="-1" role="dialog" aria-labelledby="modalhapusUserLabel"
 aria-hidden="true">
 <div class="modal-dialog" role="document">
   <div class="modal-content">

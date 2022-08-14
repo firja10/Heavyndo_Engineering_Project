@@ -237,7 +237,7 @@ Data Proyek PT. HEAVYNDO
                                         </form> --}}
 
 
-                                        <a href="#" class="btn btn-danger mt-2" data-toggle="modal" data-target="#modalhapusProjek">Hapus Notifikasi</a>
+                                        <a href="#" class="btn btn-danger mt-2" data-toggle="modal" data-target="#modalhapusProjek<?php echo $projeks->id ?>">Hapus Notifikasi</a>
                                         
                                     </center>            
                                     </td>
@@ -277,7 +277,7 @@ Data Proyek PT. HEAVYNDO
     @csrf
     @method('DELETE')
 
-<div class="modal fade" id="modalhapusProjek" tabindex="-1" role="dialog" aria-labelledby="modalhapusProjekLabel"
+<div class="modal fade" id="modalhapusProjek<?php echo $projeks->id ?>" tabindex="-1" role="dialog" aria-labelledby="modalhapusProjekLabel"
 aria-hidden="true">
 <div class="modal-dialog" role="document">
   <div class="modal-content">

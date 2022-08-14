@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use App\Models\Notifikasi;
 use DateTime;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Date;
 
 class LandingController extends Controller
@@ -837,7 +838,7 @@ class LandingController extends Controller
             $notifikasis->save();
 
 
-            return redirect('/admin/data_notifikasi')->with('success_notif','Notifikasi Berhasil Ditambahkan');
+            return redirect('/data_notifikasi')->with('success_notif','Notifikasi Berhasil Ditambahkan');
 
 
             
@@ -845,13 +846,13 @@ class LandingController extends Controller
 
 
 
-        public function adminHapusNotifikasi($id, Notifikasi $notifikasi)
+        public function adminHapusNotifikasi($id)
         {
             # code...
 
             $notifikasis = Notifikasi::findOrFail($id);
             $notifikasis->delete();
-            return redirect('/admin/data_notifikasi')->with('hapus_notif','Notifikasi Berhasil Dihapus');
+            return redirect('/data_notifikasi')->with('hapus_notif','Notifikasi Berhasil Dihapus');
 
         }
 
@@ -881,7 +882,7 @@ class LandingController extends Controller
                 'status'=>1
             ]);
 
-            return redirect('/admin/data_notifikasi/' . $id);
+            return redirect('/data_notifikasi/' . $id);
 
         }
 
@@ -1247,6 +1248,34 @@ class LandingController extends Controller
 
         }
 
+
+
+
+        public function TambahNotifikasi(Request $request)
+        {
+            # code...
+
+            $notifikasis = new Notifikasi();
+
+            $tanggal_ini = date('Y-m-d H:i:s');
+
+            $nama_user = Auth::user()->name;
+
+            $notifikasis['nama_notifikasi'] = $request->nama_notifikasi;
+            
+            $notifikasis['deskripsi_notifikasi'] = $request->deskripsi_notifikasi;
+
+            $notifikasis['tanggal_notifikasi'] = $tanggal_ini;
+
+            $notifikasis['pengirim_notifikasi'] = $nama_user;
+
+            $notifikasis->save();
+
+            return redirect('/data_notifikasi')->with('tambahnotifikasi','Notifikasi telah ditambahkan');
+
+
+
+        }
 
 
 

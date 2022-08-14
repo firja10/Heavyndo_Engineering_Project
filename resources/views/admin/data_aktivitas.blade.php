@@ -299,7 +299,7 @@ Data Aktivitas {{$jenis_projek_id->nama_projek}}
                                             <button class="btn btn-danger" type = "submit">Hapus Aktivitas</button>
                                         </form> --}}
 
-                                        <a href="#" class = "btn btn-danger" data-toggle="modal" data-target = "#modalhapusAktivitas">Hapus Aktivitas</a>
+                                        <a href="#" class = "btn btn-danger" data-toggle="modal" data-target = "#modalhapusAktivitas<?php echo $aktivitas->id ?>">Hapus Aktivitas</a>
 
                                  
                                         
@@ -464,7 +464,7 @@ aria-hidden="true">
     @csrf
     @method('DELETE')
 
-<div class="modal fade" id="modalhapusAktivitas" tabindex="-1" role="dialog" aria-labelledby="modalhapusAktivitasLabel"
+<div class="modal fade" id="modalhapusAktivitas<?php echo $aktivitas->id ?>" tabindex="-1" role="dialog" aria-labelledby="modalhapusAktivitasLabel"
 aria-hidden="true">
 <div class="modal-dialog" role="document">
   <div class="modal-content">
