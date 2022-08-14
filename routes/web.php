@@ -134,16 +134,23 @@ Route::patch('/admin/data_aktivitas/{id}', [\App\Http\Controllers\LandingControl
 
 
 
-Route::get('/admin/data_notifikasi', [\App\Http\Controllers\LandingController::class,'adminKelolaNotifikasi'])->name('adminKelolaNotifikasi')->middleware('is_admin');
+// Route::get('/admin/data_notifikasi', [\App\Http\Controllers\LandingController::class,'adminKelolaNotifikasi'])->name('adminKelolaNotifikasi')->middleware('auth');
+
+
+Route::get('/data_notifikasi', [\App\Http\Controllers\LandingController::class,'adminKelolaNotifikasi'])->name('adminKelolaNotifikasi')->middleware('auth');
 
 
 
-Route::post('/admin/data_notifikasi', [\App\Http\Controllers\LandingController::class,'adminStoreNotifikasi'])->name('adminStoreNotifikasi')->middleware('is_admin');
+// Route::post('/admin/data_notifikasi', [\App\Http\Controllers\LandingController::class,'adminStoreNotifikasi'])->name('adminStoreNotifikasi')->middleware('is_admin');
+
+Route::post('/data_notifikasi', [\App\Http\Controllers\LandingController::class,'adminStoreNotifikasi'])->name('adminStoreNotifikasi')->middleware('is_admin');
 
 
 
-Route::get('/admin/data_notifikasi/{id}', [\App\Http\Controllers\LandingController::class,'adminLihatNotifikasi'])->name('adminLihatNotifikasi')->middleware('is_admin');
 
+// Route::get('/admin/data_notifikasi/{id}', [\App\Http\Controllers\LandingController::class,'adminLihatNotifikasi'])->name('adminLihatNotifikasi')->middleware('is_admin');
+
+Route::get('/data_notifikasi/{id}', [\App\Http\Controllers\LandingController::class,'adminLihatNotifikasi'])->name('adminLihatNotifikasi')->middleware('is_admin');
 
 
 Route::delete('/admin/data_notifikasi/{id}', [\App\Http\Controllers\LandingController::class,'adminHapusNotifikasi'])->name('adminHapusNotifikasi')->middleware('is_admin');

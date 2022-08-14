@@ -99,6 +99,17 @@
             </li>
 
 
+
+            <li class="nav-item" id = "notifikasi">
+                <a class="nav-link" href="{{url('/data_notifikasi')}}">
+                    <i class="fas fa-fw fa-bell"></i>
+                    <span>Notifikasi</span></a>
+            </li>
+
+
+
+
+
             <li class="nav-item" id = "kelola_user">
                 <a class="nav-link" href="{{url('/admin/kelola_user')}}">
                     <i class="fas fa-fw fa-user-circle"></i>

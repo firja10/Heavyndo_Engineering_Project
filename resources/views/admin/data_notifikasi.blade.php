@@ -7,6 +7,22 @@ Data Notifikasi
 @endsection
 
 
+@section('style')
+<style>
+        #notifikasi {
+        background-color:#ffff;
+        /* color:#5073DC; */
+    }
+
+    #notifikasi a, #notifikasi i {
+        color:#5073DC;
+    }
+</style>
+    
+@endsection
+
+
+
 @section('content')
 
 
@@ -46,7 +62,9 @@ Data Notifikasi
                         {{-- <h6 class="m-0 font-weight-bold text-primary">
                             DataTables Example</h6> --}}
                             <button class = "btn btn-dark" onclick="history.back()">Previous</button>
-                    </div>
+                            
+                    
+                        </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
