@@ -184,8 +184,12 @@ Data Aktivitas {{$jenis_projek_id->nama_projek}}
 
                                     </td>
                                     <td>{{$aktivitas->penanggung_jawab}}</td>
+
+
+
                                     <td>
-                                    @if ($aktivitas->status_aktivitas == "on_going")
+
+                                    {{-- @if ($aktivitas->status_aktivitas == "on_going")
 
                                     <div class="alert alert-warning alert-block">
                                         <strong>On Going</strong>
@@ -209,9 +213,38 @@ Data Aktivitas {{$jenis_projek_id->nama_projek}}
                                     
                                     @else
                                     Tidak Ada                                        
+                                    @endif --}}
+
+
+                                    @if ($aktivitas->persentase_progress != 100)
+
+                                    <div class="alert alert-warning alert-block">
+                                        <strong>On Going</strong>
+                                    </div>
+                                        
+                                    @elseif($aktivitas->persentase_progress == 100)
+                                    
+                                    <div class="alert alert-success alert-block">
+                                        <strong>Finished</strong>
+                                    </div>
+
+                                                                       
+                                    @else
+                                        
+                                    <div class="alert alert-danger alert-block">
+                                        <strong>Cancel</strong>
+                                    </div>
+
                                     @endif
+
+
                                     
                                     </td>
+
+
+
+
+
                                     <td>
                                        {{$aktivitas->persentase_progress}}
                                     </td>

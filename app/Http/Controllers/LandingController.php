@@ -1221,6 +1221,36 @@ class LandingController extends Controller
 
 
 
+        public function verif_status_spv(Request $request, $id)
+        {
+            # code...
+
+            Jenis_Projek::where('id', $id)->update([
+                'verif_status'=>1,
+            ]);
+
+            return redirect('/supervisor/data_proyek')->with('proyek_verif_status_spv','Verifikasi Status Supervisor');
+
+        }
+
+
+
+        public function verif_status_mng(Request $request, $id)
+        {
+            # code...
+
+            Jenis_Projek::where('id', $id)->update([
+                'verif_status'=>2,
+            ]);
+
+            return redirect('/supervisor/data_proyek')->with('proyek_verif_status_mng','Verifikasi Status Manager');           
+
+        }
+
+
+
+
+
 
         // public function NotifikasiOtomatis()
         // {

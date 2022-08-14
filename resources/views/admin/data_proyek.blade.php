@@ -218,13 +218,17 @@ Data Proyek PT. HEAVYNDO
                                         {{-- {{$projeks->gambar_projek}} --}}
                                     </td>
                                     <td> 
+                                    <center>
+                                        
+                        
+                                        {{-- <button class="btn btn-success" type = "button">Validasi</button> --}}
+                                                                
+                                        <a href="{{route('adminLihatProjek', $projeks->id)}}" class = "btn btn-primary mt-2">Lihat Projek</a>
 
-                                                                             
-                                        <a href="{{route('adminLihatProjek', $projeks->id)}}" class = "btn btn-primary">Lihat Projek</a>
                                         <br>
-                                        <a href= "{{route('adminEditProjek', $projeks->id)}}" class = "btn btn-warning" style = "margin-top:10px;">Edit Projek</a>
+                                        <a href= "{{route('adminEditProjek', $projeks->id)}}" class = "btn btn-warning mt-2" style = "margin-top:10px;">Edit Projek</a>
                                         <br>
-
+                                        
                                         {{-- <form action="{{route('adminHapusProjek', $projeks->id)}}" method = "POST">
                                             @csrf
                                             @method('DELETE')
@@ -233,9 +237,9 @@ Data Proyek PT. HEAVYNDO
                                         </form> --}}
 
 
-                                        <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#modalhapusProjek">Hapus Notifikasi</a>
+                                        <a href="#" class="btn btn-danger mt-2" data-toggle="modal" data-target="#modalhapusProjek">Hapus Notifikasi</a>
                                         
-                                    
+                                    </center>            
                                     </td>
                                     {{-- <td>$320,800</td> --}}
                                 </tr>

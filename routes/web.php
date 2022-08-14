@@ -296,6 +296,14 @@ Route::patch('admin/rab/edit/{id}', [\App\Http\Controllers\LandingController::cl
 
 
 
+// UPDATE VERIF STATUS 
+
+
+Route::patch('supervisor/data_proyek/{id}', [\App\Http\Controllers\LandingController::class, 'verif_status_spv'])->name('verif_status_spv')->middleware('is_supervisor');
+
+Route::patch('manager/data_proyek/{id}', [\App\Http\Controllers\LandingController::class, 'verif_status_mng'])->name('verif_status_mng')->middleware('is_manager');
+
+
 
 
 

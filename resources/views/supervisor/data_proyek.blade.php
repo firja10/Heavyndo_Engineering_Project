@@ -98,6 +98,7 @@ Data Proyek PT. HEAVYNDO
                                         <th>Status Projek</th>
                                         <th>Anggaran Projek</th>
                                         <th>Gambar Projek</th>
+                                        <th>Aksi</th>
                                         {{-- <th>Aksi</th> --}}
                                         {{-- <th>Salary</th> --}}
                                     </tr>
@@ -109,6 +110,7 @@ Data Proyek PT. HEAVYNDO
                                         <th>Status Projek</th>
                                         <th>Anggaran Projek</th>
                                         <th>Gambar Projek</th>
+                                        <th>Aksi</th>
                                         {{-- <th>Aksi</th> --}}
                                         {{-- <th>Salary</th> --}}
                                     </tr>
@@ -121,8 +123,11 @@ Data Proyek PT. HEAVYNDO
                                 <tr>
                                     <td>{{$projeks->nama_projek}}</td>
                                     <td>{{$projeks->durasi_projek}}</td>
+
+
                                     <td>
-                                    @if ($projeks->status_projek == "on_going")
+
+                                    {{-- @if ($projeks->status_projek == "on_going")
 
                                     <div class="alert alert-warning alert-block">
                                         <strong>On Going</strong>
@@ -146,9 +151,48 @@ Data Proyek PT. HEAVYNDO
                                     
                                     @else
                                     Tidak Ada                                        
-                                    @endif
+                                    @endif --}}
+                                   
+                                    <?php 
+                                            
+                                    $status_projek = DB::table('aktivitas_projeks')->where('jenis_projek_id',$projeks->id)->count();
+
+                                    $status_projek_full = DB::table('aktivitas_projeks')->where('jenis_projek_id','=',$projeks->id)->where('persentase_progress','=',100)->count();
+
+                                   
+                                    ?>
                                     
+
+                                    
+                                    @if ($status_projek_full == $status_projek && $status_projek != 0)
+
+                                    <div class="alert alert-success alert-block">
+                                        <strong>Finished</strong>
+                                    </div>
+                                        
+                                    @elseif($status_projek_full != $status_projek)
+                                    <div class="alert alert-warning alert-block">
+                                        <strong>On Going</strong>
+                                    </div>
+                                    @elseif($status_projek_full == 0 || $status_projek_full == NULL)
+
+                                    <div class="alert alert-dark alert-block">
+                                        <strong>Empty</strong>
+                                    </div>
+
+                                    @else
+                                    
+                                    <div class="alert alert-danger alert-block">
+                                        <strong>Cancelled</strong>
+                                    </div>
+                                        
+                                    @endif
+
                                     </td>
+                                    
+                                    
+
+
                                     <td>
                                     <?php 
                                         
@@ -163,6 +207,43 @@ Data Proyek PT. HEAVYNDO
                                     </center>
                                     
                                         {{-- {{$projeks->gambar_projek}} --}}
+                                    </td>
+
+                                    <td>
+                                        
+                                        <center>
+
+                                            @if (($projeks->status_verif == NULL || $projeks->status_verif == 0) && ($status_projek_full == $status_projek) && ($status_projek_full != NULL))
+                                            
+                                            
+                                            <button class = "btn btn-success mt-2 mb-2">Validasi</button>
+
+
+                                                
+                                            @elseif(($projeks->status_verif == NULL || $projeks->status_verif == 0 || $status_projek_full == NULL || $status_projek_full == 0))
+                                                
+
+                                            <button class = "btn btn-danger mt-2 mb-2">Belum Selesai</button>
+
+
+                                            @elseif($status_projek_full == NULL || $status_projek_full == 0)
+
+
+                                            @elseif($projeks->status_verif == 1)
+
+                                               <button class = "btn btn-success mt-2 mb-2">Sudah Tervalidasi Supervisor</button>
+
+                                             @elseif($projeks->status_verif == 2)
+
+                                             <button class = "btn btn-primary mt-2 mb-2">Sudah Tervalidasi Manager</button>
+
+                                            @else
+                                                
+                                            @endif
+                                       
+                                       
+                                        </center>
+                 
                                     </td>
                                 
                                     {{-- <td>$320,800</td> --}}
