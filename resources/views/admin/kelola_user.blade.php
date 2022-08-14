@@ -116,6 +116,7 @@ Kelola Data User PT. HEAVYNDO
                                         <br> --}}
                                         <a href = "{{route('adminEditUser', $user->id)}}"  class = "btn btn-warning" style = "margin-top:10px;">Edit User</a>
                                         <br>
+                                        <br>
                                         
                                         {{-- <form method = "POST" action="{{route('adminHapusUser', $user->id)}}">
                                             @csrf

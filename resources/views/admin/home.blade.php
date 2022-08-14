@@ -68,8 +68,8 @@
 
                         
 
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" ><i
-                                class="fas fa-download fa-sm text-white-50" ></i> Generate Report</a>
+                        {{-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" ><i
+                                class="fas fa-download fa-sm text-white-50" ></i> Generate Report</a> --}}
                     </div>
 
                     <!-- Content Row -->
@@ -445,6 +445,23 @@
 @push('script')
 
 
+{{-- @if (isset()) --}}
+    
+<?php
+// $notif_terakhir = DB::table('notifikasis')->first();
+
+$tanggal_sekarang = date('Y-m-d');
+$t_sekarang = new DateTime($tanggal_sekarang);
+
+// $notif_sekarang = DB::table('aktivitas_projeks')->where('tanggal_akhir','>',$tanggal_sekarang)->count();
+
+$notif_sekarang = DB::table('aktivitas_projeks')->where('tanggal_akhir','>',$tanggal_sekarang)->whereRaw('DATEDIFF(tanggal_akhir,Now())>5')->whereRaw('DATEDIFF(tanggal_akhir,Now())>7')->whereRaw('DATEDIFF(tanggal_akhir,Now())>9')->count();
+
+
+?>
+
+@if ($notif_sekarang != 0)
+    
 <script type="text/javascript">
 
     window.addEventListener("load", function() {
@@ -453,6 +470,8 @@
             })
     
     </script>
+{{-- @endif --}}
     
-    
+@endif
+
 @endpush
