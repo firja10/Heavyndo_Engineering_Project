@@ -176,6 +176,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        Barryvdh\DomPDF\ServiceProvider::class,
+
 
 
 
@@ -237,6 +239,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
 
+        
+        'PDF' => Barryvdh\DomPDF\Facade::class,
         
         // 'Redis' => Illuminate\Support\Facades\Redis::class,
 

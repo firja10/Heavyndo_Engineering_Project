@@ -89,7 +89,15 @@ Route::get('/home', [\App\Http\Controllers\LandingController::class,'home'])->na
 
 Route::get('/admin/data_proyek', [\App\Http\Controllers\LandingController::class,'adminDataproyek'])->name('adminDataproyek')->middleware('is_admin');
 
+
 Route::post('/admin/data_proyek', [\App\Http\Controllers\LandingController::class,'adminTambahDataProyek'])->name('adminTambahDataProyek')->middleware('is_admin');
+
+
+
+Route::patch('/admin/data_proyek/{id}/data_aktivitas/urgensitas', [\App\Http\Controllers\LandingController::class,'UpdateUrgensitas'])->name('UpdateUrgensitas')->middleware('is_admin');
+
+
+
 
 Route::delete('/admin/data_proyek/{id}', [\App\Http\Controllers\LandingController::class,'adminHapusProjek'])->name('adminHapusProjek')->middleware('is_admin');
 
@@ -314,6 +322,17 @@ Route::patch('admin/rab/edit/{id}', [\App\Http\Controllers\LandingController::cl
 Route::patch('supervisor/data_proyek/{id}', [\App\Http\Controllers\LandingController::class, 'verif_status_spv'])->name('verif_status_spv')->middleware('is_supervisor');
 
 Route::patch('manager/data_proyek/{id}', [\App\Http\Controllers\LandingController::class, 'verif_status_mng'])->name('verif_status_mng')->middleware('is_manager');
+
+
+
+
+
+Route::get('laporan_validasi', [\App\Http\Controllers\LandingController::class, 'LaporanValidasi'])->name('LaporanValidasi')->middleware('auth');
+
+
+Route::get('data_proyek/{id}/surat_laporan_validasi', [\App\Http\Controllers\LandingController::class, 'lihatSuratValidasi'])->name('lihatSuratValidasi')->middleware('auth');
+
+
 
 
 

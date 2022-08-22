@@ -1,0 +1,6 @@
+1. jumlah stock dinamis, berkurang di kebutuhan material 
+2. Data Material Masuk dan Data Material Keluar
+3. Data Material -> 350 
+   Kebutuhan -> 350 
+   pembelian -> 350 
+   pembelian diACC manager -> 350 + 2 = 352

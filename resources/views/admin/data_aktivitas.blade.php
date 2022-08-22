@@ -79,7 +79,7 @@ Data Aktivitas {{$jenis_projek_id->nama_projek}}
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <table class="table table-bordered" id="tabel_aktivitas" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
                                         <th>Nama Aktivitas</th>
@@ -91,6 +91,7 @@ Data Aktivitas {{$jenis_projek_id->nama_projek}}
                                         <th>Persentase Progress (%)</th>
                                         <th>Gambar Aktivitas</th>
                                         <th>Aksi</th>
+                                        <th>Urgensitas</th>
                                         {{-- <th>Aksi</th> --}}
                                         {{-- <th>Salary</th> --}}
                                     </tr>
@@ -106,6 +107,7 @@ Data Aktivitas {{$jenis_projek_id->nama_projek}}
                                         <th>Persentase Progress (%)</th>
                                         <th>Gambar Aktivitas</th>
                                         <th>Aksi</th>
+                                        <th>Urgensitas</th>
                                         {{-- <th>Aksi</th> --}}
                                         {{-- <th>Salary</th> --}}
                                     </tr>
@@ -186,6 +188,7 @@ Data Aktivitas {{$jenis_projek_id->nama_projek}}
                                     <td>{{$aktivitas->penanggung_jawab}}</td>
 
 
+                                
 
                                     <td>
 
@@ -325,6 +328,32 @@ Data Aktivitas {{$jenis_projek_id->nama_projek}}
                                     
                                     </td> --}}
                                     {{-- <td>$320,800</td> --}}
+                                
+                                
+                                    <td>
+                                    
+                                        @if ($aktivitas->urgensitas == 'Ya')
+                                        
+                                            <button class = "btn btn-primary">Ya</button>
+
+                                        @elseif($aktivitas->urgensitas == 'Tidak')
+                                            <button class="btn btn-danger">Tidak</button>
+                                        
+                                        @else
+
+                                                                   
+                                            <button class = "btn btn-dark" data-toggle="modal" data-target="#ModalUpdateUrgensitas">Unggah Aktivitas</button>
+                            
+                                           
+
+                                        @endif
+                                        
+                                    
+
+                                    </td>
+
+
+
                                 </tr>
 
                                 @endforeach
@@ -494,6 +523,66 @@ aria-hidden="true">
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!-- MODAL UPDATE URGENSITAS -->
+
+      <form action="{{route('UpdateUrgensitas', $aktivitas->id)}}" method="post">
+        @csrf
+        @method('PATCH')
+               
+        <!-- Modal -->
+        <div class="modal fade" id="ModalUpdateUrgensitas" tabindex="-1" role="dialog" aria-labelledby="ModalUpdateUrgensitasLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="ModalUpdateUrgensitasLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                
+                    Silakan Unggah Tingkat Urgensitas Aktivitas
+                    <div class="form-group">
+                        <label for="urgensitas">
+                            <select name="urgensitas" id="urgensitas" class = "form-control">
+                                <option value="Ya">Ya</option>
+                                <option value="Tidak">Tidak</option>
+                            </select>
+                        </label>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="type" class="btn btn-primary">Simpan</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+
+        </form>
 
 
 

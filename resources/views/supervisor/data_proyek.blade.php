@@ -203,10 +203,10 @@ Data Proyek PT. HEAVYNDO
 
                                             @if (($projeks->status_verif == NULL || $projeks->status_verif == 0) && ($status_projek_full == $status_projek) && ($status_projek_full != NULL))
                                             
+
+                                                <a class = "btn btn-success mt-2 mb-2" href = "/data_proyek/{{$projeks->id}}/surat_laporan_validasi">Lakukan Validasi</a>
                                             
-                                            <button class = "btn btn-success mt-2 mb-2">Validasi</button>
-
-
+                                            
                                                 
                                             @elseif(($projeks->status_verif == NULL || $projeks->status_verif == 0 || $status_projek_full == NULL || $status_projek_full == 0))
                                                 

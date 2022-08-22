@@ -1,0 +1,3 @@
+Catatan 18 - 08 - 2022 : 
+1. Ditambahkan urgensitas di kolom tabel DB aktivitas kerja berupa Ya atau tidak 
+2. 

@@ -14,6 +14,8 @@ use App\Models\Notifikasi;
 use DateTime;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Date;
+use PDF;
+// use 
 
 class LandingController extends Controller
 {
@@ -568,13 +570,13 @@ class LandingController extends Controller
                 $aktivitas_projek['status_aktivitas'] = 'finished';
             }
 
-
-
-          
+         
 
 
 
             $aktivitas_projek['foto_aktivitas'] = $filename;
+
+            $aktivitas_projek['urgensitas'] = $request->urgensitas;
 
             $aktivitas_projek->save();
 
@@ -702,6 +704,9 @@ class LandingController extends Controller
 
                     
                     'foto_aktivitas' =>$filename,
+
+                    'urgensitas'=>$request->urgensitas,
+                
                 ]);
     
     
@@ -1281,6 +1286,57 @@ class LandingController extends Controller
 
 
 
+
+        public function LaporanValidasi()
+        {
+            # code...
+
+            return view('laporan_validasi');
+
+        }
+
+
+        public function LaporanValidasiId()
+        {
+            # code...
+
+            
+
+
+
+            return view('laporan_validasi');
+
+        }
+
+
+
+
+
+        public function updateUrgensitas($id, Request $request)
+        {
+            # code...
+
+
+            $aktivitas_projek_id = AktivitasProjek::findOrFail($id);
+
+            $jenis_projek_id = AktivitasProjek::where('id', $id)->first();
+
+            AktivitasProjek::where('id', $id)->update([
+
+                'urgensitas'=>$request->urgensitas,
+
+
+
+            ]);
+
+            return redirect('/admin/data_proyek/'. $jenis_projek_id->jenis_projek_id. '/data_aktivitas');
+
+        }
+
+
+
+
+
         // public function NotifikasiOtomatis()
         // {
         //     # code...
@@ -1306,6 +1362,31 @@ class LandingController extends Controller
 
         
         // }
+
+
+
+
+
+        public function lihatSuratValidasi($id)
+        {
+
+            # code...
+
+            $jenis_projek = Jenis_Projek::findOrFail($id);
+
+            $data_pdf =  PDF::loadview('laporan_validasi', compact('jenis_projek'));
+
+            // return $data_pdf->download('laporan_barang_pdf');
+    
+            return $data_pdf->stream();
+    
+
+            // return view('laporan_validasi', compact('aktivitas_projek'));
+
+
+        }
+
+
 
 
 
