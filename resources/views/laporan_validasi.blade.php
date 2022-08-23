@@ -14,7 +14,12 @@
             padding-left:10px;
             padding-bottom:3px;
         }
-    </style>
+
+        body {
+  padding: .5in;
+}
+
+</style>
 </head>
 <body>
 
@@ -63,10 +68,8 @@
 
         <tr >
             <td style = "padding-top:20px; padding-bottom:20px;">Kepada Yth,</td>
-            <td width = "500" style = "padding-top:20px; padding-bottom:20px;"></td>
+            <td width = "700" style = "padding-top:20px; padding-bottom:20px;"></td>
         </tr>
-
-
 
 
     </table>
