@@ -198,7 +198,16 @@ Data Proyek PT. HEAVYNDO
                                     <td>
                                     <?php 
                                         
-                                        $hasil_rupiah = "Rp " . number_format($projeks->anggaran_projek,2,',','.');
+                                        $anggaran_proyek = DB::table('anggarans')->where('projek_id', $projeks->id)->sum('anggarans.rab');
+
+                                        $pajak = 0.1*($anggaran_proyek);
+
+                                        $hasil = $pajak + $anggaran_proyek;
+
+
+
+                                        $hasil_rupiah = "Rp " . number_format($hasil,2,',','.');
+                                        // $hasil_rupiah = "Rp " . number_format($projeks->anggaran_projek,2,',','.');
                                         echo $hasil_rupiah;
                                         
                                         ?>
