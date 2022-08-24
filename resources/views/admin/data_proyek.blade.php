@@ -205,8 +205,20 @@ Data Proyek PT. HEAVYNDO
                                         
                                         // $hasil_rupiah = "Rp " . number_format($projeks->anggaran_projek,2,',','.');
 
-                                        $hasil_rupiah = "Rp " . number_format($total_rab,2,',','.');
-                                        echo $hasil_rupiah;
+                                        // $hasil_rupiah = "Rp " . number_format($total_rab,2,',','.');
+                                        // echo $hasil_rupiah;
+                                      
+                                        $pajak = 0.1*($total_rab);
+
+                                        $hasil = $pajak + $total_rab;
+
+                                        $hasil_rupiah = number_format($pajak,2,',','.');
+
+                                        echo 'Rp. '. $hasil_rupiah;
+
+
+
+
                                         
                                         ?>
                                     </td>

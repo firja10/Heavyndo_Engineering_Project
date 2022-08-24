@@ -187,6 +187,36 @@ Data Proyek PT. HEAVYNDO
                                     echo 'Rp. '. $total_anggaran; ?></td>
                                 </tr>
 
+
+
+                                <tr>
+                                    <td class = "bg-warning">Pajak (10%)</td>
+                                    <td class = "bg-light text-dark"><?php 
+
+                                        $anggaran_pajak = 0.1*($anggaran_khusus);
+                                    // $total_anggaran = number_format($anggaran_khusus,2,',','.');
+                                    
+
+                                        $total_anggaran_pajak = number_format($anggaran_pajak,2,',','.');
+
+                                    echo 'Rp. '. $total_anggaran_pajak; ?></td>
+                                </tr>
+
+
+                                <tr>
+                                    <td class = "bg-success text-white">Total Anggaran Resmi</td>
+                                    <td class = "bg-light text-dark"><?php 
+
+                                        $anggaran_resmi = $anggaran_pajak + $anggaran_khusus;
+                                    // $total_anggaran = number_format($anggaran_khusus,2,',','.');
+                                    
+                                    $total_anggaran_resmi = number_format($anggaran_resmi,2,',','.');
+
+
+
+                                    echo 'Rp. '. $total_anggaran_resmi; ?></td>
+                                </tr>
+
                     
                                 
                
