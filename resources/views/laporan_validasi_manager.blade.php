@@ -208,7 +208,7 @@
 
             <td width= "270px" style = "text-align: center" height="50px">
 
-                {{-- <img src="{{public_path('TTD_LENGKAP.png')}}" alt="" width="150"> --}}
+                <img src="{{public_path('TTD_LENGKAP.png')}}" alt="" width="150">
 
             </td>
     </tr>

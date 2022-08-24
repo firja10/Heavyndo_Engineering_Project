@@ -1,0 +1,5 @@
+1. Yang ditampilkan di Lampiran: 
+- Aktivitas Projek (dibuat tabel) - Lampiran 1 -> Jangan lupa total ditambah PPN 10 % 
+- Anggaran Biaya Detail dan Keseluruhan - Lampiran 2 
+
+2. Ditambahkan Keterangan Validasi di Admin

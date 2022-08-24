@@ -183,8 +183,11 @@ Data Proyek PT. HEAVYNDO
 
                                     <td>
                                     <?php 
+
+                                    $total_anggaran = DB::table('anggarans')->where('projek_id', $projeks->id)->sum('anggarans.rab');
                                         
-                                        $hasil_rupiah = "Rp " . number_format($projeks->anggaran_projek,2,',','.');
+                                        // $hasil_rupiah = "Rp " . number_format($projeks->anggaran_projek,2,',','.');
+                                        $hasil_rupiah = "Rp " . number_format($total_anggaran,2,',','.');
                                         echo $hasil_rupiah;
                                         
                                         ?>
@@ -204,9 +207,14 @@ Data Proyek PT. HEAVYNDO
                                             @if (($projeks->status_verif == NULL || $projeks->status_verif == 0) && ($status_projek_full == $status_projek) && ($status_projek_full != NULL))
                                             
 
-                                                <a class = "btn btn-success mt-2 mb-2" href = "/data_proyek/{{$projeks->id}}/surat_laporan_validasi">Lakukan Validasi</a>
+                                            <form action="{{route('verif_status_spv', $projeks->id)}}" method = "POST">
+                                                @csrf
+                                                @method('PATCH')
+
+                                                <button class = "btn btn-success mt-2 mb-2" type = "submit" >Lakukan Validasi</button>
+                                            </form>                                           
                                             
-                                            
+
                                                 
                                             @elseif(($projeks->status_verif == NULL || $projeks->status_verif == 0 || $status_projek_full == NULL || $status_projek_full == 0))
                                                 
@@ -219,11 +227,11 @@ Data Proyek PT. HEAVYNDO
 
                                             @elseif($projeks->status_verif == 1)
 
-                                               <button class = "btn btn-success mt-2 mb-2">Sudah Tervalidasi Supervisor</button>
+                                               <a class = "btn btn-success mt-2 mb-2" href = "/data_proyek/{{$projeks->id}}/surat_laporan_validasi">Sudah Tervalidasi Supervisor, Lihat Surat</a>
 
                                              @elseif($projeks->status_verif == 2)
 
-                                             <button class = "btn btn-primary mt-2 mb-2">Sudah Tervalidasi Manager</button>
+                                             <a class = "btn btn-primary mt-2 mb-2" href = "{{route('lihatSuratValidasiLengkap', $projeks->id)}}">Sudah Tervalidasi Manager, Lihat Surat</a>
 
                                             @else
                                                 

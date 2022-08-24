@@ -1232,7 +1232,7 @@ class LandingController extends Controller
             # code...
 
             Jenis_Projek::where('id', $id)->update([
-                'verif_status'=>1,
+                'status_verif'=>1,
             ]);
 
             return redirect('/supervisor/data_proyek')->with('proyek_verif_status_spv','Verifikasi Status Supervisor');
@@ -1246,7 +1246,7 @@ class LandingController extends Controller
             # code...
 
             Jenis_Projek::where('id', $id)->update([
-                'verif_status'=>2,
+                'status_verif'=>2,
             ]);
 
             return redirect('/supervisor/data_proyek')->with('proyek_verif_status_mng','Verifikasi Status Manager');           
@@ -1367,6 +1367,45 @@ class LandingController extends Controller
 
 
 
+
+        public function ValidasiSupervisor($id)
+        {
+            # code...
+
+
+
+            Jenis_Projek::where('id', $id)->update([
+
+                'status_verif'=>1,
+
+            ]);
+
+
+
+        }
+
+
+
+
+
+
+
+        public function ValidasiManager($id)
+        {
+            # code...
+
+
+
+
+        }
+
+
+
+
+
+
+
+
         public function lihatSuratValidasi($id)
         {
 
@@ -1374,7 +1413,47 @@ class LandingController extends Controller
 
             $jenis_projek = Jenis_Projek::findOrFail($id);
 
-            $data_pdf =  PDF::loadview('laporan_validasi', compact('jenis_projek'));
+            $anggaran = Anggaran::where('projek_id', $jenis_projek->id)->get();
+
+            $aktivitas = AktivitasProjek::where('jenis_projek_id', $jenis_projek->id)->get();
+
+            // $aktivitas = AktivitasProjek::all();
+
+
+            $data_pdf =  PDF::loadview('laporan_validasi', compact('jenis_projek', 'anggaran', 'aktivitas'));
+
+            // return $data_pdf->download('laporan_barang_pdf');
+    
+            return $data_pdf->stream();
+    
+
+            // return view('laporan_validasi', compact('aktivitas_projek'));
+
+            
+
+
+        }
+
+
+
+
+
+
+
+
+        public function lihatSuratValidasiLengkap($id)
+        {
+
+            # code...
+
+            $jenis_projek = Jenis_Projek::findOrFail($id);
+
+            $anggaran = Anggaran::where('projek_id', $jenis_projek->id)->get();
+
+            $aktivitas = AktivitasProjek::where('jenis_projek_id', $jenis_projek->id)->get();
+
+
+            $data_pdf =  PDF::loadview('laporan_validasi_manager', compact('jenis_projek', 'anggaran', 'aktivitas'));
 
             // return $data_pdf->download('laporan_barang_pdf');
     
@@ -1385,6 +1464,11 @@ class LandingController extends Controller
 
 
         }
+
+
+
+
+
 
 
 

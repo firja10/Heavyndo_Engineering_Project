@@ -219,10 +219,19 @@ Data Proyek PT. HEAVYNDO
                                         
                                             @if ($projeks->status_verif == 1)
 
-                                            <button class = "btn btn-success" type = "button">Validasi Manager</button>
+
+                                            <form action="{{route('verif_status_mng', $projeks->id)}}" method = "POST">
+                                                @csrf
+                                                @method('PATCH')
+
+                                                <button class = "btn btn-success mt-2 mb-2" type = "submit" >Lakukan Validasi Manager</button>
+                                            </form>    
+
+
+                                            {{-- <button class = "btn btn-success" type = "button">Lakukan Validasi Manager</button> --}}
                                                 
                                             @elseif($projeks->status_verif == 2)
-                                            <button class = "btn btn-dark">Sudah Validasi</button>
+                                            <a class = "btn btn-dark" href ="{{route('lihatSuratValidasiLengkap', $projeks->id)}}">Sudah Validasi, Lihat Surat</a>
                                             
                                             @elseif($status_projek_full != $status_projek)
 

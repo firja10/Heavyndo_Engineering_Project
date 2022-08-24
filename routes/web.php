@@ -330,12 +330,13 @@ Route::patch('manager/data_proyek/{id}', [\App\Http\Controllers\LandingControlle
 Route::get('laporan_validasi', [\App\Http\Controllers\LandingController::class, 'LaporanValidasi'])->name('LaporanValidasi')->middleware('auth');
 
 
+
+
 Route::get('data_proyek/{id}/surat_laporan_validasi', [\App\Http\Controllers\LandingController::class, 'lihatSuratValidasi'])->name('lihatSuratValidasi')->middleware('auth');
 
 
 
-
-
+Route::get('data_proyek/{id}/surat_laporan_validasi_manager', [\App\Http\Controllers\LandingController::class, 'lihatSuratValidasiLengkap'])->name('lihatSuratValidasiLengkap')->middleware('auth');
 
 
 
