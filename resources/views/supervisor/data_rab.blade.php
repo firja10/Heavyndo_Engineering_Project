@@ -133,9 +133,9 @@ Data Rencana Anggaran Biaya Proyek PT. HEAVYNDO
                                     </td>
 
                                     <td>
-                                        <a href="{{route('SupervisorEditRAB', $rabs->id)}}" class = "btn btn-primary">Edit Anggaran</a>
+                                        {{-- <a href="{{route('SupervisorEditRAB', $rabs->id)}}" class = "btn btn-primary">Edit Anggaran</a>
 
-                                        <br>
+                                        <br> --}}
                                         <a href="{{route('AdminDataAnggaran', $rabs->id)}}" class="btn btn-success mt-3">Lihat Rincian Anggaran</a>
                                     </td>
                                 

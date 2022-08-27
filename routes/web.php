@@ -311,7 +311,10 @@ Route::get('admin/rab/{id}', [\App\Http\Controllers\LandingController::class, 'A
 Route::delete('supervisor/data_rab/{id}', [\App\Http\Controllers\LandingController::class, 'AdminHapusAnggaran'])->name('AdminHapusAnggaran')->middleware('auth');
 
 
-Route::get('admin/rab/edit/{id}', [\App\Http\Controllers\LandingController::class, 'AdminDataAnggaranEditId'])->name('AdminDataAnggaranEditId')->middleware('is_admin');
+// Route::get('admin/rab/edit/{id}', [\App\Http\Controllers\LandingController::class, 'AdminDataAnggaranEditId'])->name('AdminDataAnggaranEditId')->middleware('is_admin');
+
+
+Route::get('rab/edit/{id}', [\App\Http\Controllers\LandingController::class, 'AdminDataAnggaranEditId'])->name('AdminDataAnggaranEditId')->middleware('auth');
 
 
 Route::patch('admin/rab/edit/{id}', [\App\Http\Controllers\LandingController::class, 'AdminUpdateAnggaran'])->name('AdminUpdateAnggaran')->middleware('is_admin');
