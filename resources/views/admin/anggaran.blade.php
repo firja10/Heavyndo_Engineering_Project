@@ -53,7 +53,7 @@ Data Proyek PT. HEAVYNDO
 
                                             <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Tabel Data Projek</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Tabel Data RAB</h1>
 
                         
 
@@ -61,8 +61,8 @@ Data Proyek PT. HEAVYNDO
                                 class="fas fa-plus fa-sm text-white-50"></i> Tambah Data Projek</a> --}}
 
 
-                                <a href = "#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle = "modal" data-target = "#modaltambahAnggaran"><i
-                                    class="fas fa-plus fa-sm text-white-50" ></i> Tambah Data Projek</a>
+                                {{-- <a href = "#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle = "modal" data-target = "#modaltambahAnggaran"><i
+                                    class="fas fa-plus fa-sm text-white-50" ></i> Tambah Data Projek</a> --}}
 
 
 
@@ -97,7 +97,12 @@ Data Proyek PT. HEAVYNDO
                                         <th>Nama Projek</th>
                                         <th>Nama Anggaran</th>
                                         <th>Nominal</th>
-                                        <th>Aksi</th>
+                                        @if (Auth::user()->is_supervisor == 1)
+                                            <th>Aksi</th>
+                                        @else
+                                            
+                                        @endif
+                                        {{-- <th>Aksi</th> --}}
                          
                                     </tr>
                                 </thead>
@@ -106,7 +111,12 @@ Data Proyek PT. HEAVYNDO
                                         <th>Nama Projek</th>
                                         <th>Nama Anggaran</th>
                                         <th>Nominal</th>
+                                        @if (Auth::user()->is_supervisor == 1)
                                         <th>Aksi</th>
+                                        @else
+                                            
+                                        @endif
+                                        {{-- <th>Aksi</th> --}}
                             
                                     </tr>
                                 </tfoot>
@@ -130,6 +140,9 @@ Data Proyek PT. HEAVYNDO
                                      
                                     </td>     
 
+                                    @if (Auth::user()->is_supervisor == 1)
+
+                                    
                                     <td> 
                                         <a href="{{route('AdminDataAnggaranEditId', $anggaran_projeks->id)}}" class="btn btn-success">Edit</a>
 
@@ -146,6 +159,28 @@ Data Proyek PT. HEAVYNDO
                                         </form>
                           
                                     </td>
+
+
+                                    @else
+                                        
+                                    @endif
+
+                                    {{-- <td> 
+                                        <a href="{{route('AdminDataAnggaranEditId', $anggaran_projeks->id)}}" class="btn btn-success">Edit</a>
+
+                                        <br>
+                                        <br>
+                      
+                                        <form action="{{route('AdminHapusAnggaran', $anggaran_projeks->id)}}" method = "POST">
+
+                                            @csrf
+                                            @method('DELETE')
+
+                                            <button class="btn btn-danger" type = "submit">Hapus Anggaran</button> 
+                                        
+                                        </form>
+                          
+                                    </td> --}}
 
 
                                 </tr>

@@ -753,9 +753,9 @@ class LandingController extends Controller
             # code...
             $notifikasis = Notifikasi::findOrFail($id);
 
-            Notifikasi::where('id', $id)->update([
-                'status'=>1
-            ]);
+            // Notifikasi::where('id', $id)->update([
+            //     'status'=>1
+            // ]);
 
             return view('admin.data_notifikasi_id', compact('notifikasis'));
             
@@ -907,6 +907,7 @@ class LandingController extends Controller
             # code...
 
             $data_projeks = Jenis_Projek::all();
+            
             return view('supervisor.data_proyek', compact('data_projeks'));
 
 
@@ -921,7 +922,12 @@ class LandingController extends Controller
         {
             # code...
 
+
+
+
             $rab_projeks = Jenis_Projek::all();
+
+
             return view('supervisor.data_rab', compact('rab_projeks'));
 
         }
@@ -1149,7 +1155,9 @@ class LandingController extends Controller
             $anggaran['detail_nama'] = $request->detail_nama;
             $anggaran->save();
 
-            return redirect('/admin/data_proyek/'. $anggaran['projek_id'] . '/rab')->with('sukses_tambah_anggaran', 'Anggaran Berhasil Ditambahkan');
+            // return redirect('/admin/data_proyek/'. $anggaran['projek_id'] . '/rab')->with('sukses_tambah_anggaran', 'Anggaran Berhasil Ditambahkan');
+
+            return redirect('/supervisor/data_rab')->with('sukses_tambah_anggaran', 'Anggaran Berhasil Ditambahkan');
 
         }
 

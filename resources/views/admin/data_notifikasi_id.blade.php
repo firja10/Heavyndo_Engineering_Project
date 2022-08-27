@@ -85,9 +85,21 @@
                                                 'November',
                                                 'Desember'
                                             );
+                                            // $show_awal = explode('-', $notifikasis->tanggal_awal_aktivitas);
+                                            // $show_akhir = explode('-', $notifikasis->tanggal_akhir_aktivitas);
+                                            // $show_present =  explode('-', $tanggal_notif);
+                                            
+
+
+                                            if ($notifikasis->tanggal_akhir_aktivitas != NULL || $notifikasis->tanggal_awal_aktivitas != NULL) {
+                                                # code...
+                                  
+
+
                                             $show_awal = explode('-', $notifikasis->tanggal_awal_aktivitas);
                                             $show_akhir = explode('-', $notifikasis->tanggal_akhir_aktivitas);
                                             $show_present =  explode('-', $tanggal_notif);
+                                            
                                             
                                             // variabel pecahkan 0 = tanggal
                                             // variabel pecahkan 1 = bulan
@@ -96,6 +108,18 @@
                                             $first_date = $show_awal[2] . ' ' . $bulan[ (int)$show_awal[1] ] . ' ' . $show_awal[0];
                                             $final_date = $show_akhir[2] . ' ' . $bulan[ (int)$show_akhir[1] ] . ' ' . $show_akhir[0];
                                             $present_date = $show_present[2] . ' ' . $bulan[ (int)$show_present[1] ] . ' ' . $show_present[0];
+
+                                        }
+
+                                        else {
+                                          
+                                            $first_date = ' ';
+                                            $final_date = ' ';
+                                            $present_date = ' ';
+                                            
+                                        }
+
+                                          
 
                                     ?>
 
@@ -118,10 +142,25 @@
                                     {{-- <button class = "btn btn-primary"> Edit Projek</button> --}}
                                     {{-- <a href = "{{route('adminEditProjek', $notifikasis->id)}}" class = "btn btn-primary"> Edit Projek</a>
                                     <br> <br> --}}
+
+                                    @if ($notifikasis->aktivitas_projek_id !=NULL)
+
                                     <center>
                                         <a href = "{{route('adminLihatAktivitas', $notifikasis->aktivitas_projek_id)}}" class = "btn btn-primary"> Lihat Aktivitas Kerja</a>
                                     </center>
+                                        
+                                    @else
+
+                                    <center>
+                                        {{-- <a href = "{{route('adminLihatAktivitas', $notifikasis->aktivitas_projek_id)}}" class = "btn btn-primary"> Lihat Aktivitas Kerja</a> --}}
+                                    </center>
+                                        
+                                    @endif
+
+
+
                                   
+
 
                                 </div>
 

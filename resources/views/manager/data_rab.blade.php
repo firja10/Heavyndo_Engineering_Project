@@ -28,7 +28,7 @@ Data Rencana Anggaran Biaya Proyek PT. HEAVYNDO
 
 
 
-
+[]
 
 
 
@@ -42,12 +42,6 @@ Data Rencana Anggaran Biaya Proyek PT. HEAVYNDO
 
             <!-- Begin Page Content -->
             <div class="container-fluid">
-
-                <!-- Page Heading -->
-                {{-- <h1 class="h3 mb-2 text-gray-800">Tabel Data Projek</h1>
-                <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-                    For more information about DataTables, please visit the <a target="_blank"
-                        href="https://datatables.net">official DataTables documentation</a>.</p> --}}
 
 
 
@@ -88,7 +82,8 @@ Data Rencana Anggaran Biaya Proyek PT. HEAVYNDO
                                         <th>No.</th>
                                         <th>Uraian Projek</th>
                                         <th>Anggaran Projek</th>
-                                       
+                                        <th>Aksi</th>
+                                        
                                     </tr>
                                 </thead>
                                 <tfoot>
@@ -96,6 +91,7 @@ Data Rencana Anggaran Biaya Proyek PT. HEAVYNDO
                                         <th>No.</th>
                                         <th>Uraian Projek</th>
                                         <th>Anggaran Projek</th>
+                                        <th>Aksi</th>
                                         
                                     </tr>
                                 </tfoot>
@@ -127,6 +123,9 @@ Data Rencana Anggaran Biaya Proyek PT. HEAVYNDO
                                     <td>
                                         <?php   echo $hasil_rupiah; ?>
                                     </td>
+                                    
+                                    <td> <a href="{{route('AdminDataAnggaran', $rabs->id)}}" class="btn btn-success mt-3">Lihat Rincian Anggaran</a></td>
+
                                 </tr>
 
                                 @endforeach

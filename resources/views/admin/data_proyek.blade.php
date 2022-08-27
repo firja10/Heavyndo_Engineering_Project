@@ -212,7 +212,7 @@ Data Proyek PT. HEAVYNDO
 
                                         $hasil = $pajak + $total_rab;
 
-                                        $hasil_rupiah = number_format($pajak,2,',','.');
+                                        $hasil_rupiah = number_format($hasil,2,',','.');
 
                                         echo 'Rp. '. $hasil_rupiah;
 
@@ -249,12 +249,77 @@ Data Proyek PT. HEAVYNDO
                                         </form> --}}
 
 
-                                        <a href="#" class="btn btn-danger mt-2" data-toggle="modal" data-target="#modalhapusProjek<?php echo $projeks->id ?>">Hapus Notifikasi</a>
+                                        <a href="#" class="btn btn-danger mt-2" data-toggle="modal" data-target="#modalhapusProjek<?php echo $projeks->id ?>">Hapus Projek</a>
+
+
+                                        {{-- <a class="btn btn-danger mt-2" data-toggle="modal" data-target="#modalhapusProjek" id = "hapusProjekTombol" data-attr ="{{route('adminHapusProjek', $projeks->id)}}">Hapus Notifikasi</a> --}}
                                         
                                     </center>            
                                     </td>
                                     {{-- <td>$320,800</td> --}}
                                 </tr>
+
+
+
+
+
+
+
+
+
+
+                                <form action="{{route('adminHapusProjek', $projeks->id)}}" method = "POST">
+                                    @csrf
+                                    @method('DELETE')
+                                
+                                <div class="modal fade" id="modalhapusProjek<?php echo $projeks->id ?>" tabindex="-1" role="dialog" aria-labelledby="modalhapusProjekLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                  <div class="modal-content">
+                                      <div class="modal-header">
+                                          <h5 class="modal-title" id="modalhapusProjekLabel">Anda Yakin Hapus Projek Ini ?</h5>
+                                          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                              <span aria-hidden="true">×</span>
+                                          </button>
+                                      </div>
+                                      <div class="modal-body" id = "modalhapusProjekBody">
+                                        {{-- <h6> <strong> Silakan Tambahkan Data Projek  </strong> </h6> --}}
+                                
+                                        Jika Anda Yakin Menghapus Projek ini maka silakan tekan tombol Hapus. Jika tidak, tekan tombol Tidak.
+                                
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button class="btn btn-danger" type = "submit">Hapus</button>
+                                          <button class="btn btn-secondary" type="button" data-dismiss="modal">Tidak</button>
+                                  
+                                      </div>
+                                  </div>
+                                </div>
+                                </div>
+                                
+                                
+                                </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                                 @endforeach
                     
@@ -285,37 +350,7 @@ Data Proyek PT. HEAVYNDO
 
 
 
-<form action="{{route('adminHapusProjek', $projeks->id)}}" method = "POST">
-    @csrf
-    @method('DELETE')
 
-<div class="modal fade" id="modalhapusProjek<?php echo $projeks->id ?>" tabindex="-1" role="dialog" aria-labelledby="modalhapusProjekLabel"
-aria-hidden="true">
-<div class="modal-dialog" role="document">
-  <div class="modal-content">
-      <div class="modal-header">
-          <h5 class="modal-title" id="modalhapusProjekLabel">Anda Yakin Hapus Projek Ini ?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-          </button>
-      </div>
-      <div class="modal-body">
-        {{-- <h6> <strong> Silakan Tambahkan Data Projek  </strong> </h6> --}}
-
-        Jika Anda Yakin Menghapus Projek ini maka silakan tekan tombol Hapus. Jika tidak, tekan tombol Tidak.
-
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-danger" type = "submit">Hapus</button>
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Tidak</button>
-  
-      </div>
-  </div>
-</div>
-</div>
-
-
-</form>
 
 
 
@@ -332,6 +367,47 @@ aria-hidden="true">
 $('#dataTable').DataTable();
 } );
 </script>
+
+
+
+
+
+
+
+
+<script>
+
+// $(document).on('click', '#hapusProjekTombol', function(event) {
+//         event.preventDefault();
+//         let href = $(this).attr('data-attr');
+//         $.ajax({
+//             url: href
+//             , beforeSend: function() {
+//                 $('#loader').show();
+//             },
+//             // return the result
+//             success: function(result) {
+//                 $('#modalhapusProjek').modal("show");
+//                 $('#modalhapusProjekBody').html(result).show();
+//             }
+//             , complete: function() {
+//                 $('#loader').hide();
+//             }
+//             , error: function(jqXHR, testStatus, error) {
+//                 console.log(error);
+//                 alert("Page " + href + " cannot open. Error:" + error);
+//                 $('#loader').hide();
+//             }
+//             , timeout: 8000
+//         })
+//     });
+
+
+</script>
+
+
+
+
 
 
 

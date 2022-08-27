@@ -766,12 +766,12 @@
 {{--                 
                     <input type="text" name="status_projek" id="status_projek" class = "form-control" placeholder="Masukkan Status Projek Saat Ini "> --}}
                 
-                    <select name="status_projek" id="status_projek" class = "form-control" required>
+                    {{-- <select name="status_projek" id="status_projek" class = "form-control" required>
                         <option value="" selected disabled> -- Silakan Pilih --</option>
                         <option value="on_going"> On-Going</option>
                         <option value="finished">Finished</option>
                         <option value="cancelled">Cancelled</option>
-                    </select>
+                    </select> --}}
                 
                 </div>
                 

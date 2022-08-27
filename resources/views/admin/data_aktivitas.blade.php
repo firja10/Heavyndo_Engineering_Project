@@ -31,8 +31,8 @@ Data Aktivitas {{$jenis_projek_id->nama_projek}}
                                 class="fas fa-plus fa-sm text-white-50"></i> Tambah Data Projek</a> --}}
 
 
-                                <a href = "#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle = "modal" data-target = "#modaltambahAktivitas"><i
-                                    class="fas fa-plus fa-sm text-white-50" ></i> Tambah Data Aktivitas</a>
+                                <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle = "modal" data-target = "#modaltambahAktivitas"><i
+                                    class="fas fa-plus fa-sm text-white-50" ></i> Tambah Data Aktivitas</button>
 
                     </div>
 
@@ -342,7 +342,7 @@ Data Aktivitas {{$jenis_projek_id->nama_projek}}
                                         @else
 
                                                                    
-                                            <button class = "btn btn-dark" data-toggle="modal" data-target="#ModalUpdateUrgensitas">Unggah Aktivitas</button>
+                                            <button class = "btn btn-dark" data-toggle="modal" data-target="#ModalUpdateUrgensitas<?php echo $aktivitas->id ?>">Unggah Aktivitas</button>
                             
                                            
 
@@ -355,6 +355,136 @@ Data Aktivitas {{$jenis_projek_id->nama_projek}}
 
 
                                 </tr>
+
+
+
+
+
+
+
+
+
+<form action="{{route('adminHapusAktivitas', $aktivitas->id)}}" method = "POST">
+    @csrf
+    @method('DELETE')
+
+<div class="modal fade" id="modalhapusAktivitas<?php echo $aktivitas->id ?>" tabindex="-1" role="dialog" aria-labelledby="modalhapusAktivitasLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title" id="modalhapusAktivitasLabel">Anda Yakin Hapus Aktivitas Ini ?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+          </button>
+      </div>
+      <div class="modal-body">
+        {{-- <h6> <strong> Silakan Tambahkan Data Projek  </strong> </h6> --}}
+
+        Jika Anda Yakin Menghapus Aktivitas ini maka silakan tekan tombol Hapus. Jika tidak, tekan tombol Tidak.
+
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-danger" type = "submit">Hapus</button>
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Tidak</button>
+  
+      </div>
+  </div>
+</div>
+</div>
+
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!-- MODAL UPDATE URGENSITAS -->
+
+      <form action="{{route('UpdateUrgensitas', $aktivitas->id)}}" method="post">
+        @csrf
+        @method('PATCH')
+               
+        <!-- Modal -->
+        <div class="modal fade" id="ModalUpdateUrgensitas<?php echo $aktivitas->id ?>" tabindex="-1" role="dialog" aria-labelledby="ModalUpdateUrgensitasLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="ModalUpdateUrgensitasLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                
+                    Silakan Unggah Tingkat Urgensitas Aktivitas
+                    <div class="form-group">
+                        <label for="urgensitas">
+                            <select name="urgensitas" id="urgensitas" class = "form-control">
+                                <option value="Ya">Ya</option>
+                                <option value="Tidak">Tidak</option>
+                            </select>
+                        </label>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="type" class="btn btn-primary">Simpan</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+
+        </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                                 @endforeach
                     
@@ -386,17 +516,26 @@ Data Aktivitas {{$jenis_projek_id->nama_projek}}
 
 
 
+
 @section('form_penting')
 
+
+
+
+
+
+
+
+                                
 <form action="{{route('adminTambahAktivitas')}}" method="post" enctype="multipart/form-data">
     @csrf
 
-<div class="modal fade" id="modaltambahAktivitas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="modaltambahAktivitas" tabindex="-1" role="dialog" aria-labelledby="#modaltambahAktivitasLabel"
 aria-hidden="true">
 <div class="modal-dialog" role="document">
   <div class="modal-content">
       <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Tambah Data Aktivitas</h5>
+          <h5 class="modal-title" id="#modaltambahAktivitasLabel">Tambah Data Aktivitas</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
           </button>
@@ -476,113 +615,6 @@ aria-hidden="true">
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<form action="{{route('adminHapusAktivitas', $aktivitas->id)}}" method = "POST">
-    @csrf
-    @method('DELETE')
-
-<div class="modal fade" id="modalhapusAktivitas<?php echo $aktivitas->id ?>" tabindex="-1" role="dialog" aria-labelledby="modalhapusAktivitasLabel"
-aria-hidden="true">
-<div class="modal-dialog" role="document">
-  <div class="modal-content">
-      <div class="modal-header">
-          <h5 class="modal-title" id="modalhapusAktivitasLabel">Anda Yakin Hapus Aktivitas Ini ?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-          </button>
-      </div>
-      <div class="modal-body">
-        {{-- <h6> <strong> Silakan Tambahkan Data Projek  </strong> </h6> --}}
-
-        Jika Anda Yakin Menghapus Aktivitas ini maka silakan tekan tombol Hapus. Jika tidak, tekan tombol Tidak.
-
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-danger" type = "submit">Hapus</button>
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Tidak</button>
-  
-      </div>
-  </div>
-</div>
-</div>
-
-
-</form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <!-- MODAL UPDATE URGENSITAS -->
-
-      <form action="{{route('UpdateUrgensitas', $aktivitas->id)}}" method="post">
-        @csrf
-        @method('PATCH')
-               
-        <!-- Modal -->
-        <div class="modal fade" id="ModalUpdateUrgensitas" tabindex="-1" role="dialog" aria-labelledby="ModalUpdateUrgensitasLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title" id="ModalUpdateUrgensitasLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                </div>
-                <div class="modal-body">
-                
-                    Silakan Unggah Tingkat Urgensitas Aktivitas
-                    <div class="form-group">
-                        <label for="urgensitas">
-                            <select name="urgensitas" id="urgensitas" class = "form-control">
-                                <option value="Ya">Ya</option>
-                                <option value="Tidak">Tidak</option>
-                            </select>
-                        </label>
-                    </div>
-
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="type" class="btn btn-primary">Simpan</button>
-                </div>
-            </div>
-            </div>
-        </div>
-
-
-        </form>
 
 
 

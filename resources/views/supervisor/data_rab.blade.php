@@ -61,8 +61,8 @@ Data Rencana Anggaran Biaya Proyek PT. HEAVYNDO
                                 class="fas fa-plus fa-sm text-white-50"></i> Tambah Data Projek</a> --}}
 
 
-                                {{-- <a href = "#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle = "modal" data-target = "#modaltambahProjek"><i
-                                    class="fas fa-plus fa-sm text-white-50" ></i> Tambah Data Projek</a> --}}
+                                <a href = "#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle = "modal" data-target = "#modaltambahAnggaran"><i
+                                    class="fas fa-plus fa-sm text-white-50" ></i> Tambah Data Anggaran</a>
 
                     </div>
 
@@ -113,6 +113,8 @@ Data Rencana Anggaran Biaya Proyek PT. HEAVYNDO
                                 $hasil_rupiah = "Rp " . number_format($rabs->anggaran_projek,2,',','.');
                                     
                               
+
+
                                 
                                 ?>
 
@@ -132,6 +134,9 @@ Data Rencana Anggaran Biaya Proyek PT. HEAVYNDO
 
                                     <td>
                                         <a href="{{route('SupervisorEditRAB', $rabs->id)}}" class = "btn btn-primary">Edit Anggaran</a>
+
+                                        <br>
+                                        <a href="{{route('AdminDataAnggaran', $rabs->id)}}" class="btn btn-success mt-3">Lihat Rincian Anggaran</a>
                                     </td>
                                 
                                 </tr>

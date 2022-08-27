@@ -300,13 +300,15 @@ Route::post('messages', [\App\Http\Controllers\MessageController::class, 'sendMe
 
 
 // ANGGARAN 
-Route::get('admin/data_proyek/{id}/rab', [\App\Http\Controllers\LandingController::class, 'AdminDataAnggaran'])->name('AdminDataAnggaran')->middleware('is_admin');
+Route::get('data_proyek/{id}/rab', [\App\Http\Controllers\LandingController::class, 'AdminDataAnggaran'])->name('AdminDataAnggaran')->middleware('auth');
 
-Route::post('admin/data_proyek/rab', [\App\Http\Controllers\LandingController::class, 'AdminStoreAnggaran'])->name('AdminStoreAnggaran')->middleware('is_admin');
+Route::post('supervisor/data_rab', [\App\Http\Controllers\LandingController::class, 'AdminStoreAnggaran'])->name('AdminStoreAnggaran')->middleware('auth');
 
 Route::get('admin/rab/{id}', [\App\Http\Controllers\LandingController::class, 'AdminDataAnggaranId'])->name('AdminDataAnggaranId')->middleware('is_admin');
 
-Route::delete('admin/rab/{id}', [\App\Http\Controllers\LandingController::class, 'AdminHapusAnggaran'])->name('AdminHapusAnggaran')->middleware('is_admin');
+// Route::delete('admin/rab/{id}', [\App\Http\Controllers\LandingController::class, 'AdminHapusAnggaran'])->name('AdminHapusAnggaran')->middleware('is_admin');
+
+Route::delete('supervisor/data_rab/{id}', [\App\Http\Controllers\LandingController::class, 'AdminHapusAnggaran'])->name('AdminHapusAnggaran')->middleware('auth');
 
 
 Route::get('admin/rab/edit/{id}', [\App\Http\Controllers\LandingController::class, 'AdminDataAnggaranEditId'])->name('AdminDataAnggaranEditId')->middleware('is_admin');
