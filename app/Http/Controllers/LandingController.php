@@ -753,9 +753,9 @@ class LandingController extends Controller
             # code...
             $notifikasis = Notifikasi::findOrFail($id);
 
-            // Notifikasi::where('id', $id)->update([
-            //     'status'=>1
-            // ]);
+            Notifikasi::where('id', $id)->update([
+                'status'=>1
+            ]);
 
             return view('admin.data_notifikasi_id', compact('notifikasis'));
             
@@ -1194,7 +1194,9 @@ class LandingController extends Controller
 
                $projek_id = $item_projeks->projek_id;
 
-               return redirect('/admin/data_proyek/'. $projek_id . '/rab');
+            //    return redirect('/admin/data_proyek/'. $projek_id . '/rab');
+
+            return redirect('/data_proyek/'. $projek_id . '/rab');
 
             }
 

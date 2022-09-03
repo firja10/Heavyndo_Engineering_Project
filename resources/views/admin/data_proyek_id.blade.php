@@ -70,13 +70,26 @@ Data {{$jenis_Projek->nama_projek}}
                                     <ul>
                                         <li>Durasi Projek : {{$jenis_Projek->durasi_projek}}</li>
                                         <li>Status Projek : 
-                                        @if ($jenis_Projek->status_projek == "on_going")
+
+
+                                        {{-- @if ($jenis_Projek->status_projek == "on_going")
                                         On Going
                                         @elseif($jenis_Projek->status_projek == "finished")
                                         Finished 
                                         @elseif($jenis_Projek->status_projek == "cancelled")
                                         Cancelled   
+                                        @endif --}}
+
+
+                                        @if ($jenis_Projek->persentase_progress == 100)
+                                        Finished
+                                        @elseif($jenis_Projek->persentase_progress < 100 && $jenis_Projek->persentase_progress != NULL)
+                                        On Going
+                                        @elseif($jenis_Projek->persentase_progress == NULL || $jenis_Projek->persentase_progress == 0)
+                                        Empty
                                         @endif
+
+
                                            
                                         </li>
 

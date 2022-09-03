@@ -70,17 +70,23 @@ Data Aktivitas {{ $aktivitas_projek->nama_aktivitas}}
 
                                     <ul>
                                         <li>Durasi Projek : {{$aktivitas_projek->durasi_aktivitas}} Hari</li>
+
+                                        
                                         <li>Status Projek : 
-                                        @if ($aktivitas_projek->status_aktivitas == "on_going")
+                                        @if ($aktivitas_projek->persentase_progress == 100)
+                                        Finished
+                                        @elseif($aktivitas_projek->persentase_progress < 100 && $aktivitas_projek->persentase_progress != NULL)
                                         On Going
-                                        @elseif($aktivitas_projek->status_aktivitas == "finished")
-                                        Finished 
-                                        @elseif($aktivitas_projek->status_aktivitas == "cancelled")
-                                        Cancelled   
+                                        @elseif($aktivitas_projek->persentase_progress == NULL || $aktivitas_projek->persentase_progress == 0)
+                                        Empty
                                         @endif
+                
+
+
                                            
                                         </li>
 
+                                        
                                         <li>Penanggung Jawab : 
                                             <?php 
                                         

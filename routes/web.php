@@ -317,7 +317,7 @@ Route::delete('supervisor/data_rab/{id}', [\App\Http\Controllers\LandingControll
 Route::get('rab/edit/{id}', [\App\Http\Controllers\LandingController::class, 'AdminDataAnggaranEditId'])->name('AdminDataAnggaranEditId')->middleware('auth');
 
 
-Route::patch('admin/rab/edit/{id}', [\App\Http\Controllers\LandingController::class, 'AdminUpdateAnggaran'])->name('AdminUpdateAnggaran')->middleware('is_admin');
+Route::patch('admin/rab/edit/{id}', [\App\Http\Controllers\LandingController::class, 'AdminUpdateAnggaran'])->name('AdminUpdateAnggaran')->middleware('auth');
 
 
 

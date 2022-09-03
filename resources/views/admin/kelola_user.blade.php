@@ -133,6 +133,55 @@ Kelola Data User PT. HEAVYNDO
                                     {{-- <td>$320,800</td> --}}
                                 </tr>
 
+
+
+
+
+
+
+
+
+                                
+<form method = "POST" action="{{route('adminHapusUser', $user->id)}}">
+    @csrf
+    @method('DELETE')
+   
+   <div class="modal fade" id="modalhapusUser<?php echo $user->id ?>" tabindex="-1" role="dialog" aria-labelledby="modalhapusUserLabel"
+   aria-hidden="true">
+   <div class="modal-dialog" role="document">
+     <div class="modal-content">
+         <div class="modal-header">
+             <h5 class="modal-title" id="modalhapusUserLabel">Anda Yakin Hapus User Ini ?</h5>
+             <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">×</span>
+             </button>
+         </div>
+         <div class="modal-body">
+           {{-- <h6> <strong> Silakan Tambahkan Data Projek  </strong> </h6> --}}
+   
+           Jika Anda Yakin Menghapus User ini maka silakan tekan tombol Hapus. Jika tidak, tekan tombol Tidak.
+   
+         </div>
+         <div class="modal-footer">
+           <button class="btn btn-danger" type = "submit">Hapus</button>
+             <button class="btn btn-secondary" type="button" data-dismiss="modal">Tidak</button>
+     
+         </div>
+     </div>
+   </div>
+   </div>
+   
+   
+   </form>
+
+
+
+
+
+
+
+
+
                                 @endforeach
                     
                                 
@@ -173,37 +222,6 @@ Kelola Data User PT. HEAVYNDO
 
 
 
-<form method = "POST" action="{{route('adminHapusUser', $user->id)}}">
- @csrf
- @method('DELETE')
-
-<div class="modal fade" id="modalhapusUser<?php echo $user->id ?>" tabindex="-1" role="dialog" aria-labelledby="modalhapusUserLabel"
-aria-hidden="true">
-<div class="modal-dialog" role="document">
-  <div class="modal-content">
-      <div class="modal-header">
-          <h5 class="modal-title" id="modalhapusUserLabel">Anda Yakin Hapus User Ini ?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-          </button>
-      </div>
-      <div class="modal-body">
-        {{-- <h6> <strong> Silakan Tambahkan Data Projek  </strong> </h6> --}}
-
-        Jika Anda Yakin Menghapus User ini maka silakan tekan tombol Hapus. Jika tidak, tekan tombol Tidak.
-
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-danger" type = "submit">Hapus</button>
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Tidak</button>
-  
-      </div>
-  </div>
-</div>
-</div>
-
-
-</form>
 
 
 
