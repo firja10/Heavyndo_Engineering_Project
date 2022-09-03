@@ -61,8 +61,8 @@ Data Rencana Anggaran Biaya Proyek PT. HEAVYNDO
                                 class="fas fa-plus fa-sm text-white-50"></i> Tambah Data Projek</a> --}}
 
 
-                                <a href = "#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle = "modal" data-target = "#modaltambahAnggaran"><i
-                                    class="fas fa-plus fa-sm text-white-50" ></i> Tambah Data Anggaran</a>
+                                {{-- <a href = "#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle = "modal" data-target = "#modaltambahAnggaran"><i
+                                    class="fas fa-plus fa-sm text-white-50" ></i> Tambah Data Anggaran</a> --}}
 
                     </div>
 
@@ -86,6 +86,7 @@ Data Rencana Anggaran Biaya Proyek PT. HEAVYNDO
                                 <thead>
                                     <tr>
                                         <th>No.</th>
+                                        <th>Nama Projek</th>
                                         <th>Uraian Projek</th>
                                         <th>Anggaran Projek</th>
                                         <th>Aksi</th>
@@ -95,6 +96,7 @@ Data Rencana Anggaran Biaya Proyek PT. HEAVYNDO
                                 <tfoot>
                                     <tr>
                                         <th>No.</th>
+                                        <th>Nama Projek</th>
                                         <th>Uraian Projek</th>
                                         <th>Anggaran Projek</th>
                                         <th>Aksi</th>
@@ -106,14 +108,19 @@ Data Rencana Anggaran Biaya Proyek PT. HEAVYNDO
                                           $no = 1;
                                         ?>
 
-                                @foreach ($rab_projeks as $rabs)
+                                @foreach ($rab_projeks->reverse() as $rabs)
 
                                 <?php 
                                         
-                                $hasil_rupiah = "Rp " . number_format($rabs->anggaran_projek,2,',','.');
+                                // $hasil_rupiah = "Rp " . number_format($rabs->anggaran_projek,2,',','.');
+
+
+                              $anggaran =  DB::table('anggarans')->where('projek_id', $rabs->id)->sum('anggarans.rab');
+
+                              $total = (int)$anggaran + (int)$anggaran*0.1;
                                     
                               
-
+                              $hasil_rupiah = "Rp " . number_format($total,2,',','.');
 
                                 
                                 ?>
@@ -123,6 +130,10 @@ Data Rencana Anggaran Biaya Proyek PT. HEAVYNDO
 
                                        <?php echo $no++; ?>
                                     
+                                    </td>
+
+                                    <td>
+                                        {{$rabs->nama_projek}}
                                     </td>
 
                                     <td>
@@ -152,35 +163,43 @@ Data Rencana Anggaran Biaya Proyek PT. HEAVYNDO
 
                                 <?php 
                                     
-                                  $total_anggaran =  DB::table('jenis__projeks')->sum('anggaran_projek');
+                                //   $total_anggaran =  DB::table('jenis__projeks')->sum('anggaran_projek');
+
+                                $total_anggaran =  DB::table('anggarans')->sum('anggarans.rab');
 
                                   $ppn = ((float)$total_anggaran)*0.1;
 
+                                  $total_semua  = (int)$total_anggaran + (int)$ppn;
+
                                   $hasil_rupiah_total =   "Rp " . number_format($total_anggaran,2,',','.');
                                   $hasil_rupiah_ppn =   "Rp " . number_format($ppn,2,',','.');
+
+                                  $hasil_rupiah_total_semua =   "Rp " . number_format($total_semua,2,',','.');
 
                                     ?>
 
                                 <tr>
                                     <td class = "bg-dark text-white">Jumlah Anggaran</td>
-                                    <td class = "bg-dark text-white"><?php echo $hasil_rupiah_total; ?></td>
+                                    <td class = "bg-dark text-white"><?php echo $hasil_rupiah_total_semua; ?></td>
                                 </tr>
                                 
-                                <tr>
+                                {{-- <tr>
                                     <td class = "bg-warning text-dark">PPN 10%</td>
-                                    <td class = "bg-warning text-dark"><?php echo $hasil_rupiah_ppn; ?></td>
-                                </tr>
+                                    <td class = "bg-warning text-dark"><?php
+                                    // echo $hasil_rupiah_ppn;
+                                     ?></td>
+                                </tr> --}}
 
-                               <tr>
+                               {{-- <tr>
                                     <td class = "bg-success text-white">Total Anggaran Biaya</td>
                                     <td class = "bg-success text-white"><?php 
-                                    $total_semua = $total_anggaran + $ppn ;
+                                    // $total_semua = $total_anggaran + $ppn ;
 
-                                    $hasil_rupiah_total =   "Rp " . number_format($total_semua,2,',','.');
+                                    // $hasil_rupiah_total =   "Rp " . number_format($total_semua,2,',','.');
 
-                                    echo  $hasil_rupiah_total;
+                                    // echo  $hasil_rupiah_total;
                                     ?></td>
-                               </tr>
+                               </tr> --}}
 
                             </table>
 

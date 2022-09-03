@@ -105,7 +105,7 @@ Data Proyek PT. HEAVYNDO
                                 </tfoot>
                                 <tbody>
 
-                                @foreach ($data_projeks as $projeks)
+                                @foreach ($data_projeks->reverse() as $projeks)
                                     
 
                                 <tr>

@@ -1,0 +1,28 @@
+Hal - hal yang perlu disimulasikan :
+Andre : 
+
+- Admin : 
+1. Login
+2. Tambah Data Proyek dan Tambah User yang di Home / Beranda
+3. Kelola User, Tambah User, Edit Profile User
+4. Data Proyek, Tambah Data Proyek,Lihat Proyek, 
+
+
+
+- Supervisor : 
+1. RAB, Lihat Rincian Anggaran, Tambah Data Anggaran, Edit Anggaran
+
+
+- Admin : 
+5. Data proyek ke Lihat Anggaran Aktivitas
+6. Data Aktivitas pilih salah satu, Edit Aktivitas, Penentuan Deadline, Penentuan Urgensitas, Berikan Notifikasi
+
+
+- Supervisor :
+2. Lakukan Validasi Data Proyek oleh Supervisor, kemudian lihat surat validasi 
+
+- Manager : 
+1. Melakukan Validasi Data Proyek oleh Manager, kemudian lihat surat validasi
+
+
+

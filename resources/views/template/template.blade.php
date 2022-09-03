@@ -759,26 +759,6 @@
 
 
 
-                <div class="form-group">
-                    <label for="nama_projek" class = "control-label"> Status Projek</label>
-
-                    
-{{--                 
-                    <input type="text" name="status_projek" id="status_projek" class = "form-control" placeholder="Masukkan Status Projek Saat Ini "> --}}
-                
-                    {{-- <select name="status_projek" id="status_projek" class = "form-control" required>
-                        <option value="" selected disabled> -- Silakan Pilih --</option>
-                        <option value="on_going"> On-Going</option>
-                        <option value="finished">Finished</option>
-                        <option value="cancelled">Cancelled</option>
-                    </select> --}}
-                
-                </div>
-                
-                {{-- <div class="form-group">
-                    <label for="nama_projek" class = "control-label"> Anggaran Projek</label>
-                    <input type="number" name="anggaran_projek" id="anggaran_projek" class = "form-control" placeholder="Masukkan Anggaran Projek Saat Ini " required>
-                </div> --}}
 
                 <div class="form-group">
                     <label for="nama_projek" class = "control-label"> Gambar Projek</label>
@@ -849,7 +829,7 @@
 
 
                 <div class="form-group">
-                    <label for="is_admin" class = "control-label"> Status Admin</label>  
+                    <label for="is_admin" class = "control-label"> Status Admin (Jika telah dipilih, pilih 'Tidak' di pilihan status lainnya)</label>  
 {{--                 
                     <input type="text" name="status_projek" id="status_projek" class = "form-control" placeholder="Masukkan Status Projek Saat Ini "> --}}
                 
@@ -864,7 +844,7 @@
 
 
                 <div class="form-group">
-                    <label for="is_supervisor" class = "control-label"> Status SuperVisor</label>  
+                    <label for="is_supervisor" class = "control-label"> Status SuperVisor (Jika telah dipilih, pilih 'Tidak' di pilihan status lainnya)</label>  
 {{--                 
                     <input type="text" name="status_projek" id="status_projek" class = "form-control" placeholder="Masukkan Status Projek Saat Ini "> --}}
                 
@@ -880,7 +860,7 @@
 
                 
                 <div class="form-group">
-                    <label for="is_manager" class = "control-label"> Status Manager</label>  
+                    <label for="is_manager" class = "control-label"> Status Manager (Jika telah dipilih, pilih 'Tidak' di pilihan status lainnya)</label>  
 {{--                 
                     <input type="text" name="status_projek" id="status_projek" class = "form-control" placeholder="Masukkan Status Projek Saat Ini "> --}}
                 
@@ -1079,7 +1059,7 @@
             <div class="form-group">
                 <label for="rab" class = "control-label"> Nominal Anggaran Kebutuhan </label>
                 {{-- <input type="number" name="rab" id="rab" class = "form-control" required> --}}
-                <input type="text" name="rab" id="rab" class = "form-control" required>
+                <input type="number" name="rab" id="rab" class = "form-control" required>
             </div>
 
 

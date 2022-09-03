@@ -84,7 +84,7 @@ Kelola Data User PT. HEAVYNDO
                                 </tfoot>
                                 <tbody>
 
-                                @foreach ($users as $user)
+                                @foreach ($users->reverse() as $user)
                                     
 
                                 <tr>

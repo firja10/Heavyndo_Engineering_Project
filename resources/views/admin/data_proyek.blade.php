@@ -106,7 +106,7 @@ Data Proyek PT. HEAVYNDO
        
                                 <tbody>
 
-                                @foreach ($jenis_Projek as $projeks)
+                                @foreach ($jenis_Projek->reverse() as $projeks)
                                     
 
                                 <?php 

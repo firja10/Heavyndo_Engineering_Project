@@ -705,7 +705,7 @@ class LandingController extends Controller
                     
                     'foto_aktivitas' =>$filename,
 
-                    'urgensitas'=>$request->urgensitas,
+                    // 'urgensitas'=>$request->urgensitas,
                 
                 ]);
     
@@ -1257,7 +1257,7 @@ class LandingController extends Controller
                 'status_verif'=>2,
             ]);
 
-            return redirect('/supervisor/data_proyek')->with('proyek_verif_status_mng','Verifikasi Status Manager');           
+            return redirect('/manager/data_proyek')->with('proyek_verif_status_mng','Verifikasi Status Manager');           
 
         }
 
